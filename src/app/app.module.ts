@@ -7,11 +7,12 @@ import { FilteredSliderComponent } from './filtered-slider/filtered-slider.compo
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HomeComponent } from './home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FilteredSliderComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
