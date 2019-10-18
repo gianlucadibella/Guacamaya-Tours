@@ -7,6 +7,8 @@ import { FilteredSliderComponent } from './filtered-slider/filtered-slider.compo
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { NavbarComponent } from './navbar/navbar.component';
     FilteredSliderComponent,
     HomeComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CarouselModule.forRoot(),
+    ButtonsModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
