@@ -1,15 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user = '';
+  pass = '';
+
+  private comp = new AppComponent();
+  constructor( private router: Router) {
+
+   }
 
   ngOnInit() {
   }
+
+  check() {
+
+    console.log(this.comp.home);
+    this.comp.modoA();
+    console.log(this.comp.home);
+
+
+  }
+
+
 
 }

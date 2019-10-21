@@ -8,17 +8,19 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">@</span>
             </div>
-            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Email" aria-label="Username" 
+            aria-describedby="basic-addon1" name="user" #user>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">  * </span>
+              <span class="input-group-text" id="basic-addon1"> *  </span>
             </div>
-            <input type="password" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="password" class="form-control" placeholder="Password" 
+            aria-label="Username" aria-describedby="basic-addon1" name="pass" #pass>
         </div>
         <div class="col-sm text-center d-flex justify-content-center">
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary">
+                <button routerLinkActive routerLink="" type="button" class="btn btn-primary" (click)="check()">
                        Planifica Tu Viaje
                       </button>
             </div>
