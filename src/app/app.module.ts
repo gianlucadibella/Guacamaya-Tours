@@ -11,6 +11,12 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { DataService } from './data.service';
+import { Navbar2Component } from './navbar2/navbar2.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CommonModule } from '@angular/common';
+import { CitiesComponent } from './cities/cities.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +27,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FooterComponent,
     routingComponents,
     LoginComponent,
+    Navbar2Component,
+    DashboardComponent,
+    CitiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +37,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     CarouselModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
+    CommonModule,
+    BrowserModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
