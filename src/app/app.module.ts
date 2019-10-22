@@ -6,8 +6,11 @@ import { FilteredSliderComponent } from './filtered-slider/filtered-slider.compo
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -15,17 +18,18 @@ import { FormsModule } from '@angular/forms';
     FilteredSliderComponent,
     HomeComponent,
     NavbarComponent,
+    FooterComponent,
     routingComponents,
-    FormsModule
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CarouselModule.forRoot(),
     ButtonsModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
-
