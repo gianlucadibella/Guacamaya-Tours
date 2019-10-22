@@ -38,6 +38,7 @@ import { CitiesComponent } from './cities/cities.component';
     ModalModule.forRoot(),
     CommonModule,
     BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

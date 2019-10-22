@@ -10,13 +10,13 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'Guacamaya-Tours';
-  public home = 'true';
+  public home = true;
 
   constructor() {
   }
 
   public modoA() {
-    this.home = 'false';
+    this.home = ! this.home;
     console.log(this.home);
   }
 
