@@ -32,6 +32,7 @@ import { from } from 'rxjs';
     CarouselModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
