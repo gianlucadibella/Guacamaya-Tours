@@ -12,8 +12,7 @@ export class LoginComponent implements OnInit {
 
 
 check: boolean;
-user: 'admin';
-pasword; '123';
+
 
   constructor(private router: Router) {
 
@@ -24,14 +23,20 @@ pasword; '123';
   ngOnInit() {
   }
 
- login() {
+ loginUser(event) {
 
+  event.preventDefault();
+  const target = event.target;
+  const userCheck = target.querySelector('#username').value;
 
+  const paswordCheck = target.querySelector('#password').value;
+  console.log(userCheck, paswordCheck );
+  if ( userCheck === 'admin' && paswordCheck === '123') {
+    this.router.navigate(['admin']);
+  } else {
+    this.check = true;
+  }
 
-   const userCheck = document.getElementById('checkUser').nodeValue;
-   const paswordCheck = document.getElementById('password');
-console.log(userCheck);
-   this.router.navigate(['misviajes']);
 
 
 

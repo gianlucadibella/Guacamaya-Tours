@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import {RouterModule, Routes} from '@angular/router';
 import { from } from 'rxjs';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -25,6 +26,7 @@ import { from } from 'rxjs';
     FooterComponent,
     routingComponents,
     LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
