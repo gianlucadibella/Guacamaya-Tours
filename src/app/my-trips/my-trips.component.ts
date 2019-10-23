@@ -12,4 +12,5 @@ export class MyTripsComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }

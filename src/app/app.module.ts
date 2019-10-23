@@ -28,6 +28,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     CarouselModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
