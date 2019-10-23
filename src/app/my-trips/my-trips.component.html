@@ -3,12 +3,21 @@
     <hr>
     <h4>¿Tienes una reserva?</h4>
     <div class="d-flex justify-content">
-            <input type="text">
-            <div class="px-2">
-                    <button type="button" class="btn btn-primary">
-                            Verfica tu reserva
-                        </button>
-            </div>
-    </div>  
+                <form (submit)="verificationCode($event)">
+                        <input type="text" placeholder="Codigo de reserva" id="reservationcode">
+                        <input type="submit" value="Verificar su reserva">
+                </form>
+             <!-- <input type="text"> -->
+            <!-- <div class="px-2"> -->
+                    <!-- <button type="button" class="btn btn-primary"> -->
+                            <!-- Verfica tu reserva -->
+                        <!-- </button> -->
+            <!-- </div> -->
+    </div> 
+    <div class="row">
+                <div class="col">
+                    <div *ngIf="check">
+                            <h6 class="text-muted"> Codigo invalido </h6>
+                    </div> 
     <p>Ingresa el número de reserva, sino tienes haz click <a routerLink="/planeatuviaje" routerLinkActive>aquí</a></p>
 </div>

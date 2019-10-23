@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-trips',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTripsComponent implements OnInit {
 
-  constructor() { }
+check: boolean;
+
+  constructor(private router: Router) {
+    this.check = false;
+  }
 
   ngOnInit() {
+  }
+
+  verificationCode(event) {
+    event.preventDefault();
+    const target = event.target;
+    const reservationCheck = target.querySelector('#reservationcode').value;
+    console.log(reservationCheck);
+    if ( reservationCheck === 'DEMO') {
+      this.check = false;
+  } else {
+    this.check = true;
+  }
   }
 
 
