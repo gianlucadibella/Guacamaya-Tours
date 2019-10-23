@@ -1,7 +1,6 @@
 <hr>
 <div class="container">
     <div class="col .text-center ">
-        <h1 class="d-flex "> Mas visitados</h1>
         <h4 class="d-flex justify-content-center" ></h4>
         <input list="estados" [(ngModel)]="actualstate" 
         value="{{actualstateObj.nombre}}"
@@ -12,7 +11,7 @@
         <input id="estadobuscado" type="submit" (click)="cambiar()" (click)="document.getElementById('estados').value = ''">
         <div class="row pt-4 d-flex align-items-center">
           <div class="col-sm text-center bg-light">
-            <h3>Informacion: {{ actualstateObj.nombre }}</h3>
+            <h3> {{ actualstateObj.nombre }}</h3>
             <p>{{ actualstateObj.info }}</p>
           </div>
           <div class="col-sm text-center bg-light">
@@ -31,40 +30,59 @@
 </div>
 <div class="container">
     <div class="col .text-center ">
-        <h1 class="d-flex " > {{ actualstateObj.hoteles.nombre }}  </h1>
-        <h4 class="d-flex justify-content-center" ></h4>
-        <input list="estados.hoteles" [(ngModel)]="actualhotel" 
+        <input list="hss" [(ngModel)]="actualhotel" 
             value="{{actualhotelObj.nombre}}"
             (ngModelChange)="onChange2()">
-              <datalist id="estados.hoteles">
+              <datalist id="hss">
                 <option *ngFor="let hotel of actualstateObj.hoteles" [value]="hotel.nombre"> {{hotel.nombre}} </option>
               </datalist>
-            <input id="estadobuscado" type="submit" (click)="cambiar()" (click)="document.getElementById('estados.hoteles').value = ''"> 
+            <input id="hotelbuscado" type="submit" (click)="cambiar2()" (click)="document.getElementById('hss').value = ''"> 
         <div class="row pt-4 d-flex align-items-center">
           <div class="col-sm text-center bg-light">
-            <h3>Informacion: {{ actualhotelObj.nombre }}</h3>
+            <h3>{{ actualhotelObj.nombre }}</h3>
             <p>{{ actualhotelObj.info }}</p>
           </div>
           <div class="col-sm text-center bg-light">
               <div class="col-sm text-center bg-light">
-                <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
-                <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+                <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+                <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
               </div>
               <div class="col-sm text-center d-flex justify-content-center bg-light">
-                      <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
-                      <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+                      <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+                      <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
               </div>
               <h3>{{ actualhotelObj.nombre }}</h3>  
             </div>
-          <div class="col-sm text-center d-flex justify-content-center">
-              <div class="d-flex align-items-center">
-                  <button type="button" class="btn btn-primary">
-                         Ver mas
-                        </button>
-              </div>
-          </div>
         </div>
-
     </div>
-  
+</div>
+<div class="container">
+  <div class="col .text-center ">
+      <div class="row pt-4 d-flex align-items-center">
+        <div class="col-sm text-center bg-light">
+          <h3></h3>
+          <p>{{ actualhotelObj.nombre }}</p>
+          <p>Estrellas: {{ actualhotelObj.estrellas }}</p>
+          <p>Latitud: {{ actualhotelObj.latitud }}</p>
+          <p>Longitud: {{ actualhotelObj.longitud }}</p>
+          <p>Direccion: {{ actualhotelObj.direccion }}</p>
+          <p>Disponibilidad: {{ actualhotelObj.disponible }}</p>
+          <p>Precio: {{ actualhotelObj.precio }}</p>
+          <input list="hss2" [(ngModel)]="actualhab" 
+            value="{{actualhabObj.nombre}}"
+            (ngModelChange)="onChange3()">
+              <datalist id="hss2">
+                <option *ngFor="let hab of actualhotelObj.tipos" [value]="hab.nombre"> {{hab.nombre}} </option>
+              </datalist>
+            <input id="habbuscado" type="submit" (click)="cambiar3()" (click)="document.getElementById('hss2').value = ''"> 
+        </div>
+        <div class="col-sm text-center bg-light">
+          <h3></h3>
+          <p>{{ actualhabObj.nombre }}</p>
+          <p>Maximo de personas: {{ actualhabObj.maximoDePersonas }}</p>
+          <p>Comodidades: {{ actualhabObj.comodidades[0] }}</p>
+          <img [src]="actualhabObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+        </div>
+      </div>
+  </div>
 </div>
