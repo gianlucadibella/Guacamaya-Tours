@@ -74,8 +74,8 @@ export class CitiesComponent implements OnInit {
         }]
     }, {
       nombre: 'Hotel Acuario',
-      imagen: 'assets/images/hoteles/2816_hotel_restaurant_luncheria_acuario_4125.jpg/nature/los-roques.jpg',
-      info: 'Hotel Acuario',
+      imagen: 'assets/images/hoteles/2816_hotel_restaurant_luncheria_acuario_4125.jpg',
+      info: 'este hotel tiene un acuario con muchos peces adentro',
       estrellas: 2,
       latitud: '-67.4730955',
       longitud: '7.8933482',
