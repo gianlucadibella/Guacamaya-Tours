@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,6 +12,8 @@ export class LoginComponent implements OnInit {
 
 
 check: boolean;
+user: 'admin';
+pasword; '123';
 
   constructor(private router: Router) {
 
@@ -21,16 +24,16 @@ check: boolean;
   ngOnInit() {
   }
 
-login() {
+ login() {
 
 
 
-   const user: string = document.getElementById('user').nodeValue;
-   const pasword: string = document.getElementById('password').nodeValue;
-  console.log(user);
-   if (user === 'sa' && pasword === 'sa' ) {
-this.router.navigate(['misviajes']);
-}
+   const userCheck = document.getElementById('checkUser').nodeValue;
+   const paswordCheck = document.getElementById('password');
+console.log(userCheck);
+   this.router.navigate(['misviajes']);
+
+
 
 }
 
