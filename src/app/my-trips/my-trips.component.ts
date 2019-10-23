@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import * as jsPDF from 'jspdf';
+import { Itinerario } from 'src/models/orden';
 @Component({
   selector: 'app-my-trips',
   templateUrl: './my-trips.component.html',
@@ -10,6 +11,11 @@ export class MyTripsComponent implements OnInit {
 
 check: boolean;
 
+downloadPDF() {
+  const doc = new jsPDF();
+  doc.text('RESERVACION DE ITINERARIO', 10, 10);
+  doc.save('Itinerario.pdf');
+}
   constructor(private router: Router) {
     this.check = false;
   }
@@ -22,8 +28,9 @@ check: boolean;
     const target = event.target;
     const reservationCheck = target.querySelector('#reservationcode').value;
     console.log(reservationCheck);
+
     if ( reservationCheck === 'DEMO') {
-      this.check = false;
+      this.downloadPDF();
   } else {
     this.check = true;
   }
