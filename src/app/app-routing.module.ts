@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'misviajes', component: MyTripsComponent},
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent}
+
 ];
 
 @NgModule({

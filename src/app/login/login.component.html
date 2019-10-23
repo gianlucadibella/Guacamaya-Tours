@@ -8,19 +8,25 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">@</span>
             </div>
-            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" id="user">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">  * </span>
             </div>
-            <input type="password" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="pasword" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" id="password">
         </div>
         <div class="col-sm text-center d-flex justify-content-center">
             <div class="d-flex align-items-center">
-                <button type="button" class="btn btn-primary">
-                       Planifica Tu Viaje
+                <button type="button" class="btn btn-primary" (click)=login() >
+                       Planifica Tu Viaje {{user}}
                       </button>
+                      <!-- <ng-template #elseLogin>
+                          <h1>Clave invalida</h1>
+                      </ng-template>
+                      <ng-template #thenLogin>
+                        <a routerLink="/misviajes"></a>
+                      </ng-template> -->
             </div>
         </div>
     </div>
