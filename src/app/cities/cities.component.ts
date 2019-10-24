@@ -12,8 +12,9 @@ export class CitiesComponent implements OnInit {
   estados = [{
     nombre: 'Apure',
     id: '2',
-    imagen: 'assets/images/nature/Paraguas-paseo-san-jacinto002-1200x800.jpg',
-    info: 'Apure es un lugar muy de pinga que queda en venezuela, se los recomiendo de verdad esta bien chido --Luisito Comunica',
+    imagen: 'assets/images/hoteles/Db3KBVHXkAAgqvg (1).jpg',
+    // tslint:disable-next-line: max-line-length
+    info: 'El estado Apure es uno de los estados más emblemáticos de los llanos venezolanos y uno de los de mayor potencial turístico, rico en sabanas, morichales y bosques de galería que lo convierten en un espectáculo irrepetible a nuestra vista. La actividad turística del estado se desarrolla dentro del extenso y exuberante llano lo que atrae la atención de muchos, por sus innumerables parques nacionales, monumentos, entre otros.',
     hoteles: [{
       nombre: 'Hotel Punta Arena',
       imagen: 'assets/images/hoteles/DSCI6787.JPG',
@@ -105,17 +106,18 @@ export class CitiesComponent implements OnInit {
   }, {
     nombre: 'Amazonas',
     id: '1',
-    imagen: 'assets/images/nature/Paraguas-paseo-san-jacinto002-1200x800.jpg',
+    imagen: 'assets/images/hoteles/amazon-river.png',
     // tslint:disable-next-line: max-line-length
-    info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt malesuada posuere. Sed rhoncus quis nisl quis porttitor. Pellentesque aliquet tristique feugiat. Etiam sit amet massa placerat, lacinia risus scelerisque, pulvinar ligula. Phasellus ut pharetra purus, quis cursus augue. Fusce egestas nisl et lectus malesuada, ac placerat mi semper. Suspendisse at porta orci, sit amet viverra elit. Phasellus a leo rutrum leo varius laoreet.' ,
+    info: 'El estado Amazonas se encuentra situado en el sur de Venezuela, siendo sus límites el estado Bolívar por el norte; la República del Brasil; el estado Bolívar y Brasil por el este y la República de Colombia por el oeste. Su nombre se debe a su ubicación geográfica, que corresponde a la región de la Amazonía, que de una u otra forma, está integrada por la totalidad de los países sudamericanos, con la sola excepción de Chile. Podemos decir que esta extensa zona es quizás el pulmón más grande de nuestro planeta, cubierto de selvas y con altísimo índice de pluviosidad.' ,
     hoteles : [{
-      nombre: 'canaimita',
-      imagen: 'assets/images/nature/los-roques.jpg',
-      info: 'blablalblallalalallaldadjqnejqnwejqneqjwnejqnwejqnwekjqnwejqnwekjqnweqqqnqjwne',
+      nombre: 'Hotel Venetur Amazonas',
+      imagen: 'assets/images/nature/hotel_amazonas_welcome.jpg',
+      // tslint:disable-next-line: max-line-length
+      info: 'DescripciónEl Gran Hotel Amazonas​ es un edificio histórico y protegido utilizado como centro turístico ubicado en Calle Evelio Roa, con calle amazonas en la ciudad de Puerto Ayacucho, al norte del estado de Amazonas, y en la parte meridional del país sudamericano de Venezuela.',
       estrellas: 5,
-      latitud: 'string',
-      longitud: 'string',
-      direccion: 'casa de carloss',
+      latitud: '5.673755',
+      longitud: '-67.626567',
+      direccion: 'Calle Evelio Roa, Puerto Ayacucho 7101, Amazonas',
       disponible: true,
       precio: 500,
       servicios: ['spa', 'pool', 'desayuno'],
@@ -200,17 +202,18 @@ export class CitiesComponent implements OnInit {
   }, {
     nombre: 'Caracas',
     id: '3',
-    imagen: 'assets/images/nature/Paraguas-paseo-san-jacinto002-1200x800.jpg',
+    imagen: 'assets/images/hoteles/La_Previsora_Torre_Domus_y_el_panorama_urbano_de_Caracas.jpg',
     // tslint:disable-next-line: max-line-length
-    info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt malesuada posuere. Sed rhoncus quis nisl quis porttitor. Pellentesque aliquet tristique feugiat. Etiam sit amet massa placerat, lacinia risus scelerisque, pulvinar ligula. Phasellus ut pharetra purus, quis cursus augue. Fusce egestas nisl et lectus malesuada, ac placerat mi semper. Suspendisse at porta orci, sit amet viverra elit. Phasellus a leo rutrum leo varius laoreet.' ,
+    info: 'Caracas, la capital de Venezuela, es un centro comercial y cultural ubicado en un valle montañoso del norte. El líder de la independencia Simón Bolívar está enterrado en el Panteón Nacional de Venezuela, establecido en el siglo XIX en el casco antiguo de la ciudad. La Catedral de Caracas, un lugar emblemático de la arquitectura romanesca, data del siglo XVII. Las torres gemelas de 225 de altura en el Parque Central son el símbolo del perfil de la ciudad. ' ,
     hoteles : [{
-      nombre: 'galipan',
-      imagen: 'assets/images/nature/los-roques.jpg',
-      info: 'blablalblallalalallaldadjqnejqnwejqneqjwnejqnwejqnwekjqnwejqnwekjqnweqqqnqjwne',
+      nombre: 'Terraza DAvila Galipan',
+      imagen: 'assets/images/hoteles/HeaderPicacho@2x.jpg',
+      // tslint:disable-next-line: max-line-length
+      info: 'A sólo 25 minutos de Caracas, este pueblito es el escape perfecto para evadir el bullicio y el estrés que siempre hay en las grandes ciudades.',
       estrellas: 5,
-      latitud: 'string',
-      longitud: 'string',
-      direccion: 'casa de carloss',
+      latitud: '10.557213',
+      longitud: ' -66.885245',
+      direccion: 'H447+VW San Antonio de Galipan, Vargas',
       disponible: true,
       precio: 500,
       servicios: ['spa', 'pool', 'desayuno'],
@@ -231,13 +234,14 @@ export class CitiesComponent implements OnInit {
         comodidades:  ['nevera', 'sauna']
         }]
       }, {
-      nombre: 'marriot',
-      imagen: 'assets/images/nature/los-roques.jpg',
-      info: 'blablalblallalalallaldadjqnejqnwejqneqjwnejqnwejqnwekjqnwejqnwekjqnweqqqnqjwne',
+      nombre: 'Marriot',
+      imagen: 'assets/images/hoteles/ccsjw-pool-0048-hor-feat.jpg',
+      // tslint:disable-next-line: max-line-length
+      info: 'Este lujoso hotel situado en un elegante edificio de 17 pisos en el distrito comercial se encuentra a 2 km del centro comercial Centro San Ignacio y a 4 km del parque del Este.',
       estrellas: 5,
-      latitud: 'string',
-      longitud: 'string',
-      direccion: 'casa de carloss',
+      latitud: '10.491178',
+      longitud: '-66.864331',
+      direccion: ' Avenida Francisco de Miranda, Caracas 1060, Distrito Capital',
       disponible: true,
       precio: 500,
       servicios: ['spa', 'pool', 'desayuno'],
@@ -260,13 +264,14 @@ export class CitiesComponent implements OnInit {
         comodidades:  ['nevera', 'sauna']
       }]
     }, {
-      nombre: 'eurobuilding',
-      imagen: 'assets/images/nature/los-roques.jpg',
-      info: 'blablalblallalalallaldadjqnejqnwejqneqjwnejqnwejqnwekjqnwejqnwekjqnweqqqnqjwne',
+      nombre: 'Eurobuilding',
+      imagen: 'assets/images/hoteles/eurobuilding.jpg',
+      // tslint:disable-next-line: max-line-length
+      info: 'Este tranquilo hotel de convenciones se encuentra en una zona comercial con vista al parque nacional El Ávila, a 3 km de la estación de metro de Chacao y a 8 km del teatro Teresa Carreño.',
       estrellas: 5,
-      latitud: 'string',
-      longitud: 'string',
-      direccion: 'casa de carloss',
+      latitud: '10.483120',
+      longitud: ' -66.850066',
+      direccion: 'Calle la Guairita, Edf. Los Roques Piso 5, Caracas 1060, Miranda',
       disponible: true,
       precio: 500,
       servicios: ['spa', 'pool', 'desayuno'],
