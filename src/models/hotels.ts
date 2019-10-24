@@ -11,8 +11,8 @@ fotos: string;
 ciudad: string;
 disponible: boolean;
 precio: number;
-servicios: number [];
-tipos: TipoDeHabitacion [];
+servicios: string[];
+tipos: TipoDeHabitacion[];
 
 }
 

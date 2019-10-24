@@ -11,10 +11,17 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+<<<<<<< HEAD
 import {RouterModule, Routes} from '@angular/router';
 import { from } from 'rxjs';
 import { AdminComponent } from './admin/admin.component';
 
+=======
+import { Navbar2Component } from './navbar2/navbar2.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CommonModule } from '@angular/common';
+import { CitiesComponent } from './cities/cities.component';
+>>>>>>> develop-3
 
 
 @NgModule({
@@ -26,7 +33,13 @@ import { AdminComponent } from './admin/admin.component';
     FooterComponent,
     routingComponents,
     LoginComponent,
+<<<<<<< HEAD
     AdminComponent,
+=======
+    Navbar2Component,
+    DashboardComponent,
+    CitiesComponent,
+>>>>>>> develop-3
   ],
   imports: [
     BrowserModule,
@@ -34,7 +47,13 @@ import { AdminComponent } from './admin/admin.component';
     CarouselModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
+<<<<<<< HEAD
     FormsModule,
+=======
+    CommonModule,
+    BrowserModule,
+    FormsModule
+>>>>>>> develop-3
   ],
   providers: [],
   bootstrap: [AppComponent],

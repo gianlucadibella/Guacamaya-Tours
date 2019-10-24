@@ -1,3 +1,5 @@
+import { Ciudades } from 'src/models/ciudades';
+
 export class Destinos {
 
 id: string;
@@ -8,7 +10,7 @@ servicios: string [];
 actividades: string [];
 latitud: string [];
 estado: string;
-ciudad: string;
+ciudad: Ciudades;
 direccion: string;
 
 }
