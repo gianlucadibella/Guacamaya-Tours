@@ -15,10 +15,12 @@ import {RouterModule, Routes} from '@angular/router';
 import { from } from 'rxjs';
 import { AdminComponent } from './admin/admin.component';
 
-import { Navbar2Component } from './navbar2/navbar2.component';
+// import { Navbar2Component } from './navbar2/navbar2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
 import { CitiesComponent } from './cities/cities.component';
+import { PlaneaTuViajeComponent } from './planea-tu-viaje/planea-tu-viaje.component';
+import { DestinationsComponent } from './destinations/destinations.component';
 
 
 @NgModule({
@@ -31,9 +33,11 @@ import { CitiesComponent } from './cities/cities.component';
     routingComponents,
     LoginComponent,
     AdminComponent,
-    Navbar2Component,
+    // Navbar2Component,
     DashboardComponent,
     CitiesComponent,
+    PlaneaTuViajeComponent,
+    DestinationsComponent,
   ],
   imports: [
     BrowserModule,

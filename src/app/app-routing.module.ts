@@ -6,16 +6,19 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CitiesComponent } from './cities/cities.component';
-
+import {PlaneaTuViajeComponent} from './planea-tu-viaje/planea-tu-viaje.component';
+import {DestinationsComponent} from './destinations/destinations.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   {path: 'misviajes', component: MyTripsComponent},
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent},
-
+  {path: 'planea-tu-viaje', component:PlaneaTuViajeComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'ciudades', component: CitiesComponent}
+  {path: 'ciudades', component: DestinationsComponent},
+  {path: 'explora', component: CitiesComponent }
 ];
 
 @NgModule({
