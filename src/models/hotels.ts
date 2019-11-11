@@ -8,19 +8,20 @@ longitud: string;
 direccion: string;
 estado: string;
 fotos: string;
-ciudad: string;
-disponible: boolean;
-precio: number;
 servicios: string[];
-tipos: TipoDeHabitacion[];
+habitaciones: TipoDeHabitacion[];
+available: boolean;
+
 
 }
 
 export class TipoDeHabitacion {
-
+hotel: string;
 nombre: string;
 fotos: string [];
 maximoDePersonas: number;
 comodidades: string [];
-
+available: boolean;
+cantidad: number;
+precio: number;
 }

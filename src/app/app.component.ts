@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { ServicioService } from './servicio.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,14 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'Guacamaya-Tours';
-  public home = true;
+  admin: boolean;
 
-  constructor() {
+  constructor(private ser: ServicioService) {
+    this.ser.getAdmin().subscribe(value => {console.log(value);
+                                            this.admin = value;
+    });
   }
 
-  public modoA() {
-    this.home = ! this.home;
-    console.log(this.home);
-  }
+
 
 }

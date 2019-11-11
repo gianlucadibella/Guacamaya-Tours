@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioService } from '../servicio.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  admin: boolean;
+
+  constructor(private ser: ServicioService) {
+
+
+  }
 
   ngOnInit() {
   }

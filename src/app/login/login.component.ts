@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 
 import { AppComponent } from '../app.component';
+import { ServicioService } from '../servicio.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 check: boolean;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private ser: ServicioService) {
 
     this.check = false;
 
@@ -35,6 +36,7 @@ check: boolean;
   console.log(userCheck, paswordCheck );
   if ( userCheck === 'admin' && paswordCheck === '123') {
     this.router.navigate(['admin']);
+    this.ser.cambiar(true);
   } else {
     this.check = true;
   }

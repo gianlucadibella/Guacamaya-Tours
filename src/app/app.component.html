@@ -1,4 +1,9 @@
-<app-navbar></app-navbar>
+<div [ngSwitch]="admin">
+<app-navbar *ngSwitchCase="false"></app-navbar>
+<app-navbar2 *ngSwitchCase="true"></app-navbar2>
+</div>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
-
+<div [ngSwitch]="admin">
+<app-footer *ngSwitchCase="false"></app-footer>
+<div *ngSwitchCase="true"></div>
+<div>

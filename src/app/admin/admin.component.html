@@ -1,1 +1,23 @@
 <h1 class="display-4">Admin</h1>
+
+<div style="padding-left: 5vw">
+    <p>Ponga sus datos y seleccione la pelicula a reservar</p>
+</div>
+<div style="padding-left: 5vw" >
+    <form>
+        <p>Name:</p><input type="text" id="name">
+        <p>Lastname:</p><input type="text" id="lastname">
+        <p>Mail:</p><input type="text" id="email">
+        <p>Phone:</p><input type="text" id="phone">]
+        <p>Quantity:</p><input type="number" id="quantity" min="1" max="30">
+        <input type="submit" (click)="funcion()" routerLink="" routerLinkActive="active" placeholder="enviar">
+        <select id="sel">
+            <option value="Avatar">Avatar</option>
+            <option value="I am Legend">I am Legend</option>
+            <option value="300">300</option>
+            <option value="The Avengers">The Avengers</option>
+            <option value="The Wolf of Wall Street">The Wolf of Wall Street</option>
+            <option value="Interstellar">Interstellar</option>
+        </select>
+    </form>    
+</div>

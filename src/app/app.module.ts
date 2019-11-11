@@ -14,11 +14,16 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import {RouterModule, Routes} from '@angular/router';
 import { from } from 'rxjs';
 import { AdminComponent } from './admin/admin.component';
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Navbar2Component } from './navbar2/navbar2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
 import { CitiesComponent } from './cities/cities.component';
+import { environment } from '../environments/environment';
+import { EditarComponent } from './editar/editar.component';
 
 
 @NgModule({
@@ -34,6 +39,7 @@ import { CitiesComponent } from './cities/cities.component';
     Navbar2Component,
     DashboardComponent,
     CitiesComponent,
+    EditarComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,11 @@ import { CitiesComponent } from './cities/cities.component';
     FormsModule,
     CommonModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,11 @@
+<p>editar works!</p>
+<div>
+<p> seleccione el estado que desea modificar  </p>
+    <select [(ngModel)]="nombreestadosel" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let x of estados" 
+        [value]="x.nombre"
+        [attr.selected]="nombreestadosel==x.nombre ? true : null">
+        {{ nombreestadosel }}
+        </option>
+    </select>
+</div>

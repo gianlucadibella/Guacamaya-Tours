@@ -2,11 +2,9 @@
     <a><img class="logo" src="assets/images/logos/miauchi-03.png" alt="" width="80px" height="60px"></a>
      <nav>
          <ul class="nav__links" >
-             <li><a href="#" class="sombra">Planea tu viaje</a></li>
-             <li><a href="#" class="sombra">Ciudades</a></li>
-             <li><a href="#" class="sombra">Hoteles</a></li>
+             <li><a routerLink="/editar" routerLinkActive class="sombra">Editar</a></li>
              <li><a routerLink="/dashboard" routerLinkActive class="sombra">Dashboard</a></li>
-             <li><a routerLink="" routerLinkActive class="sombra" >Salir</a></li>
+             <li><a routerLink="" routerLinkActive class="sombra" (click)="cambiar()" >Salir</a></li>
          </ul>
      </nav>
  </header>

@@ -20,7 +20,7 @@ localizador: number;
 hotelId: number;
 fechaLLegada: number;
 fechaSalida: number;
-tipoHabitacion: TipoDeHabitacion;
+tipoHabitacion: TipoDeHabitacion[];
 costoTotal: number;
 integrantes: Integrantes [];
 
