@@ -1,9 +1,32 @@
-<h1 class="display-4">Admin</h1>
+<header>
 
-<div style="padding-left: 5vw">
-    <p>Ponga sus datos y seleccione la pelicula a reservar</p>
+    <a a routerLink="/home" routerLinkActive><img class="logo" src="assets/images/logos/miauchi-03.png" alt="" width="80px" height="60px"></a>
+     <nav>
+         <ul class="nav__links" >
+             <li><a href="#" class="sombra">Editar Ciudades</a></li>
+             <li><a routerLink="/ciudades" routerLinkActive  class="sombra">Editar Hoteles</a></li>
+             <li><a href="#" class="sombra">Compras</a></li>
+             <li><a routerLink="/login" routerLinkActive class="sombra">Iniciar Sesion</a></li>
+         </ul>
+     </nav>
+     <a class="cta" href="#"><img src="assets/images/logos/carritoCool.png" alt="" width="31px" height="30px"></a>
+ </header>
+<div class="text-center">
+        <h2>Admin</h2>
 </div>
-<div style="padding-left: 5vw" >
+<hr>
+<!-- <div style="padding-left: 5vw">
+    <h4>Modificar Hoteles</h4>
+    <table>
+            <td>Hotel</td>
+            <td>Ubicacion</td>
+            <td>Estrellas</td>
+        </table>
+    <hr>
+    <h4>Modificar Destinos</h4>
+    <hr>
+</div> -->
+<!-- <div style="padding-left: 5vw" >
     <form>
         <p>Name:</p><input type="text" id="name">
         <p>Lastname:</p><input type="text" id="lastname">
@@ -19,5 +42,7 @@
             <option value="The Wolf of Wall Street">The Wolf of Wall Street</option>
             <option value="Interstellar">Interstellar</option>
         </select>
-    </form>    
-</div>
+    </form>     -->
+    <h6><a routerLink='/dashboard' routerLinkActive=active> Dashboard de Admin</a></h6>
+<!-- </div> -->
+

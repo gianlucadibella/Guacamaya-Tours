@@ -24,26 +24,23 @@ export class ServicioService {
   ColeccionTDH: AngularFirestoreCollection<TipoDeHabitacion>;
   oTDH: Observable<TipoDeHabitacion[]>;
   constructor(private afs: AngularFirestore) {
-    this.oHotels = this.afs.collection<Hotels>('Hoteles').snapshotChanges();
-    this.oDestinos = this.afs.collection<Destinos>('destinos').snapshotChanges();
-    this.oEstado = this.afs.collection<Estado>('estados').snapshotChanges();
-    this.oTDH = this.afs.collection<TipoDeHabitacion>('habitaciones').snapshotChanges();
+
   }
 
-  getHotels(){
+  getHotels() {
     return this.oHotels;
   }
 
-  getDestinos(){
+  getDestinos() {
     return this.oDestinos;
   }
-  getEstado(){
+  getEstado() {
     return this.oEstado;
   }
-  getTDH(){
+  getTDH() {
     return this.oTDH;
   }
-  getAdmin(){
+  getAdmin() {
     return this.admin.asObservable();
   }
   cambiar(newValue: boolean): void {
