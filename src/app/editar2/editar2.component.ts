@@ -14,7 +14,21 @@ export class Editar2Component implements OnInit {
   editDesti: boolean = false;
   destinos: Destinos[];
   destinoEditado: Destinos;
-  destino: Destinos;
+  destino = {
+    nombre:  '',
+    descripcion: '',
+    info: '',
+    tipoDeDestino: '',
+    servicios: '',
+    imagen: '',
+    actividades: '',
+    latitud: '',
+    longitud: '',
+    estado: '',
+    direccion: '',
+    linkGoogleMaps: '',
+    available: true,
+  };
 
 
   ngOnInit() {
@@ -26,6 +40,28 @@ export class Editar2Component implements OnInit {
     );
     console.log(this.destinos);
   }
+
+  onSubmit(){
+    if(this.destino.nombre != '' && this.destino.info != ''){
+
+      this.s.addEstado(this.destino);
+      this.destino.nombre = '';
+      this.destino.descripcion = '',
+      this.destino.info= '',
+      this.destino.tipoDeDestino= '',
+      this.destino.servicios= '',
+      this.destino.imagen= '',
+      this.destino.actividades= '',
+      this.destino.latitud= '',
+      this.destino.longitud= '',
+      this.destino.estado= '',
+      this.destino.direccion= '',
+      this.destino.linkGoogleMaps= '',
+      this.destino.available= true
+
+    }
+  }
+  
   disp(){
     this.destino.available=true;
   }
