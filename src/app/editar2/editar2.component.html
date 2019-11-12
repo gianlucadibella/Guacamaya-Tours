@@ -1,30 +1,58 @@
 <div>
     <div >
         <div >
-        <span >Añadir estado</span>
+        <span >Añadir destinos</span>
         <form (ngSubmit)="onSubmit()" >
             <div>
                 <div>
-                    <input type="text" placeholder="Añadir nombre" [(ngModel)]="estado.nombre" name="title">
+                    <input type="text" placeholder="Añadir nombre" [(ngModel)]="destino.nombre" name="title">
                     <label>Nombre</label>
                 </div>
                 <div>
-                    <input type="text" placeholder="Añadir info" [(ngModel)]="estado.info" name="description">
-                    <label>info</label>
+                    <input type="text" placeholder="Añadir info" [(ngModel)]="destino.descripcion" name="description">
+                    <label>descripcion</label>
                 </div>
                 <div>
-                    <input type="text" placeholder="Añadir imagenes" [(ngModel)]="estado.imagen" name="description">
+                    <input type="text" placeholder="Añadir imagenes" [(ngModel)]="destino.imagen" name="description">
                     <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
-                </div>  
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir actividades" [(ngModel)]="destino.actividades" name="activites">
+                    <label>Actividades (Despues de cada actividad ponga , para que sean añadidos correctamente)</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir direccion" [(ngModel)]="destino.direccion" name="direccion">
+                    <label>descripcion</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir informacion" [(ngModel)]="destino.info" name="informacion">
+                    <label>Info: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir latitud" [(ngModel)]="destino.latitud" name="latitud">
+                    <label>Latitud: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir longitud" [(ngModel)]="destino.longitud" name="longitud">
+                    <label>Longitud: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir servicios" [(ngModel)]="destino.servicios" name="serv">
+                    <label>Servicios: (Despues de cada servicio ponga , para que sean añadidos correctamente)</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir tipo de destino" [(ngModel)]="destino.tipoDeDestino" name="destino">
+                    <label>Tipo de destino: (Escriba Playa, Montaña o Ciudad, de lo contrario no se añadira correctamente) </label>
+                </div>
                 <button type="button" (click)="disp()">Disponible</button>
                 <button type="button" (click)="disp1()" >No disponible</button>
-                <p>{{ estado.available }}</p>
+                <p>{{ destino.available }}</p>
                 <input type="submit" value="Submit" class="btn">
             </div>
         </form>
         </div>
     </div>
-    <ul *ngFor="let x of estados">
+    <ul *ngFor="let x of destinos">
         <li>Estado: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.imagen }}
                 <button type="button" (click)="editEstado($event, x)" class="btn btn-primary">Editar</button>  
                 <button type="button" *ngIf="editState && estadoEditado.id == x.id" (click)="clearState()" class="btn btn-primary"></button>  

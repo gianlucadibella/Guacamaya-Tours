@@ -24,6 +24,9 @@ import { CommonModule } from '@angular/common';
 import { CitiesComponent } from './cities/cities.component';
 import { environment } from '../environments/environment';
 import { EditarComponent } from './editar/editar.component';
+import { Editar2Component } from './editar2/editar2.component';
+import { EditarHComponent } from './editar-h/editar-h.component';
+import { EditarHabsComponent } from './editar-habs/editar-habs.component';
 
 
 @NgModule({
@@ -40,6 +43,9 @@ import { EditarComponent } from './editar/editar.component';
     DashboardComponent,
     CitiesComponent,
     EditarComponent,
+    Editar2Component,
+    EditarHComponent,
+    EditarHabsComponent,
   ],
   imports: [
     BrowserModule,

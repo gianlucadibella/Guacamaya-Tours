@@ -7,7 +7,9 @@ import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CitiesComponent } from './cities/cities.component';
 import { EditarComponent } from './editar/editar.component';
-
+import { Editar2Component } from './editar2/editar2.component';
+import { EditarHComponent } from './editar-h/editar-h.component';
+import { EditarHabsComponent } from './editar-habs/editar-habs.component';
 
 const routes: Routes = [
   {path: 'misviajes', component: MyTripsComponent},
@@ -16,7 +18,14 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'editar', component: EditarComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'ciudades', component: CitiesComponent}
+  {path: 'ciudades', component: CitiesComponent},
+  {path: 'editar2', component: Editar2Component},
+  {path: 'editarh', component: EditarHComponent},
+  {path: 'editarhabs', component: EditarHabsComponent},
+
+
+
+
 ];
 
 @NgModule({
@@ -27,5 +36,6 @@ export class AppRoutingModule {
 
 
  }
-export const routingComponents = [MyTripsComponent, HomeComponent, LoginComponent, DashboardComponent, CitiesComponent];
+// tslint:disable-next-line: max-line-length
+export const routingComponents = [MyTripsComponent, HomeComponent, LoginComponent, DashboardComponent, CitiesComponent, Editar2Component, EditarComponent, EditarHComponent, EditarHabsComponent];
 

@@ -1,25 +1,27 @@
 export class Hotels {
 
-id: string;
-nombre: string;
+id?: string;
+nombre?: string;
 estrellas: number;
 latitud: string;
 longitud: string;
 direccion: string;
 estado: string;
-fotos: string;
+fotos: string[];
 servicios: string[];
-habitaciones: TipoDeHabitacion[];
+info: string;
 available: boolean;
 
 
 }
 
 export class TipoDeHabitacion {
+id?: string;
 hotel: string;
 nombre: string;
 fotos: string [];
 maximoDePersonas: number;
+info: string;
 comodidades: string [];
 available: boolean;
 cantidad: number;

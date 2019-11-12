@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Ciudades } from 'src/models/ciudades';
 import { Destinos } from 'src/models/destino';
 import { Estado } from 'src/models/estado';
 import { Hotels } from 'src/models/hotels';
