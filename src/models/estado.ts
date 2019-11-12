@@ -2,10 +2,10 @@ import { Destinos } from 'src/models/destino';
 
 export class Estado {
 
-id: string;
+id?: string;
 nombre: string;
-destinos: Destinos[];
-imagen: string[];
+imagen: string;
 available: boolean;
+info: string;
 }
 
