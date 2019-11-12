@@ -1,7 +1,9 @@
+<!-- <div class="container">
 <div>
     <div >
         <div >
-        <span >Añadir destinos</span>
+        <h3>Añadir destinos</h3>
+        <hr>
         <form (ngSubmit)="onSubmit()" >
             <div>
                 <div>
@@ -16,8 +18,8 @@
                     <input type="text" placeholder="Añadir imagenes" [(ngModel)]="destino.imagen" name="description">
                     <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
                 </div>
-                <div>
-                    <input type="text" placeholder="Añadir actividades" [(ngModel)]="destino.actividades" name="activites">
+                <div> -->
+                    <!-- <input type="text" placeholder="Añadir actividades" [(ngModel)]="destino.actividades" name="activites">
                     <label>Actividades (Despues de cada actividad ponga , para que sean añadidos correctamente)</label>
                 </div>
                 <div>
@@ -27,20 +29,20 @@
                 <div>
                     <input type="text" placeholder="Añadir informacion" [(ngModel)]="destino.info" name="informacion">
                     <label>Info: </label>
-                </div>
-                <div>
+                </div> -->
+                <!-- <div>
                     <input type="text" placeholder="Añadir latitud" [(ngModel)]="destino.latitud" name="latitud">
                     <label>Latitud: </label>
                 </div>
                 <div>
                     <input type="text" placeholder="Añadir longitud" [(ngModel)]="destino.longitud" name="longitud">
                     <label>Longitud: </label>
-                </div>
-                <div>
+                </div> -->
+                <!-- <div>
                     <input type="text" placeholder="Añadir servicios" [(ngModel)]="destino.servicios" name="serv">
                     <label>Servicios: (Despues de cada servicio ponga , para que sean añadidos correctamente)</label>
-                </div>
-                <div>
+                </div> -->
+                <!-- <div>
                     <input type="text" placeholder="Añadir tipo de destino" [(ngModel)]="destino.tipoDeDestino" name="destino">
                     <label>Tipo de destino: (Escriba Playa, Montaña o Ciudad, de lo contrario no se añadira correctamente) </label>
                 </div>
@@ -82,6 +84,127 @@
           
         </li>
     </ul>
-
-
 </div>
+</div> -->
+<!--  -->
+<div class="container">
+        <div>
+            <div >
+                <div >
+                <h3>Añadir destinos</h3>
+                <hr>
+                <form (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                          <label for="Nombre">Nombre:</label>
+                          <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="destino.nombre" name="title">
+                        </div>
+                        <div class="form-group">
+                          <label for="Info">Información</label>
+                          <input class="form-control" type="text" placeholder="Añadir info" [(ngModel)]="destino.info" name="description">
+                        </div>
+                        <div class="form-group">
+                          <label for="Imagenes">Imagenes</label>
+                          <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="destino.imagen" name="description">
+                          <p>(pegue los links separados por "***" para que sean añadidos correctamente)</p>
+                        </div>
+                        <div class="form-group">
+                          <label for="actividades">Actividades</label>
+                          <input class="form-control" type="text" placeholder="Añadir actividades" [(ngModel)]="destino.actividades" name="activities">
+                          <p>(Despues de cada actividad ponga , para que sean añadidos correctamente)</p>
+                        </div>
+                        <div class="form-group">
+                                <label for=direccion>Direccion</label>
+                                <input type="text" placeholder="Añadir direccion" class="form-control" [(ngModel)]="destino.direccion" name="direccion">
+                        </div>
+                        <div class="form-group">
+                                <label for="info">Información</label>
+                                <input type="text" class="form-control" placeholder="Añadir informacion" [(ngModel)]="destino.info" name="informacion">
+                        </div>
+                        <div class="form-group">
+                                <label for="latitud">Latitud</label>
+                                <input type="text" class="form-control" placeholder="Añadir latitud" [(ngModel)]="destino.latitud" name="latitud">
+                        </div>
+                        <div class="form-group">
+                                <label for="longitud">Longitud</label>
+                                <input type="text" class="form-control" placeholder="Añadir longitud" [(ngModel)]="destino.longitud" name="longitud">
+                        </div>
+                        <div class="form-group">
+                                <label for="servicios">Servicios</label>
+                                <input type="text" class="form-control" placeholder="Añadir servicios" [(ngModel)]="destino.servicios" name="serv">
+                        </div>
+                        <div class="form-group">
+                                <label for="tipoDeDestino">Tipo de destino</label>
+                                <input type="text" class="form-control" placeholder="Añadir tipo de destino" [(ngModel)]="destino.tipoDeDestino" name="destino">
+                        </div>
+                        <div class="form-group">
+                                <button type="button" (click)="disp()" class="btn btn-light">Disponible</button>
+                                <button type="button" (click)="disp1()" class="btn btn-light">No disponible</button>
+                                <hr>
+                                <div class="form-group">
+                                        <input type="submit" value="Submit" class="btn btn-success">
+                                </div>
+                        </div>
+                      </form>
+                </div>
+                <ul *ngFor="let x of destinos">
+                        <li>Estado: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.imagen }}
+                                <button type="button" (click)="editEstado($event, x)" class="btn btn-primary">Editar</button>  
+                                <button type="button" *ngIf="editState && estadoEditado.id == x.id" (click)="clearState()" class="btn btn-primary"></button>  
+                              <div *ngIf="editState && estadoEditado.id == x.id">
+                                <form (ngSubmit)="updateEstado(x)">
+                                    <div>
+                                        <div>
+                                          <input type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="nombre">
+                                        </div>
+                                        <div>
+                                          <input type="text" placeholder="Añadir info" [(ngModel)]="x.info" name="info">
+                                        </div>
+                                        <div>
+                                            <input type="text" placeholder="Añadir imagenes" [(ngModel)]="x.imagen" name="info">
+                                            <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
+                                        </div>
+                                        <button type="button" (click)="disp2()">Disponible</button>
+                                        <button type="button" (click)="disp3()" >No disponible</button>
+                                        <p>{{ x.available }}</p>
+                                        <input type="submit" value="Update estado">
+                                        <button (click)="deleteEstado($event, x)">Borrar estado</button>
+                                      </div>
+                                </form>
+                              </div>
+                          
+                        </li>
+                    </ul>
+                
+            <!-- <h3>Estados añadidos</h3>
+            <ul *ngFor="let x of estados">
+                <li>Estado: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.imagen }}
+                        <button type="button" (click)="editEstado($event, x)" class="btn btn-primary">Editar</button>  
+                        <button type="button" *ngIf="editState && estadoEditado.id == x.id" (click)="clearState()" class="btn btn-primary"></button>  
+                      
+                      
+                      <div *ngIf="editState && estadoEditado.id == x.id">
+                        <form (ngSubmit)="updateEstado(x)">
+                            <div>
+                                <div>
+                                  <input type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="nombre">
+                                </div>
+                                <div>
+                                  <input type="text" placeholder="Añadir info" [(ngModel)]="x.info" name="info">
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Añadir imagenes" [(ngModel)]="x.imagen" name="info">
+                                    <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
+                                </div>
+                                <button type="button" (click)="disp2()">Disponible</button>
+                                <button type="button" (click)="disp3()" >No disponible</button>
+                                <p>{{ x.available }}</p>
+                                <input type="submit" value="Update estado">
+                                <button (click)="deleteEstado($event, x)">Borrar estado</button>
+                              </div>
+                        </form>
+                      </div>
+                  
+                </li>
+            </ul>
+        </div>
+        </div>  -->
