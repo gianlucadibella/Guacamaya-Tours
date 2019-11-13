@@ -148,35 +148,7 @@
                         </div>
                       </form>
                 </div>
-                <ul *ngFor="let x of destinos">
-                        <li>Estado: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.imagen }}
-                                <button type="button" (click)="editEstado($event, x)" class="btn btn-primary">Editar</button>  
-                                <button type="button" *ngIf="editState && estadoEditado.id == x.id" (click)="clearState()" class="btn btn-primary"></button>  
-                              <div *ngIf="editState && estadoEditado.id == x.id">
-                                <form (ngSubmit)="updateEstado(x)">
-                                    <div>
-                                        <div>
-                                          <input type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="nombre">
-                                        </div>
-                                        <div>
-                                          <input type="text" placeholder="Añadir info" [(ngModel)]="x.info" name="info">
-                                        </div>
-                                        <div>
-                                            <input type="text" placeholder="Añadir imagenes" [(ngModel)]="x.imagen" name="info">
-                                            <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
-                                        </div>
-                                        <button type="button" (click)="disp2()">Disponible</button>
-                                        <button type="button" (click)="disp3()" >No disponible</button>
-                                        <p>{{ x.available }}</p>
-                                        <input type="submit" value="Update estado">
-                                        <button (click)="deleteEstado($event, x)">Borrar estado</button>
-                                      </div>
-                                </form>
-                              </div>
-                          
-                        </li>
-                    </ul>
-                
+            
             <!-- <h3>Estados añadidos</h3>
             <ul *ngFor="let x of estados">
                 <li>Estado: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.imagen }}
