@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {AdminService} from '../services/admin.service';
 
 import { AppComponent } from '../app.component';
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 check: boolean;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private adminService: AdminService) {
 
     this.check = false;
 
@@ -34,8 +34,10 @@ check: boolean;
   const paswordCheck = target.querySelector('#password').value;
   console.log(userCheck, paswordCheck );
   if ( userCheck === 'admin' && paswordCheck === '123') {
+    this.adminService.continue = true;
     this.router.navigate(['admin']);
   } else {
+    this.adminService.continue = false;
     this.check = true;
   }
 

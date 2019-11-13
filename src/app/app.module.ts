@@ -21,6 +21,11 @@ import { CommonModule } from '@angular/common';
 import { CitiesComponent } from './cities/cities.component';
 import { PlaneaTuViajeComponent } from './planea-tu-viaje/planea-tu-viaje.component';
 import { DestinationsComponent } from './destinations/destinations.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { SliderComponent } from './hotels/slider/slider.component';
+import { ExploreHotelsComponent } from './hotels/explore-hotels/explore-hotels.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.component';
 
 
 @NgModule({
@@ -38,6 +43,11 @@ import { DestinationsComponent } from './destinations/destinations.component';
     CitiesComponent,
     PlaneaTuViajeComponent,
     DestinationsComponent,
+    HotelsComponent,
+    SliderComponent,
+    ExploreHotelsComponent,
+    PageNotFoundComponent,
+    HotelsOfCityComponent,
   ],
   imports: [
     BrowserModule,

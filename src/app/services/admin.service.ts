@@ -6,7 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
 
-user = 'wos';
-pasword = 'Papa123';
-  constructor() { }
+continue: boolean;
+  constructor() {
+
+    this.continue = false;
+
+   }
 }
