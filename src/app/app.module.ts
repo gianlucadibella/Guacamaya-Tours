@@ -46,7 +46,7 @@ import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.co
     routingComponents,
     LoginComponent,
     AdminComponent,
-    // Navbar2Component,
+    Navbar2Component,
     DashboardComponent,
     CitiesComponent,
     EditarComponent,

@@ -35,11 +35,11 @@ check: boolean;
   const paswordCheck = target.querySelector('#password').value;
   console.log(userCheck, paswordCheck );
   if ( userCheck === 'admin' && paswordCheck === '123') {
-    this.adminService.continue = true;
+    this.adminService.cambiar(true);
     this.router.navigate(['admin']);
-    this.ser.cambiar(true);
+    this.adminService.cambiar(true);
   } else {
-    this.adminService.continue = false;
+    this.adminService.cambiar(false);
     this.check = true;
   }
 

@@ -6,10 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AdminService {
 
-continue: boolean;
-  constructor() {
+  continue = new BehaviorSubject<boolean>(false);
+  constructor() {   }
 
-    this.continue = false;
-
-   }
+   getAdmin() {
+    return this.continue.asObservable();
+  }
+   cambiar(newValue: boolean): void {
+    this.continue.next(newValue);
+  }
 }

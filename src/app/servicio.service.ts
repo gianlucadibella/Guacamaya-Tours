@@ -15,7 +15,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ServicioService {
-  admin = new BehaviorSubject<boolean>(false);
   ColeccionHoteles: AngularFirestoreCollection<Hotels>;
   oHotels: Observable<Hotels[]>;
   HDoc: AngularFirestoreDocument<Hotels>;
@@ -77,13 +76,6 @@ export class ServicioService {
     return this.oTDH;
   }
 
-  getAdmin() {
-    return this.admin.asObservable();
-  }
-
-  cambiar(newValue: boolean): void {
-    this.admin.next(newValue);
-  }
 
   addEstado(es: Estado) {
     this.ColeccionEstado.add(es);
