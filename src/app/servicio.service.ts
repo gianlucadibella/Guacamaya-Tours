@@ -30,7 +30,7 @@ export class ServicioService {
   TDHDoc: AngularFirestoreDocument<Estado>;
   constructor(private afs: AngularFirestore) {
 
-    this.ColeccionEstado = this.afs.collection('estados', ref => ref.orderBy('nombre','asc'));
+    this.ColeccionEstado = this.afs.collection('estados', ref => ref.orderBy('nombre', 'asc'));
 
     this.oHotels = this.afs.collection('Hoteles').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -85,30 +85,30 @@ export class ServicioService {
     this.admin.next(newValue);
   }
 
-  addEstado(es: Estado){
+  addEstado(es: Estado) {
     this.ColeccionEstado.add(es);
   }
 
-  deleteEstado(es: Estado){
+  deleteEstado(es: Estado) {
     this.EstadosDoc = this.afs.doc(`estados/${es.id}`);
     this.EstadosDoc.delete();
   }
 
-  updateEstado(es: Estado){
+  updateEstado(es: Estado) {
     this.EstadosDoc = this.afs.doc(`estados/${es.id}`);
     this.EstadosDoc.update(es);
   }
 
-  addDestino(es: Destinos){
+  addDestino(es: Destinos) {
     this.ColeccionDestinos.add(es);
   }
 
-  deleteDestino(es: Destinos){
+  deleteDestino(es: Destinos) {
     this.DestDoc = this.afs.doc(`destinos/${es.id}`);
     this.DestDoc.delete();
   }
 
-  updateDestino(es: Destinos){
+  updateDestino(es: Destinos) {
     this.DestDoc = this.afs.doc(`destinos/${es.id}`);
     this.DestDoc.update(es);
   }

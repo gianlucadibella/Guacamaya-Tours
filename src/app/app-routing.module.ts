@@ -23,9 +23,6 @@ const routes: Routes = [
   {path: 'editarh', component: EditarHComponent},
   {path: 'editarhabs', component: EditarHabsComponent},
 
-
-
-
 ];
 
 @NgModule({
