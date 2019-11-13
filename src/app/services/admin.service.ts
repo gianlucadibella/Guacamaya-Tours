@@ -6,5 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AdminService {
 
-  constructor() { }
+continue: boolean;
+  constructor() {
+
+    this.continue = false;
+
+   }
 }

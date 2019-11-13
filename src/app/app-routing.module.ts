@@ -10,19 +10,37 @@ import { EditarComponent } from './editar/editar.component';
 import { Editar2Component } from './editar2/editar2.component';
 import { EditarHComponent } from './editar-h/editar-h.component';
 import { EditarHabsComponent } from './editar-habs/editar-habs.component';
+import {PlaneaTuViajeComponent} from './planea-tu-viaje/planea-tu-viaje.component';
+import {DestinationsComponent} from './destinations/destinations.component';
+import {HotelsComponent} from './hotels/hotels.component';
+import {ExploreHotelsComponent} from './hotels/explore-hotels/explore-hotels.component';
+import {AuthGuard} from './guards/auth.guard';
+import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { from } from 'rxjs';
+
 
 const routes: Routes = [
   {path: 'misviajes', component: MyTripsComponent},
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'admin', component: AdminComponent},
   {path: 'editar', component: EditarComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'ciudades', component: CitiesComponent},
   {path: 'editar2', component: Editar2Component},
   {path: 'editarh', component: EditarHComponent},
   {path: 'editarhabs', component: EditarHabsComponent},
-
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  {path: 'planea-tu-viaje', component: PlaneaTuViajeComponent},
+  {path: 'hoteles', component: HotelsComponent},
+  {path: 'detalle-hoteles', component: HotelsOfCityComponent, children:[
+    {path:'id', component: HotelsOfCityComponent}
+  ]},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'ciudades', component: DestinationsComponent},
+  {path: 'explora', component: CitiesComponent },
+  {path: 'explora-hotel', component: ExploreHotelsComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

@@ -27,6 +27,13 @@ import { EditarComponent } from './editar/editar.component';
 import { Editar2Component } from './editar2/editar2.component';
 import { EditarHComponent } from './editar-h/editar-h.component';
 import { EditarHabsComponent } from './editar-habs/editar-habs.component';
+import { PlaneaTuViajeComponent } from './planea-tu-viaje/planea-tu-viaje.component';
+import { DestinationsComponent } from './destinations/destinations.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { SliderComponent } from './hotels/slider/slider.component';
+import { ExploreHotelsComponent } from './hotels/explore-hotels/explore-hotels.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.component';
 
 
 @NgModule({
@@ -39,13 +46,20 @@ import { EditarHabsComponent } from './editar-habs/editar-habs.component';
     routingComponents,
     LoginComponent,
     AdminComponent,
-    Navbar2Component,
+    // Navbar2Component,
     DashboardComponent,
     CitiesComponent,
     EditarComponent,
     Editar2Component,
     EditarHComponent,
     EditarHabsComponent,
+    PlaneaTuViajeComponent,
+    DestinationsComponent,
+    HotelsComponent,
+    SliderComponent,
+    ExploreHotelsComponent,
+    PageNotFoundComponent,
+    HotelsOfCityComponent,
   ],
   imports: [
     BrowserModule,
