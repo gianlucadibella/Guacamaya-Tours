@@ -27,7 +27,7 @@
     <ul *ngFor="let x of estados">
         <li>Estado: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.imagen }}
                 <button type="button" (click)="editEstado($event, x)" class="btn btn-primary">Editar</button>  
-                <button type="button" *ngIf="editState && estadoEditado.id == x.id" (click)="clearState()" class="btn btn-primary"></button>  
+                <button type="button" *ngIf="editState && estadoEditado.id == x.id" (click)="clearState()" class="btn btn-primary">Esconder</button>  
               
               
               <div *ngIf="editState && estadoEditado.id == x.id">

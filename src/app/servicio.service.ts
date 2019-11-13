@@ -46,7 +46,7 @@ export class ServicioService {
           return data;
         }); }));
 
-    this.oTDH = this.afs.collection('habitaciones').snapshotChanges().pipe(map(changes => {
+    this.oTDH = this.afs.collection('Habitaciones').snapshotChanges().pipe(map(changes => {
           return changes.map(a => {
             const data = a.payload.doc.data() as TipoDeHabitacion;
             data.id = a.payload.doc.id;
@@ -112,6 +112,34 @@ export class ServicioService {
     this.DestDoc = this.afs.doc(`destinos/${es.id}`);
     this.DestDoc.update(es);
   }
+
+  addHotel(es: Hotels){
+    this.ColeccionHoteles.add(es);
+  }
+
+  deleteHotel(es: Hotels){
+    this.HDoc = this.afs.doc(`Hoteles/${es.id}`);
+    this.HDoc.delete();
+  }
+
+  updateHotel(es: Hotels){
+    this.HDoc = this.afs.doc(`Hoteles/${es.id}`);
+    this.HDoc.update(es);
+  }
+
+  addHab(es: TipoDeHabitacion){
+    this.ColeccionTDH.add(es);
+  }
+
+  deleteHab(es: TipoDeHabitacion){
+    this.TDHDoc= this.afs.doc(`Habitaciones/${es.id}`);
+    this.TDHDoc.delete();
+  }
+
+  updateHab(es: TipoDeHabitacion){
+    this.TDHDoc = this.afs.doc(`Habitaciones/${es.id}`);
+    this.TDHDoc.update(es);
+  } 
 
 
 }

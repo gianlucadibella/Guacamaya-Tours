@@ -44,6 +44,10 @@
                     <input type="text" placeholder="Añadir tipo de destino" [(ngModel)]="destino.tipoDeDestino" name="destino">
                     <label>Tipo de destino: (Escriba Playa, Montaña o Ciudad, de lo contrario no se añadira correctamente) </label>
                 </div>
+                <div>
+                    <input type="text" placeholder="Añadir googlemaps" [(ngModel)]="destino.linkGoogleMaps" name="destino">
+                    <label>googlemaps: </label>
+                </div>
                 <button type="button" (click)="disp()">Disponible</button>
                 <button type="button" (click)="disp1()" >No disponible</button>
                 <p>{{ destino.available }}</p>
@@ -55,7 +59,7 @@
     <ul *ngFor="let x of destinos">
         <li>Destino: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.id }}
                 <button type="button" (click)="editDestino($event, x)" class="btn btn-primary">Editar</button>  
-                <button type="button" *ngIf="editDesti && destinoEditado.id == x.id" (click)="clearState()" class="btn btn-primary"></button>  
+                <button type="button" *ngIf="editDesti && destinoEditado.id == x.id" (click)="clearState()" class="btn btn-primary">Esconder</button>  
               
               
               <div *ngIf="editDesti && destinoEditado.id == x.id">
@@ -102,6 +106,10 @@
                         <div>
                             <input type="text" placeholder="Añadir tipo de destino" [(ngModel)]="x.tipoDeDestino" name="destino">
                             <label>Tipo de destino: (Escriba Playa, Montaña o Ciudad, de lo contrario no se añadira correctamente) </label>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Añadir googlemaps" [(ngModel)]="x.linkGoogleMaps" name="destino">
+                            <label>googlemaps: </label>
                         </div>
                         <button type="button" (click)="disp2()">Disponible</button>
                         <button type="button" (click)="disp3()" >No disponible</button>

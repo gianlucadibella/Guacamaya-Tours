@@ -1,1 +1,117 @@
-<p>editar-h works!</p>
+<div>
+    <div >
+        <div >
+        <span >Añadir hoteles</span>
+        <form (ngSubmit)="onSubmit()" >
+            <div>
+                <div>
+                    <input type="text" placeholder="Añadir nombre" [(ngModel)]="hotel.estado" name="title">
+                    <label>Estado (Escriba exactamente el nombre del estado para que sea añadido correctamente)</label>
+                </div>                
+                <div>
+                    <input type="text" placeholder="Añadir nombre" [(ngModel)]="hotel.nombre" name="title">
+                    <label>Nombre</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir imagenes" [(ngModel)]="hotel.fotos" name="imagen">
+                    <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir estrellas" [(ngModel)]="hotel.estrellas" name="estrellas">
+                    <label>Estrellas:</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir direccion" [(ngModel)]="hotel.direccion" name="direccion">
+                    <label>Direccion: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir informacion" [(ngModel)]="hotel.info" name="informacion">
+                    <label>Info: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir latitud" [(ngModel)]="hotel.latitud" name="latitud">
+                    <label>Latitud: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir longitud" [(ngModel)]="hotel.longitud" name="longitud">
+                    <label>Longitud: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir servicios" [(ngModel)]="hotel.servicios" name="serv">
+                    <label>Servicios: (Despues de cada servicio ponga , para que sean añadidos correctamente)</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir googlemaps" [(ngModel)]="hotel.gugulmaps" name="destino">
+                    <label>googelmaps:</label>
+                </div>
+                <button type="button" (click)="disp()">Disponible</button>
+                <button type="button" (click)="disp1()" >No disponible</button>
+                <p>{{ hotel.available }}</p>
+                <input type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+        </div>
+    </div>
+    <ul *ngFor="let x of hoteles">
+        <li>Destino: {{ x.nombre }}    Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.id }}
+                <button type="button" (click)="editarHotel($event, x)" class="btn btn-primary">Editar</button>  
+                <button type="button" *ngIf="editHotel && hotelEditado.id == x.id" (click)="clearState()" class="btn btn-primary">Esconder</button>  
+              
+              
+              <div *ngIf="editHotel && hotelEditado.id == x.id">
+                <form (ngSubmit)="updateHotel(x)">
+                    <div>
+                <div>
+                    <input type="text" placeholder="Añadir nombre" [(ngModel)]="x.estado" name="title">
+                    <label>Estado (Escriba exactamente el nombre del estado para que sea añadido correctamente)</label>
+                </div>                
+                <div>
+                    <input type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="title">
+                    <label>Nombre</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir imagenes" [(ngModel)]="x.fotos" name="imagen">
+                    <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir actividades" [(ngModel)]="x.estrellas" name="activites">
+                    <label>Estrellas:</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir direccion" [(ngModel)]="x.direccion" name="direccion">
+                    <label>Direccion: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir informacion" [(ngModel)]="x.info" name="informacion">
+                    <label>Info: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir latitud" [(ngModel)]="x.latitud" name="latitud">
+                    <label>Latitud: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir longitud" [(ngModel)]="x.longitud" name="longitud">
+                    <label>Longitud: </label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir servicios" [(ngModel)]="x.servicios" name="serv">
+                    <label>Servicios: (Despues de cada servicio ponga , para que sean añadidos correctamente)</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Añadir googlemaps" [(ngModel)]="x.gugulmaps" name="destino">
+                    <label>googlemaps:</label>
+                </div>
+                        <button type="button" (click)="disp2()">Disponible</button>
+                        <button type="button" (click)="disp3()" >No disponible</button>
+                        <p>{{ x.available }}</p>
+                        <input type="submit" value="Update hotel">
+                        <button (click)="deleteHotel($event, x)">Borrar hotel</button>
+                      </div>
+                </form>
+              </div>
+          
+        </li>
+    </ul>
+
+
+</div>

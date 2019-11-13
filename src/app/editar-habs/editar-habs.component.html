@@ -1,1 +1,101 @@
-<p>editar-habs works!</p>
+<div>
+        <div >
+            <div >
+            <span >Añadir habitaciones</span>
+            <form (ngSubmit)="onSubmit()" >
+                <div>
+                    <div>
+                        <input type="text" placeholder="Añadir hotel" [(ngModel)]="habitacion.hotel" name="title">
+                        <label>Hotel (Escriba exactamente el nombre del hotel para que sea añadido correctamente)</label>
+                    </div>                
+                    <div>
+                        <input type="text" placeholder="Añadir nombre" [(ngModel)]="habitacion.nombre" name="title">
+                        <label>Nombre</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Añadir imagenes" [(ngModel)]="habitacion.fotos" name="imagen">
+                        <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Añadir maximo de personas" [(ngModel)]="habitacion.maximoDePersonas" name="peronas">
+                        <label>Maximo:</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Añadir informacion" [(ngModel)]="habitacion.info" name="informacion">
+                        <label>Info: </label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Añadir comodidades" [(ngModel)]="habitacion.comodidades" name="serv">
+                        <label>comodidades: (Despues de cada comodidad ponga , para que sean añadidos correctamente)</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Añadir precio" [(ngModel)]="habitacion.precio" name="destino">
+                        <label>precio por noche:</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Añadir cantidad" [(ngModel)]="habitacion.cantidad" name="destino">
+                        <label>cantidad de habitaciones:</label>
+                    </div>
+                    <button type="button" (click)="disp()">Disponible</button>
+                    <button type="button" (click)="disp1()" >No disponible</button>
+                    <p>{{ habitacion.available }}</p>
+                    <input type="submit" value="Submit" class="btn">
+                    </div>
+            </form>
+            </div>
+        </div>
+        <ul *ngFor="let x of habitaciones">
+            <li>habitacion: {{ x.nombre }}  Hotel: {{ x.hotel }}  Informacion: {{ x.info }}   Disponible: {{ x.available }}  Imagenes: {{ x.id }}
+                    <button type="button" (click)="editarHab($event, x)" class="btn btn-primary">Editar</button>  
+                    <button type="button" *ngIf="editHab && habEditada.id == x.id" (click)="clearState()" class="btn btn-primary">Esconder</button>  
+                  
+                  
+                  <div *ngIf="editHab && habEditada.id == x.id">
+                    <form (ngSubmit)="updateHab(x)">
+                        <div>
+                                <div>
+                                        <input type="text" placeholder="Añadir hotel" [(ngModel)]="x.hotel" name="hotel">
+                                        <label>Hotel (Escriba exactamente el nombre del hotel para que sea añadido correctamente)</label>
+                                    </div>                
+                                    <div>
+                                        <input type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="title">
+                                        <label>Nombre</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Añadir imagenes" [(ngModel)]="x.fotos" name="imagen">
+                                        <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Añadir maximo de personas" [(ngModel)]="x.maximoDePersonas" name="peronas">
+                                        <label>Maximo:</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Añadir informacion" [(ngModel)]="x.info" name="informacion">
+                                        <label>Info: </label>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Añadir comodidades" [(ngModel)]="x.comodidades" name="serv">
+                                        <label>comodidades: (Despues de cada comodidad ponga , para que sean añadidos correctamente)</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Añadir precio" [(ngModel)]="x.precio" name="destino">
+                                        <label>precio por noche:</label>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Añadir cantidad" [(ngModel)]="x.cantidad" name="destino">
+                                        <label>cantidad de habitaciones:</label>
+                                    </div>
+                                    <button type="button" (click)="disp2()">Disponible</button>
+                                    <button type="button" (click)="disp3()" >No disponible</button>
+                                    <p>{{ x.available }}</p>
+                                    <input type="submit" value="Submit" class="btn">
+                        </div>
+                                    
+                    </form>
+                  </div>
+              
+            </li>
+        </ul>
+    
+    
+    </div>
