@@ -1,1 +1,31 @@
-<p>hotels-of-city works!</p>
+<div *ngFor="let item of estado">
+
+    <div *ngIf="item.nombre==this.ar.snapshot.queryParams.name">
+
+            
+            <img src="{{item.imagen}}" alt="imagen" style="display: block; box-sizing: border-box; width: 100%; position:relative; max-height: 1000px;">
+            <h1 class="display-2 text-center">{{item.nombre}}</h1>
+        </div>
+    
+</div>
+<hr>
+<div *ngFor="let item of hoteles">
+
+    <div *ngIf="item.estado==this.ar.snapshot.queryParams.name">
+        <div class="clickable">
+                <div class="container text-center">
+                    <div class="row bg-light">
+                        <div class="col">
+                            <img src="{{item.fotos}}" alt="foto" width="250px" height="200px">
+                        </div>
+                        <div class="col-9">
+                            <p class="lead"> <strong>Nombre del hotel:</strong> {{item.nombre}} </p>
+                            <p class="lead"> <strong>{{item.info}}</strong> </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <hr>
+    </div>
+
+</div>
