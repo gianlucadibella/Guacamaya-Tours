@@ -30,6 +30,11 @@ export class ServicioService {
   constructor(private afs: AngularFirestore) {
 
     this.ColeccionEstado = this.afs.collection('estados', ref => ref.orderBy('nombre', 'asc'));
+    this.ColeccionHoteles = this.afs.collection('Hoteles', ref => ref.orderBy('nombre', 'asc'));
+    this.ColeccionDestinos = this.afs.collection('destinos', ref => ref.orderBy('nombre', 'asc'));
+    this.ColeccionTDH = this.afs.collection('Habitaciones', ref => ref.orderBy('nombre', 'asc'));
+
+
 
     this.oHotels = this.afs.collection('Hoteles').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {

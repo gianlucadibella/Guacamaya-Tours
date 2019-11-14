@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TipoDeHabitacion } from 'src/models/hotels';
+import { TipoDeHabitacion, Hotels } from 'src/models/hotels';
+import { ServicioService } from '../servicio.service';
+import { Estado } from 'src/models/estado';
 
 @Component({
   selector: 'app-cities',
@@ -8,7 +10,26 @@ import { TipoDeHabitacion } from 'src/models/hotels';
 })
 export class CitiesComponent implements OnInit {
 
+  estadoss: Estado[];
+  estadoactual: Estado;
+  eact: string = '';
+  hoteless: Hotels[];
+  hotelf: Hotels[];
+  hotelactual: Hotels;
+  hact: string = '';
+  habitacioness: TipoDeHabitacion[];
+  habitacionesf: TipoDeHabitacion[];
+  habitacionactual: TipoDeHabitacion;
+  habact: string = '';
 
+
+  filtrar(){
+  this.hotelf = this.hoteless.filter(hotel =>  hotel.estado === this.estadoactual.nombre);
+  console.log(this.hotelf);
+  this.habitacionesf = this.habitacioness.filter(hab =>  hab.hotel === this.hotelactual.nombre);
+  };
+
+  // tslint:disable-next-line: member-ordering
   estados = [{
     nombre: 'Apure',
     id: '2',
@@ -305,43 +326,65 @@ export class CitiesComponent implements OnInit {
   actualhabObj: any;
 
   onChange = () => {
-    this.actualstateObj = this.estados.find((c) => c.nombre === this.actualstate);
-    console.log(this.actualstateObj);
+    this.estadoactual = this.estadoss.find((c) => c.nombre === this.eact);
+    console.log(this.estadoactual);
   }
 
   onChange2 = () => {
-    this.actualhotelObj = this.actualstateObj.hoteles.find((c) => c.nombre === this.actualhotel);
-    console.log(this.actualhotelObj);
+    this.hotelactual = this.hotelf.find((c) => c.nombre === this.hact);
+    console.log(this.hotelactual);
   }
 
   onChange3 = () => {
-    this.actualhabObj = this.actualhotelObj.tipos.find((c) => c.nombre === this.actualhab);
-    console.log(this.actualhabObj);
+    this.habitacionactual = this.habitacionesf.find((c) => c.nombre === this.habact);
+    console.log(this.habitacionactual);
   }
 
 
 
 
   cambiar() {
-    this.actualstate = (document.getElementById('estados') as HTMLInputElement).value;
-    console.log(this.actualstate);
+    this.eact = (document.getElementById('estados') as HTMLInputElement).value;
+    console.log(this.eact);
+    this.filtrar();
   }
 
   cambiar2() {
-    this.actualhotel = (document.getElementById('hss') as HTMLInputElement).value;
-    console.log(this.actualstate);
+    this.hact = (document.getElementById('hss') as HTMLInputElement).value;
+    console.log(this.hact);
+    this.filtrar();
   }
 
   cambiar3() {
-    this.actualhab = (document.getElementById('hss2') as HTMLInputElement).value;
-    console.log(this.actualhab);
+    this.habact = (document.getElementById('hss2') as HTMLInputElement).value;
+    console.log(this.habact);
+    this.filtrar();
   }
 
 
-  constructor() {
+  constructor(private s: ServicioService) {
+
   }
 
   ngOnInit() {
+    this.s.getHotels().subscribe(
+      items=> {
+        this.hoteless=items;
+        console.log(this.hoteless);
+      }
+    )
+    this.s.getEstado().subscribe(
+      items=> {
+        this.estadoss=items;
+        console.log(this.estadoss);
+      }
+    )
+    this.s.getTDH().subscribe(
+      items=> {
+        this.habitacioness=items;
+        console.log(this.habitacioness);
+      }
+    )
   }
 
 }

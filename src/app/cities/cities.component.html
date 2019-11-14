@@ -3,30 +3,30 @@
 <hr>
 <div class="container bg-light">
 
-    <input list="estados" [(ngModel)]="actualstate" 
-    value="{{actualstateObj.nombre}}"
+    <input list="estados" [(ngModel)]="eact" 
+    value="{{estadoactual.nombre}}"
     (ngModelChange)="onChange()" style="width: 90%;">
       <datalist id="estados">
-        <option *ngFor="let estado of estados" [value]="estado.nombre"> {{estado.nombre}} </option>
+        <option *ngFor="let estado of estadoss" [value]="estado.nombre"> {{estado.nombre}} </option>
       </datalist>
     <input id="estadobuscado" style="width:10%" type="submit" (click)="cambiar()" (click)="document.getElementById('estados').value = ''">
     <div class="col .text-center ">
-        <h1 class="d-flex justify-content-center" >{{ actualstateObj.nombre }}</h1>
+        <h1 class="d-flex justify-content-center" >{{ estadoactual.nombre }}</h1>
         <div class="row pt-4 d-flex align-items-center">
           <div class="col-sm text-center bg-light">
-            <h3> {{ actualstateObj.nombre }}</h3>
-            <p>{{ actualstateObj.info }}</p>
+            <h3> {{ estadoactual.nombre }}</h3>
+            <p>{{ estadoactual.info }}</p>
           </div>
           <div class="col-sm text-center bg-light">
             <div class="col-sm text-center bg-light">
-              <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
-              <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+              <img [src]="estadoactual.imagen" alt="" height="180px" width="200px" class="mt-2">
+              <img [src]="estadoactual.imagen" alt="" height="180px" width="200px" class="mt-2">
             </div>
             <div class="col-sm text-center d-flex justify-content-center bg-light">
-                    <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
-                    <img [src]="actualstateObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+                    <img [src]="estadoactual.imagen" alt="" height="180px" width="200px" class="mt-2">
+                    <img [src]="estadoactual.imagen" alt="" height="180px" width="200px" class="mt-2">
             </div>
-            <h3>{{ actualstateObj.nombre }}</h3>  
+            <h3>{{ estadoactual.nombre }}</h3>  
           </div>
         </div>
     </div>
@@ -34,28 +34,28 @@
 <hr>
 <div class="container bg-light">
     <div class="col .text-center ">
-        <input list="hss" [(ngModel)]="actualhotel" 
-            value="{{actualhotelObj.nombre}}"
+        <input list="hss" [(ngModel)]="hact" 
+            value="{{hotelactual.nombre}}"
             (ngModelChange)="onChange2()" style="width: 90%;"> 
               <datalist id="hss">
-                <option *ngFor="let hotel of actualstateObj.hoteles" [value]="hotel.nombre"> {{hotel.nombre}} </option>
+                <option *ngFor="let hotel of hotelf" [value]="hotel.nombre"> {{hotel.nombre}} </option>
               </datalist>
             <input id="hotelbuscado" type="submit" style="width: 10%;" (click)="cambiar2()" (click)="document.getElementById('hss').value = ''"> 
         <div class="row pt-4 d-flex align-items-center">
           <div class="col-sm text-center bg-light">
-            <h3>{{ actualhotelObj.nombre }}</h3>
-            <p>{{ actualhotelObj.info }}</p>
+            <h3>{{ hotelactual.nombre }}</h3>
+            <p>{{ hotelactual.info }}</p>
           </div>
           <div class="col-sm text-center bg-light">
               <div class="col-sm text-center bg-light">
-                <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
-                <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+                <img [src]="hotelactual.fotos" alt="" height="180px" width="200px" class="mt-2">
+                <img [src]="hotelactual.fotos" alt="" height="180px" width="200px" class="mt-2">
               </div>
               <div class="col-sm text-center d-flex justify-content-center bg-light">
-                      <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
-                      <img [src]="actualhotelObj.imagen" alt="" height="180px" width="200px" class="mt-2">
+                      <img [src]="hotelactual.fotos" alt="" height="180px" width="200px" class="mt-2">
+                      <img [src]="hotelactual.fotos" alt="" height="180px" width="200px" class="mt-2">
               </div>
-              <h3>{{ actualhotelObj.nombre }}</h3>  
+              <h3>{{ hotelactual.nombre }}</h3>  
             </div>
         </div>
     </div>
@@ -66,26 +66,25 @@
       <div class="row pt-4 d-flex align-items-center">
         <div class="col-sm text-center bg-light">
           <h3></h3>
-          <p>Estrellas: {{ actualhotelObj.estrellas }}</p>
-          <p>Latitud: {{ actualhotelObj.latitud }}</p>
-          <p>Longitud: {{ actualhotelObj.longitud }}</p>
-          <p>Direccion: {{ actualhotelObj.direccion }}</p>
-          <p>Disponibilidad: {{ actualhotelObj.disponible }}</p>
-          <p>Precio: {{ actualhotelObj.precio }}</p>
-          <input list="hss2" [(ngModel)]="actualhab" 
-            value="{{actualhabObj.nombre}}"
+          <p>Estrellas: {{ hotelactual.estrellas }}</p>
+          <p>Latitud: {{ hotelactual.latitud }}</p>
+          <p>Longitud: {{ hotelactual.longitud }}</p>
+          <p>Direccion: {{ hotelactual.direccion }}</p>
+          <p>Disponibilidad: {{ hotelactual.disponible }}</p>
+          <input list="hss2" [(ngModel)]="habact" 
+            value="{{habitacionactual.nombre}}"
             (ngModelChange)="onChange3()" style="width: 90%;">
               <datalist id="hss2">
-                <option *ngFor="let hab of actualhotelObj.tipos" [value]="hab.nombre"> {{hab.nombre}} </option>
+                <option *ngFor="let hab of habitacionactual" [value]="hab.nombre"> {{hab.nombre}} </option>
               </datalist>
             <input id="habbuscado" type="submit" style="width: 10%;" (click)="cambiar3()" (click)="document.getElementById('hss2').value = ''"> 
         </div>
         <div class="col-sm text-center bg-light">
           <h3></h3>
-          <p>{{ actualhabObj.nombre }}</p>
-          <p>Maximo de personas: {{ actualhabObj.maximoDePersonas }}</p>
-          <p>Comodidades: {{ actualhabObj.comodidades[0] }}</p>
-          <img [src]="actualhabObj.fotos" alt="" height="180px" width="200px" class="mt-2">
+          <p>{{ habitacionactual.nombre }}</p>
+          <p>Maximo de personas: {{ habitacionactual.maximoDePersonas }}</p>
+          <p>Comodidades: {{ habitacionactual.comodidades }}</p>
+          <img [src]="habitacionactual.fotos" alt="" height="180px" width="200px" class="mt-2">
         </div>
       </div>
   </div>
