@@ -9,7 +9,8 @@ import { Hotels } from 'src/models/hotels';
 })
 export class EditarHComponent implements OnInit {
 
-  constructor(private s: ServicioService) { }
+  constructor(private s: ServicioService) {}
+
 
   editHotel: boolean = false;
   hoteles: Hotels[];
@@ -87,7 +88,5 @@ export class EditarHComponent implements OnInit {
     this.editHotel = false;
     this.hotelEditado = null;
   }
-
-
 
 }

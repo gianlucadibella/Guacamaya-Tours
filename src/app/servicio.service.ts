@@ -34,6 +34,8 @@ export class ServicioService {
     this.ColeccionDestinos = this.afs.collection('destinos', ref => ref.orderBy('nombre', 'asc'));
     this.ColeccionTDH = this.afs.collection('Habitaciones', ref => ref.orderBy('nombre', 'asc'));
 
+
+
     this.oHotels = this.afs.collection('Hoteles').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Hotels;
