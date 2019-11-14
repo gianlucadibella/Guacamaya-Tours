@@ -34,6 +34,7 @@ import { SliderComponent } from './hotels/slider/slider.component';
 import { ExploreHotelsComponent } from './hotels/explore-hotels/explore-hotels.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.component';
+import { SliderTempComponent } from './destinations/slider-temp/slider-temp.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.co
     ExploreHotelsComponent,
     PageNotFoundComponent,
     HotelsOfCityComponent,
+    SliderTempComponent,
   ],
   imports: [
     BrowserModule,
