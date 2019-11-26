@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioService } from '../servicio.service';
 import { Hotels } from 'src/models/hotels';
+import { Estado } from 'src/models/estado';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-editar-h',
@@ -9,11 +11,21 @@ import { Hotels } from 'src/models/hotels';
 })
 export class EditarHComponent implements OnInit {
 
-  constructor(private s: ServicioService) {}
+  private sus : Subscription;
 
+  constructor(private s: ServicioService) {
+    this.s.getHotels().subscribe(
+      items=> {
+        this.hoteles=items;
+        console.log(this.hoteles);
+      }
+    )
+  }
 
   editHotel: boolean = false;
+  addHotel: boolean = false;
   hoteles: Hotels[];
+  estados: Estado[];
   hotelEditado: Hotels;
   hotel = {
     nombre: '',
@@ -30,12 +42,20 @@ export class EditarHComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.s.getEstado().subscribe(
+      items=> {
+        this.estados = items;
+        console.log(this.estados);
+      }
+    )
+
     this.s.getHotels().subscribe(
       items=> {
         this.hoteles=items;
         console.log(this.hoteles);
       }
     )
+
   };
 
   onSubmit(){
@@ -87,6 +107,13 @@ export class EditarHComponent implements OnInit {
   clearState(){
     this.editHotel = false;
     this.hotelEditado = null;
+  }
+
+  addiHotel(){
+    this.addHotel = true;
+  }
+  cerrar(){
+    this.addHotel = false;
   }
 
 }

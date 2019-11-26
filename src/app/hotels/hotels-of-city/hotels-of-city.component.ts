@@ -3,6 +3,7 @@ import { Hotels } from 'src/models/hotels';
 import { Estado } from 'src/models/estado';
 import { ActivatedRoute } from '@angular/router';
 import { ServicioService } from 'src/app/servicio.service';
+import { ServiciosService } from 'src/app/services/servicios.service';
 
 @Component({
   selector: 'app-hotels-of-city',
@@ -16,7 +17,7 @@ export class HotelsOfCityComponent implements OnInit {
   estado: Estado [];
 
 
-  constructor(public ar: ActivatedRoute, private service: ServicioService) { }
+  constructor(public ar: ActivatedRoute, private service: ServicioService, private s: ServiciosService) { }
 
   ngOnInit() {
 
@@ -38,6 +39,12 @@ export class HotelsOfCityComponent implements OnInit {
       }
     );
 
+  }
+
+
+  cambiarHotelActual(h: Hotels){
+    const x = this.s.setHotel(h);
+    console.log(h);
   }
 
 }

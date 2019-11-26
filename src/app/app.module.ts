@@ -35,6 +35,11 @@ import { ExploreHotelsComponent } from './hotels/explore-hotels/explore-hotels.c
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.component';
 import { SliderTempComponent } from './destinations/slider-temp/slider-temp.component';
+import { ReservasComponent } from './reservas/reservas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+
 
 
 @NgModule({
@@ -62,8 +67,11 @@ import { SliderTempComponent } from './destinations/slider-temp/slider-temp.comp
     PageNotFoundComponent,
     HotelsOfCityComponent,
     SliderTempComponent,
+    ReservasComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     CarouselModule.forRoot(),
@@ -76,7 +84,7 @@ import { SliderTempComponent } from './destinations/slider-temp/slider-temp.comp
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

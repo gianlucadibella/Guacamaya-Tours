@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioService } from '../servicio.service';
-import { TipoDeHabitacion } from 'src/models/hotels';
+import { TipoDeHabitacion, Hotels } from 'src/models/hotels';
 
 @Component({
   selector: 'app-editar-habs',
@@ -12,6 +12,8 @@ export class EditarHabsComponent implements OnInit {
   constructor(private s: ServicioService) { }
 
   editHab = false;
+  addHab= false;
+  hoteles: Hotels[];
   habitaciones: TipoDeHabitacion[];
   habEditada: TipoDeHabitacion;
   habitacion = {
@@ -28,6 +30,13 @@ export class EditarHabsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.s.getHotels().subscribe(
+      items=> {
+        this.hoteles = items;
+        console.log(this.habitaciones);
+      }
+    )
 
     this.s.getTDH().subscribe(
       items => {
@@ -82,6 +91,14 @@ export class EditarHabsComponent implements OnInit {
   clearState(){
     this.editHab = false;
     this.habEditada = null;
+  }
+
+  addiHab(){
+    this.addHab = true;
+  }
+
+  cerrar(){
+    this.addHab = false;
   }
 
 }

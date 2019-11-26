@@ -6,12 +6,19 @@
             <h3>Añadir habitaciones</h3>
         </div>
             <hr>
-            <form (ngSubmit)="onSubmit()" >
+            <button type="button" (click)="addiHab()">
+                Añadir hotel
+            </button>
+            <button type="button" (click)="cerrar()" *ngIf="addHab">
+                Esconder
+            </button>
+            <form (ngSubmit)="onSubmit()" *ngIf="addHab" >
                 <div class="form-group">
                     <div class="form-group">
                         <label for=hotel>Hotel:</label>
-                        <input class="form-control" type="text" placeholder="Añadir hotel" [(ngModel)]="habitacion.hotel" name="title">
-                        <p>(Escriba exactamente el nombre del hotel para que sea añadido correctamente)</p>
+                        <select class="form-control"type="text" placeholder="Añadir hotel" [(ngModel)]="habitacion.hotel" name="title">
+                            <option *ngFor="let x of hoteles">{{ x.nombre }}</option>
+                        </select>
                     </div>                
                     <div class="form-group">
                         <label for=nombre>Nombre:</label>

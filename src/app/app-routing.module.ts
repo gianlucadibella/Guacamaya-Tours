@@ -18,6 +18,7 @@ import {AuthGuard} from './guards/auth.guard';
 import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { from } from 'rxjs';
+import { ReservasComponent } from './reservas/reservas.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'editar', component: EditarComponent, canActivate: [AuthGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  
+  {path: 'reservar', component: ReservasComponent},
   {path: 'editar2', component: Editar2Component, canActivate: [AuthGuard]},
   {path: 'editarh', component: EditarHComponent, canActivate: [AuthGuard]},
   {path: 'editarhabs', component: EditarHabsComponent, canActivate: [AuthGuard]},

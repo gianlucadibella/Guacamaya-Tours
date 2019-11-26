@@ -2,6 +2,7 @@ import { TipoDeHabitacion } from './hotels';
 
 export class Orden {
 
+id: string;
 nombreCliente: string;
 cedula: number;
 correo: string;
@@ -9,17 +10,14 @@ telefono: number;
 direccion: string;
 estatus: boolean;
 localizador: number;
-itinerario: Itinerario;
+itinerario: Itinerario[];
 
 
 }
 
 export class Itinerario {
 
-localizador: number;
-hotelId: number;
-fechaLLegada: number;
-fechaSalida: number;
+fecha: Date[];
 tipoHabitacion: TipoDeHabitacion[];
 costoTotal: number;
 integrantes: Integrantes [];

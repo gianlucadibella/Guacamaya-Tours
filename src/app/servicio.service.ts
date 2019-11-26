@@ -6,7 +6,9 @@ import { Destinos } from 'src/models/destino';
 import { Hotels } from 'src/models/hotels';
 import { Estado } from 'src/models/estado';
 import { TipoDeHabitacion } from 'src/models/hotels';
+import { Orden } from 'src/models/orden';
 import { BehaviorSubject } from 'rxjs';
+import { Reference } from '@angular/compiler/src/render3/r3_ast';
 
 
 
@@ -27,58 +29,68 @@ export class ServicioService {
   ColeccionTDH: AngularFirestoreCollection<TipoDeHabitacion>;
   oTDH: Observable<TipoDeHabitacion[]>;
   TDHDoc: AngularFirestoreDocument<Estado>;
+  ColeccionOrdenes: AngularFirestoreCollection<Orden>;
+  oOrdenes: Observable<Orden[]>;
+  OrdenDoc: AngularFirestoreDocument<Orden>;
+
+
   constructor(private afs: AngularFirestore) {
 
     this.ColeccionEstado = this.afs.collection('estados', ref => ref.orderBy('nombre', 'asc'));
     this.ColeccionHoteles = this.afs.collection('Hoteles', ref => ref.orderBy('nombre', 'asc'));
     this.ColeccionDestinos = this.afs.collection('destinos', ref => ref.orderBy('nombre', 'asc'));
     this.ColeccionTDH = this.afs.collection('Habitaciones', ref => ref.orderBy('nombre', 'asc'));
+    this.ColeccionOrdenes = this.afs.collection('Ordenes');
 
+}
 
-
-    this.oHotels = this.afs.collection('Hoteles').snapshotChanges().pipe(map(changes => {
+  getHotels() {
+    return this.ColeccionHoteles.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Hotels;
         data.id = a.payload.doc.id;
         return data;
       }); }));
-
-    this.oDestinos = this.afs.collection('destinos').snapshotChanges().pipe(map(changes => {
-        return changes.map(a => {
-          const data = a.payload.doc.data() as Destinos;
-          data.id = a.payload.doc.id;
-          return data;
-        }); }));
-
-    this.oTDH = this.afs.collection('Habitaciones').snapshotChanges().pipe(map(changes => {
-          return changes.map(a => {
-            const data = a.payload.doc.data() as TipoDeHabitacion;
-            data.id = a.payload.doc.id;
-            return data;
-          }); }));
-
-    this.oEstado = this.afs.collection('estados').snapshotChanges().pipe(map(changes => {
-            return changes.map(a => {
-              const data = a.payload.doc.data() as Estado;
-              data.id = a.payload.doc.id;
-              return data;
-            }); }));
-}
-
-  getHotels() {
-    return this.oHotels;
   }
 
   getDestinos() {
-    return this.oDestinos;
+    return this.ColeccionDestinos.snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Destinos;
+        data.id = a.payload.doc.id;
+        return data;
+      }); }));
   }
 
   getEstado() {
-    return this.oEstado;
+    return this.ColeccionEstado.snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Estado;
+        data.id = a.payload.doc.id;
+        return data;
+      }); }));
+  }
+
+  getOrden() {
+    return this.ColeccionOrdenes.snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Orden;
+        data.id = a.payload.doc.id;
+        return data;
+      }); }));
+  }
+
+  getDEstado(){
+    return this.EstadosDoc;
   }
 
   getTDH() {
-    return this.oTDH;
+    return this.ColeccionTDH.snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as TipoDeHabitacion;
+        data.id = a.payload.doc.id;
+        return data;
+      }); }));
   }
 
 
@@ -136,7 +148,13 @@ export class ServicioService {
   updateHab(es: TipoDeHabitacion){
     this.TDHDoc = this.afs.doc(`Habitaciones/${es.id}`);
     this.TDHDoc.update(es);
-  } 
+  }
+
+  addOrden(es: Orden){
+    this.ColeccionOrdenes.add(es);
+  }
+
+
 
 
 }

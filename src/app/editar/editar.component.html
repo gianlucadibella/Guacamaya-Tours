@@ -6,7 +6,13 @@
               <h3>Añadir estado</h3>
           </div>
         <hr>
-        <form (ngSubmit)="onSubmit()">
+        <button type="button" (click)="addiEstado()">
+          Añadir estado
+      </button>
+      <button type="button" (click)="cerrar()" *ngIf="addEstado">
+          Esconder
+      </button>
+        <form (ngSubmit)="onSubmit()" *ngIf="addEstado">
                 <div class="form-group">
                   <label for="Nombre">Nombre:</label>
                   <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="estado.nombre" name="title">

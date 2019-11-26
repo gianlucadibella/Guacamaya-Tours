@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Destinos } from 'src/models/destino';
+import { Estado } from 'src/models/estado';
 import { ServicioService } from '../servicio.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class Editar2Component implements OnInit {
   constructor(private s: ServicioService) { }
 
   editDesti: boolean = false;
+  addDest = false;
   destinos: Destinos[];
+  estados: Estado[];
   destinoEditado: Destinos;
   destino = {
     nombre:  '',
@@ -32,6 +35,14 @@ export class Editar2Component implements OnInit {
 
 
   ngOnInit() {
+
+    this.s.getEstado().subscribe(
+      items=> {
+        this.estados = items;
+        console.log(this.estados);
+      }
+    )
+
     this.s.getDestinos().subscribe(
       items => {
         this.destinos=items;
@@ -39,6 +50,7 @@ export class Editar2Component implements OnInit {
       }
     );
     console.log(this.destinos);
+
   }
 
   onSubmit(){
@@ -93,6 +105,14 @@ export class Editar2Component implements OnInit {
   clearState(){
     this.editDesti = false;
     this.destinoEditado = null;
+  }
+
+  addiDest(){
+    this.addDest = true;
+  }
+
+  cerrar(){
+    this.addDest = false;
   }
 
 }

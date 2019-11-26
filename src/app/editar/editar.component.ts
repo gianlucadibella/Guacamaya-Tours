@@ -16,6 +16,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class EditarComponent implements OnInit {
 
   editState: boolean = false;
+  addEstado: boolean = false;
   estadoEditado: Estado;
   estadoEditado2 = {
     nombre: '',
@@ -60,7 +61,7 @@ export class EditarComponent implements OnInit {
     console.log(this.destinos);
     this.s.getHotels().subscribe( 
       items => {
-        this.hoteles=items;
+        this.hoteles= items;
       }
     );
     console.log(this.hoteles);
@@ -73,7 +74,7 @@ export class EditarComponent implements OnInit {
 
   }
 
-  constructor(private s: ServicioService, private fs: AngularFirestore) {  }
+  constructor(private s: ServicioService, private fs: AngularFirestore) {}
 
   onSubmit(){
     if(this.estado.nombre != '' && this.estado.info != ''){
@@ -102,6 +103,14 @@ export class EditarComponent implements OnInit {
   }
   disp3(){
     this.estadoEditado.available=false;
+  }
+
+  addiEstado(){
+    this.addEstado = true;
+  }
+
+  cerrar(){
+    this.addEstado = false;
   }
 
 
