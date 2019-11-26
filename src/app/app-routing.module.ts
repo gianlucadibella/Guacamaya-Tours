@@ -19,6 +19,7 @@ import { HotelsOfCityComponent } from './hotels/hotels-of-city/hotels-of-city.co
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { from } from 'rxjs';
 import { ReservasComponent } from './reservas/reservas.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 const routes: Routes = [
@@ -34,8 +35,9 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'planea-tu-viaje', component: PlaneaTuViajeComponent},
   {path: 'hoteles', component: HotelsComponent},
+  {path: 'contacto', component: ContactoComponent},
   {path: 'detalle-hoteles', component: HotelsOfCityComponent, children:[
-    {path:'id', component: HotelsOfCityComponent}
+    {path: 'id', component: HotelsOfCityComponent}
   ]},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'ciudades', component: DestinationsComponent},

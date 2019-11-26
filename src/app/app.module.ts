@@ -40,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     HotelsOfCityComponent,
     SliderTempComponent,
     ReservasComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserAnimationsModule,
