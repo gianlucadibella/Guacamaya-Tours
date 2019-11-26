@@ -15,26 +15,18 @@ export class HotelsOfCityComponent implements OnInit {
   hoteles: Hotels[];
   estado: Estado [];
 
+  filteresHotels: Hotels[];
+
 
   constructor(public ar: ActivatedRoute, private service: ServicioService) { }
 
   ngOnInit() {
 
-    this.service.getHotels().subscribe(
-      items => {
 
+    this.service.getHotels().subscribe( items => {
 
-
-        this.hoteles = items;
+        this.hoteles = items.filter( e => e.estado === this.ar.snapshot.queryParams.name );
         console.log(this.hoteles);
-      }
-    );
-
-    this.service.getEstado().subscribe(
-      items => {
-        this.estado = items;
-        console.log(this.estado);
-        console.log(this.ar.snapshot.queryParams.name);
       }
     );
 
