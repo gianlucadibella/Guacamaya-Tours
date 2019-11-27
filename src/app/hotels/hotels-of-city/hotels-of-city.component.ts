@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotels } from 'src/models/hotels';
 import { Estado } from 'src/models/estado';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioService } from 'src/app/servicio.service';
 import { ServiciosService } from 'src/app/services/servicios.service';
 
@@ -19,7 +19,7 @@ export class HotelsOfCityComponent implements OnInit {
   filteresHotels: Hotels[];
 
 
-  constructor(public ar: ActivatedRoute, private service: ServicioService, private s: ServiciosService) { }
+  constructor(public ar: ActivatedRoute, private service: ServicioService, private s: ServiciosService, public router: Router) { }
 
   ngOnInit() {
 
@@ -28,15 +28,25 @@ export class HotelsOfCityComponent implements OnInit {
 
         this.hoteles = items.filter( e => e.estado === this.ar.snapshot.queryParams.name );
         console.log(this.hoteles);
+        
+      }
+    );
+
+    this.service.getEstado().subscribe(
+      items => {
+
+        
+        this.estado = items.filter( e => e.nombre === this.ar.snapshot.queryParams.name );
+        console.log(this.estado);
       }
     );
 
   }
 
 
-  cambiarHotelActual(h: Hotels){
-    const x = this.s.setHotel(h);
-    console.log(h);
+
+  cambiarHotelActual(itemName: string){
+    this.router.navigate(['/hotel-caracteristicas'], {queryParams: { name: itemName}});
   }
 
 }

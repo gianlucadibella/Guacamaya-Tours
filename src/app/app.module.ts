@@ -41,6 +41,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 import { ContactoComponent } from './contacto/contacto.component';
+import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel.component';
+
 
 
 @NgModule({
@@ -70,6 +72,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     SliderTempComponent,
     ReservasComponent,
     ContactoComponent,
+    DetailOfHotelComponent,
+  
   ],
   imports: [
     BrowserAnimationsModule,

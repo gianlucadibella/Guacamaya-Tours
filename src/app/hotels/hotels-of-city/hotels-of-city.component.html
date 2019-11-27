@@ -7,12 +7,12 @@
             <h1 class="display-2 text-center">{{x.nombre}}</h1>
         </div>
     
-</div> -->
+</div> 
 <hr>
 <div *ngFor="let item of hoteles">
 
     <div *ngIf="item.estado==this.ar.snapshot.queryParams.name">
-        <div class="clickable" (click)="cambiarHotelActual(item)" [routerLink]="['/reservar']" routerLinkActive="router-link-active" >
+        <div class="clickable" (click)="cambiarHotelActual(item.nombre)"  >
                 <div class="container text-center">
                     <div class="row bg-light">
                         <div class="col">
