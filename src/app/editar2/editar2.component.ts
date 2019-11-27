@@ -56,7 +56,7 @@ export class Editar2Component implements OnInit {
   onSubmit(){
     if(this.destino.nombre != '' && this.destino.info != ''){
 
-      this.s.addEstado(this.destino);
+      this.s.addDestino(this.destino);
       this.destino.nombre = '';
       this.destino.descripcion = '',
       this.destino.info= '',

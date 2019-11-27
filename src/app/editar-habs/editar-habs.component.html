@@ -25,9 +25,8 @@
                         <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="habitacion.nombre" name="title">
                     </div>
                     <div class="form-group">
-                        <label for=imagenes>Imagenes:</label>
+                        <label for=imagenes>Imagen:</label>
                         <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="habitacion.fotos" name="imagen">
-                        <p>(Coloque los links separados por un *** para que sean añadidos correctamente)</p>
                     </div>
                     <div class="form-group">
                         <label for=max>Maximo:</label>
@@ -38,9 +37,24 @@
                         <input class="form-control" type="text" placeholder="Añadir informacion" [(ngModel)]="habitacion.info" name="informacion">
                     </div>
                     <div class="form-group">
-                        <label for=comodidades>Comodidades:</label>
-                        <input type="text" placeholder="Añadir comodidades" [(ngModel)]="habitacion.comodidades" name="serv">
-                        <p>(Despues de cada comodidad ponga , para que sean añadidos correctamente)</p>
+                        <label for="">Aire acondicionado:</label>
+                    <button class="btn btn-light" type="button" (click)="Aire()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="Aire2()" >No</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">TV:</label>
+                    <button class="btn btn-light" type="button" (click)="TV()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="TV2()" >No</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nevera:</label>
+                    <button class="btn btn-light" type="button" (click)="nevera()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="nevera2()" >No</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jacuzzi:</label>
+                    <button class="btn btn-light" type="button" (click)="jacuzzi()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="jacuzzi2()" >No</button>
                     </div>
                     <div class="form-group">
                         <label for=price4night>Precio por noche:</label>
@@ -69,9 +83,10 @@
                     <form (ngSubmit)="updateHab(x)">
                         <div class="form-group">
                                 <div class="form-group">
-                                    <label for=hotel>Hotel</label>
-                                        <input class="form-control" type="text" placeholder="Añadir hotel" [(ngModel)]="x.hotel" name="hotel">
-                                        <p>(Escriba exactamente el nombre del hotel para que sea añadido correctamente)</p>
+                                    <label for=estado>Estado</label>
+                                        <select class="form-control"type="text" placeholder="Añadir nombre" [(ngModel)]="x.hotel" name="title">
+                                            <option *ngFor="let x of hoteles">{{ x.nombre }}</option>
+                                        </select>
                                     </div>                
                                     <div class="form-group">
                                         <label for=nombre>Nombre:</label>
@@ -91,9 +106,24 @@
                                         <input class="form-control"type="text" placeholder="Añadir informacion" [(ngModel)]="x.info" name="informacion">
                                     </div>
                                     <div class="form-group">
-                                        <label for=comodidades>Comodidades:</label>
-                                        <input class="form-control" type="text" placeholder="Añadir comodidades" [(ngModel)]="x.comodidades" name="serv">
-                                        <p>(Despues de cada comodidad ponga , para que sean añadidos correctamente)</p>
+                                        <label for="">Aire acondicionado:</label>
+                                    <button class="btn btn-light" type="button" (click)="Aire3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="Aire4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">TV:</label>
+                                    <button class="btn btn-light" type="button" (click)="TV3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="TV4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Nevera:</label>
+                                    <button class="btn btn-light" type="button" (click)="nevera3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="nevera4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Jacuzzi:</label>
+                                    <button class="btn btn-light" type="button" (click)="jacuzzi3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="jacuzzi4()" >No</button>
                                     </div>
                                     <div>
                                         <label for=price4night>Precio por noche:</label>

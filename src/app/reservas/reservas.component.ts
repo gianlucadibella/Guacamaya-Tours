@@ -37,7 +37,7 @@ export class ReservasComponent implements OnInit {
 
 
   ngOnInit() {
-    
+
     this.hactual = this.serv.getHotel();
     console.log(this.hactual);
     this.hoys = formatDate(this.hoy, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0430');
