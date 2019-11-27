@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MyTripsComponent } from './my-trips/my-trips.component';
 import { HomeComponent} from './home/home.component';
@@ -20,6 +20,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { from } from 'rxjs';
 import { ReservasComponent } from './reservas/reservas.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel.component';
+
 
 
 const routes: Routes = [
@@ -38,6 +40,9 @@ const routes: Routes = [
   {path: 'contacto', component: ContactoComponent},
   {path: 'detalle-hoteles', component: HotelsOfCityComponent, children:[
     {path: 'id', component: HotelsOfCityComponent}
+  ]},
+  {path: 'hotel-caracteristicas', component: DetailOfHotelComponent, children: [ {
+    path: 'id', component: DetailOfHotelComponent}
   ]},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'ciudades', component: DestinationsComponent},
