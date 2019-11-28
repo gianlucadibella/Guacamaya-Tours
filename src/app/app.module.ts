@@ -78,12 +78,9 @@ import { PaymentComponent } from './payment/payment.component';
     ContactoComponent,
     DetailOfHotelComponent,
     CarritoComponent,
-<<<<<<< HEAD
     PaymentComponent,
-=======
     PosiblesDestinosComponent,
   
->>>>>>> origin/Develop-DirecionFooter
   ],
   imports: [
     BrowserAnimationsModule,
