@@ -1,10 +1,13 @@
+<div class="container">
 <div *ngIf="!paidFor">
-
-        <h1>Pago viaje - ${{ product.price }} USD</h1>
+  <h2>Realice su pago.</h2>
+  <div class="pb-3"> 
+      <small class="form-text text-muted">Pago seguro, facil y rapido.</small>
+  </div>
+  
+        <h6>${{ product.price }} USD</h6>
       
         <p>{{ product.description }}</p>
-      
-      
       
       </div>
       
@@ -16,3 +19,4 @@
       
       
       <div [hidden]="paidFor" #paypal></div>
+    </div>

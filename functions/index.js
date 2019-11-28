@@ -19,7 +19,7 @@ exports.sendMailNotification = functions.firestore.document('submissions/{docId}
 .onCreate((snap,ctx)=>{
 
         const data=snap.data();
-
+    
         authData.sendMail({
             from: 'guacamayatoursoficial@gmail.com',
             to: data.email,
