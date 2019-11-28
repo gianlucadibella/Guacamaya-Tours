@@ -28,14 +28,12 @@ export class HotelsOfCityComponent implements OnInit {
 
         this.hoteles = items.filter( e => e.estado === this.ar.snapshot.queryParams.name );
         console.log(this.hoteles);
-        
       }
     );
 
     this.service.getEstado().subscribe(
       items => {
-
-        
+ 
         this.estado = items.filter( e => e.nombre === this.ar.snapshot.queryParams.name );
         console.log(this.estado);
       }
@@ -47,7 +45,7 @@ export class HotelsOfCityComponent implements OnInit {
 
   cambiarHotelActual(item: Hotels){
     this.s.setHotel(item);
-    
+
   }
 
 }

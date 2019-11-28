@@ -21,6 +21,7 @@ export class CarritoComponent implements OnInit {
   telefono: 0,
   direccion: '',
   localizador: 0,
+  itinerario: Itinerario[];
   };
 
   ngOnInit() {

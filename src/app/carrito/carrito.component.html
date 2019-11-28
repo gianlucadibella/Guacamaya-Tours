@@ -1,8 +1,9 @@
 
-<div>{{ q.costoTotal  }}</div>
-<ul *ngFor="let x of itinerarios">
+<div>{{ q  }}</div>
+<!-- <ul *ngFor="let x of itinerarios">
         <li>
-            <p>Fecha de salida: {{x.fecha[0]}}</p>   
+                <p>{{ x }}</p>
+            <p>Fecha de salida: {{x?.fecha[0]}}</p>   
             <p>Fecha de llegada: {{x.fecha[1]}}</p>
             <p>Hotel: {{x.tipoHabitacion[0].hotel}}</p>
             <p>Costo viaje: {{x.costoTotal}}</p>
@@ -10,7 +11,7 @@
                 <p>Habitacion {{i}}: {{ y.nombre }} , de la cual se reservaron {{ y.cantidad }} </p>
             </div>
         </li>
-</ul>
+</ul> -->
 
 <!-- <form  (ngSubmit)="onSubmit()"> -->
 
@@ -37,6 +38,3 @@
     </div>
     <input type="submit">
 <!-- </form> -->
-<ng-template #noItinerario>
-        <h1>Aqui se veran sus itinerarios una vez los haya escogido.</h1>
-</ng-template>    

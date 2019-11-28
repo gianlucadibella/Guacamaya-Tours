@@ -23,8 +23,12 @@ export class Editar2Component implements OnInit {
     info: '',
     tipoDeDestino: '',
     imagen: '',
-    actividades: '',
     estado: '',
+    deportes: false,
+    cultura: false,
+    frio: false,
+    aventura: false,
+    nocturno: false,
     direccion: '',
     linkGoogleMaps: '',
     available: true,
@@ -59,7 +63,11 @@ export class Editar2Component implements OnInit {
       this.destino.info= '',
       this.destino.tipoDeDestino= '',
       this.destino.imagen= '',
-      this.destino.actividades= '',
+      this.destino.deportes = false;
+      this.destino.cultura = false;
+      this.destino.frio = false;
+      this.destino.aventura = false;
+      this.destino.nocturno = false;
       this.destino.estado= '',
       this.destino.direccion= '',
       this.destino.linkGoogleMaps= '',
@@ -79,6 +87,71 @@ export class Editar2Component implements OnInit {
   }
   disp3(){
     this.destinoEditado.available=false;
+  }
+
+  sport(){
+  this.destino.deportes = true;
+  }
+  sport2(){
+    this.destino.deportes = false;
+  }
+  sport3(){
+    this.destinoEditado.deportes = true;
+  }
+  sport4(){
+    this.destinoEditado.deportes = false;
+  }
+
+  cult(){
+    this.destino.cultura = true;
+  }
+  cult2(){
+    this.destino.cultura = false;
+  }
+  cult3(){
+    this.destinoEditado.cultura = true;
+  }
+  cult4(){
+    this.destinoEditado.cultura = false;
+  }
+
+  frio(){
+    this.destino.frio = true;
+  }
+  frio2(){
+    this.destino.frio = false;
+  }
+  frio3(){
+    this.destinoEditado.frio = true;
+  }
+  frio4(){
+    this.destinoEditado.frio = false;
+  }
+
+  av(){
+    this.destino.aventura = true;
+  }
+  av2(){
+    this.destino.aventura =false;
+  }
+  av3(){
+    this.destinoEditado.aventura = true;
+  }
+  av4(){
+    this.destinoEditado.aventura = false;
+  }
+
+  noche(){
+    this.destino.nocturno = true;
+  }
+  noche2(){
+    this.destino.nocturno = false;
+  }
+  noche3(){
+    this.destinoEditado.nocturno = true;
+  }
+  noche4(){
+    this.destinoEditado.nocturno = false;
   }
 
   deleteDestino(event, es: Destinos){

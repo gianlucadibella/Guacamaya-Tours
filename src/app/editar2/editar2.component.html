@@ -32,8 +32,29 @@
                           <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="destino.imagen" name="description">
                         </div>
                         <div class="form-group">
-                          <label for="actividades">Actividades</label>
-                          <input class="form-control" type="text" placeholder="Añadir actividades" [(ngModel)]="destino.actividades" name="activities">
+                            <label for="">Deportes:</label>
+                        <button class="btn btn-light" type="button" (click)="sport()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="sport2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Cultura:</label>
+                        <button class="btn btn-light" type="button" (click)="cult()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="cult2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Frio:</label>
+                        <button class="btn btn-light" type="button" (click)="frio()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="frio2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Aventura:</label>
+                        <button class="btn btn-light" type="button" (click)="av()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="av2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nocturno:</label>
+                        <button class="btn btn-light" type="button" (click)="noche()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="noche2()" >No</button>
                         </div>
                         <div class="form-group">
                                 <label for=direccion>Direccion</label>
@@ -96,9 +117,30 @@
                                         <input class="form-control" type="text" placeholder="Añadir descripcion" [(ngModel)]="x.descripcion" name="description">
                                     </div>
                                     <div class="form-group">
-                                        <label for=actividades>Actividades:</label>
-                                        <input class="form-control" type="text" placeholder="Añadir actividades" [(ngModel)]="x.actividades" name="activites">
-\                                    </div>
+                                        <label for="">Deportes:</label>
+                                    <button class="btn btn-light" type="button" (click)="sport3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="sport4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Cultura:</label>
+                                    <button class="btn btn-light" type="button" (click)="cult3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="cult4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Frio:</label>
+                                    <button class="btn btn-light" type="button" (click)="frio3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="frio4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Aventura:</label>
+                                    <button class="btn btn-light" type="button" (click)="av3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="av4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Nocturno:</label>
+                                    <button class="btn btn-light" type="button" (click)="noche3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="noche4()" >No</button>
+                                    </div>
                                     <div class="form-group">
                                         <label for=direccion>Direccion:</label>
                                         <input type="text" class="form-control" placeholder="Añadir direccion" [(ngModel)]="x.direccion" name="direccion">

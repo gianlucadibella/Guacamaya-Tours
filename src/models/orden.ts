@@ -3,19 +3,19 @@ import { TipoDeHabitacion } from './hotels';
 export class Orden {
 
 id?: string;
-nombreCliente: string;
-cedula: number;
-correo: string;
-telefono: number;
-direccion: string;
-itinerario?: Itinerario[];
+nombreCliente?: string;
+cedula?: number;
+correo?: string;
+telefono?: number;
+direccion?: string;
+itinerario: Itinerario[];
 
 
 }
 
 export class Itinerario {
 
-fecha: Date[];
+fecha: string[];
 tipoHabitacion: TipoDeHabitacion[];
 costoTotal: number;
 integrantes: Integrantes [];

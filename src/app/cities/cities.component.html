@@ -1,4 +1,4 @@
-<img [src]="actualstateObj.imagen" alt="imagen" style="display: block; box-sizing: border-box; width: 100%; position:relative; max-height: 1000px;">
+<img [src]="estadoactual.imagen" alt="imagen" style="display: block; box-sizing: border-box; width: 100%; position:relative; max-height: 1000px;">
 
 <hr>
 <div class="container bg-light">
@@ -59,33 +59,4 @@
             </div>
         </div>
     </div>
-</div>
-<hr>
-<div class="container bg-light" style="padding-bottom: 2%;">
-  <div class="col .text-center ">
-      <div class="row pt-4 d-flex align-items-center">
-        <div class="col-sm text-center bg-light">
-          <h3></h3>
-          <p>Estrellas: {{ hotelactual.estrellas }}</p>
-          <p>Latitud: {{ hotelactual.latitud }}</p>
-          <p>Longitud: {{ hotelactual.longitud }}</p>
-          <p>Direccion: {{ hotelactual.direccion }}</p>
-          <p>Disponibilidad: {{ hotelactual.available }}</p>
-          <input list="hss2" [(ngModel)]="habact" 
-            value="{{habitacionactual.nombre}}"
-            (ngModelChange)="onChange3()" style="width: 90%;">
-              <datalist id="hss2">
-                <option *ngFor="let hab of habitacionactual" [value]="hab.nombre"> {{hab.nombre}} </option>
-              </datalist>
-            <input id="habbuscado" type="submit" style="width: 10%;" (click)="cambiar3()" onfocus="this.value=''"> 
-        </div>
-        <div class="col-sm text-center bg-light">
-          <h3></h3>
-          <p>{{ habitacionactual.nombre }}</p>
-          <p>Maximo de personas: {{ habitacionactual.maximoDePersonas }}</p>
-          <p>Comodidades: {{ habitacionactual.comodidades }}</p>
-          <img [src]="habitacionactual.fotos" alt="" height="180px" width="200px" class="mt-2">
-        </div>
-      </div>
-  </div>
 </div>
