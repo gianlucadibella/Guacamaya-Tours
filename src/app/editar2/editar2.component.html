@@ -86,7 +86,7 @@
                 </div>
                 <h3>Editar destinos</h3>
                 <ul class="list-group list-group-flush" *ngFor="let x of destinos">
-                    <li class="list-group-item"> Estado:{{x.estado}} || Destino: {{ x.nombre }} || Informacion: {{ x.info }} || Disponible: {{ x.available }} || Imagenes: {{ x.id }}
+                    <li class="list-group-item"> Estado:{{x.estado}} || Destino: {{ x.nombre }} || Informacion: {{ x.info }} || Disponible: {{ x.available }} || {{x.tipoDeDestino}} || Imagenes: {{ x.id }}
                             <button type="button" (click)="editDestino($event, x)" class="btn btn-outline-primary">Editar</button>  
                             <button type="button" *ngIf="editDesti && destinoEditado.id == x.id" (click)="clearState()" class="btn btn-outline-primary" style="margin-left:5px">Esconder</button>  
                           <div *ngIf="editDesti && destinoEditado.id == x.id">

@@ -1,18 +1,22 @@
-<h1 class="display-2 text-center">Destinos</h1>
+<h1 class="display-3 text-center">Destinos</h1>
+
+<div *ngFor="let item of destinos">
+<div class="clickable" (click)="checkDestinoDetails(item.estado)" >
 <div class="container text-center">
     <div class="row bg-light">
         <div class="col">
-            <img src="" alt="lecheria foto" width="250px" height="200px">
+            <img src="{{item.imagen}}" alt="lecheria foto" width="250px" height="200px">
         </div>
         <div class="col-9">
-            <p class="lead"> <strong>Estado:</strong> {{item.nombre}} </p>
-            <p class="lead"> <strong>Informacion</strong> afsadsad </p>
-            <p class="lead">Lugares de Interes:</p>
+            <p class="lead"> <strong>Destino:</strong> {{item.nombre}} </p>
+            <p class="lead"> <strong>Estado</strong> {{item.estado}} </p>
             <ul>
-                <li class="lead">Lecheria</li>
-                <li class="lead">Puerto La Cruz</li>
-                <li class="lead">Pachencho</li>
+                <li class="lead">{{item.actividades}}</li>
+
             </ul>
         </div>
     </div>
+</div>
+</div>
+<hr>
 </div>

@@ -27,6 +27,7 @@ import { PosiblesDestinosComponent } from './planea-tu-viaje/posibles-destinos/p
 
 
 
+
 const routes: Routes = [
   {path: 'misviajes', component: MyTripsComponent},
   {path: '', component: HomeComponent},
@@ -42,14 +43,14 @@ const routes: Routes = [
   {path: 'hoteles', component: HotelsComponent},
   {path: 'contacto', component: ContactoComponent},
   {path: 'carrito', component: CarritoComponent},
-  {path: 'detalle-hoteles', component: HotelsOfCityComponent, children:[
+  {path: 'detalle-hoteles', component: HotelsOfCityComponent, children: [
     {path: 'id', component: HotelsOfCityComponent}
   ]},
   {path: 'hotel-caracteristicas', component: DetailOfHotelComponent, children: [ {
     path: 'id', component: DetailOfHotelComponent}
   ]},
-  {path: 'pago',component: PaymentComponent},
-  {path:'posibles-destinos',component: PosiblesDestinosComponent, children: [{
+  {path: 'pago', component: PaymentComponent},
+  {path: 'posibles-destinos', component: PosiblesDestinosComponent, children: [{
     path: 'id', component: PosiblesDestinosComponent}
   ]},
   {path: 'dashboard', component: DashboardComponent},
