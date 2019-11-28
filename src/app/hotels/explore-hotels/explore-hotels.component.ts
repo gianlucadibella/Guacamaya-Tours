@@ -42,9 +42,9 @@ estados: Estado[];
       }
     );
 
-  };
+  }
 
-  checkHotelsDetails(itemName: string){
+  checkHotelsDetails(itemName: string) {
 
     this.router.navigate(['/detalle-hoteles'], {queryParams: { name: itemName}});
 

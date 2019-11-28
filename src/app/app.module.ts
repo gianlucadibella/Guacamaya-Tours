@@ -44,6 +44,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PosiblesDestinosComponent } from './planea-tu-viaje/posibles-destinos/posibles-destinos.component';
 
 import { PaymentComponent } from './payment/payment.component';
 
@@ -77,7 +78,12 @@ import { PaymentComponent } from './payment/payment.component';
     ContactoComponent,
     DetailOfHotelComponent,
     CarritoComponent,
+<<<<<<< HEAD
     PaymentComponent,
+=======
+    PosiblesDestinosComponent,
+  
+>>>>>>> origin/Develop-DirecionFooter
   ],
   imports: [
     BrowserAnimationsModule,
