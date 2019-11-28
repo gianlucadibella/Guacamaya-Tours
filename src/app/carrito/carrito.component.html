@@ -1,14 +1,19 @@
-<form *ngIf="itinerarios.length>0; else noItinerario"  (ngSubmit)="onSubmit()">
-    <ul *ngFor="let x of itinerarios">
+
+<div>{{ q.costoTotal  }}</div>
+<ul *ngFor="let x of itinerarios">
         <li>
-            <p>Fecha de salida: {{ x.fecha[0] }}</p>   
-            <p>Fecha de llegada: {{ x.fecha[1] }}</p>
+            <p>Fecha de salida: {{x.fecha[0]}}</p>   
+            <p>Fecha de llegada: {{x.fecha[1]}}</p>
             <p>Hotel: {{x.tipoHabitacion[0].hotel}}</p>
+            <p>Costo viaje: {{x.costoTotal}}</p>
             <div *ngFor = "let y of x.tipoHabitacion; let i = index;">
                 <p>Habitacion {{i}}: {{ y.nombre }} , de la cual se reservaron {{ y.cantidad }} </p>
             </div>
         </li>
-    </ul>
+</ul>
+
+<!-- <form  (ngSubmit)="onSubmit()"> -->
+
     <h1>Para continuar con el pago, ingrese los siguientes datos:</h1>
     <div class="form-group">
             <label for=nombre>Nombre:</label>
@@ -17,7 +22,7 @@
     <div class="form-group">
             <label for=nombre>Cedula:</label>
             <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.cedula" name="imagen">
-    </div>
+    </div>      
     <div class="form-group">
             <label for=nombre>Correo:</label>
             <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.correo" name="imagen">
@@ -31,7 +36,7 @@
             <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.direccion" name="imagen">
     </div>
     <input type="submit">
-</form>
+<!-- </form> -->
 <ng-template #noItinerario>
         <h1>Aqui se veran sus itinerarios una vez los haya escogido.</h1>
 </ng-template>    

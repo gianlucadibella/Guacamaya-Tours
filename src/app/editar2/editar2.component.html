@@ -34,7 +34,6 @@
                         <div class="form-group">
                           <label for="actividades">Actividades</label>
                           <input class="form-control" type="text" placeholder="Añadir actividades" [(ngModel)]="destino.actividades" name="activities">
-                          <p>(Despues de cada actividad ponga , para que sean añadidos correctamente)</p>
                         </div>
                         <div class="form-group">
                                 <label for=direccion>Direccion</label>
@@ -44,21 +43,14 @@
                                 <label for="info">Información</label>
                                 <input type="text" class="form-control" placeholder="Añadir informacion" [(ngModel)]="destino.info" name="informacion">
                         </div>
+
                         <div class="form-group">
-                                <label for="latitud">Latitud</label>
-                                <input type="text" class="form-control" placeholder="Añadir latitud" [(ngModel)]="destino.latitud" name="latitud">
-                        </div>
-                        <div class="form-group">
-                                <label for="longitud">Longitud</label>
-                                <input type="text" class="form-control" placeholder="Añadir longitud" [(ngModel)]="destino.longitud" name="longitud">
-                        </div>
-                        <div class="form-group">
-                                <label for="servicios">Servicios</label>
-                                <input type="text" class="form-control" placeholder="Añadir servicios" [(ngModel)]="destino.servicios" name="serv">
-                        </div>
-                        <div class="form-group">
-                                <label for="tipoDeDestino">Tipo de destino</label>
-                                <input type="text" class="form-control" placeholder="Añadir tipo de destino" [(ngModel)]="destino.tipoDeDestino" name="destino">
+                          <label for="Estado">Tipo de destion:</label>
+                          <select class="form-control"type="text" placeholder="Añadir destino" [(ngModel)]="destino.tipoDeDestino" name="title">
+                            <option selected> Montaña </option>
+                            <option > Playa </option>
+                            <option > Ciudad </option>
+                        </select>
                         </div>
                         <div class="form-group">
                                 <button type="button" (click)="disp()" class="btn btn-light">Disponible</button>
@@ -106,8 +98,7 @@
                                     <div class="form-group">
                                         <label for=actividades>Actividades:</label>
                                         <input class="form-control" type="text" placeholder="Añadir actividades" [(ngModel)]="x.actividades" name="activites">
-                                        <p>(Despues de cada actividad ponga , para que sean añadidos correctamente)</p>
-                                    </div>
+\                                    </div>
                                     <div class="form-group">
                                         <label for=direccion>Direccion:</label>
                                         <input type="text" class="form-control" placeholder="Añadir direccion" [(ngModel)]="x.direccion" name="direccion">
@@ -117,22 +108,12 @@
                                         <input type="text" class="form-control" placeholder="Añadir informacion" [(ngModel)]="x.info" name="informacion">
                                     </div>
                                     <div class="form-group">
-                                        <label for=latitud>Latitud:</label>
-                                        <input class="form-control" type="text" placeholder="Añadir latitud" [(ngModel)]="x.latitud" name="latitud">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for=longitud >Longitud: </label>
-                                        <input type="text" class="form-control" placeholder="Añadir longitud" [(ngModel)]="x.longitud" name="longitud">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for=servicios>Servicios:</label>
-                                        <input type="text" class="form-control" placeholder="Añadir servicios" [(ngModel)]="x.servicios" name="serv">
-                                         <p>(Despues de cada servicio ponga , para que sean añadidos correctamente)</p>
-                                    </div>
-                                    <div class="form-group">
-                                      <label for=tipoDeDestino>Tipo de destino:</label>
-                                        <input type="text" class="form-control" placeholder="Añadir tipo de destino" [(ngModel)]="x.tipoDeDestino" name="destino">
-                                        <p>(Escriba Playa, Montaña o Ciudad, de lo contrario no se añadira correctamente)</p>
+                                      <label for="Estado">Tipo de destino:</label>
+                                      <select class="form-control"type="text" placeholder="Añadir destino" [(ngModel)]="x.tipoDeDestino" name="title">
+                                        <option selected> Montaña </option>
+                                        <option > Playa </option>
+                                        <option > Ciudad </option>
+                                    </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Google Maps:</label>

@@ -21,7 +21,7 @@ import { from } from 'rxjs';
 import { ReservasComponent } from './reservas/reservas.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel.component';
-
+import { CarritoComponent } from 'src/app/carrito/carrito.component';
 
 
 const routes: Routes = [
@@ -38,6 +38,7 @@ const routes: Routes = [
   {path: 'planea-tu-viaje', component: PlaneaTuViajeComponent},
   {path: 'hoteles', component: HotelsComponent},
   {path: 'contacto', component: ContactoComponent},
+  {path: 'carrito', component: CarritoComponent},
   {path: 'detalle-hoteles', component: HotelsOfCityComponent, children:[
     {path: 'id', component: HotelsOfCityComponent}
   ]},

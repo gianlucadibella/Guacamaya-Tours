@@ -8,8 +8,7 @@ cedula: number;
 correo: string;
 telefono: number;
 direccion: string;
-localizador: number;
-itinerario: Itinerario[];
+itinerario?: Itinerario[];
 
 
 }
