@@ -17,6 +17,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {AngularFireFunctions, AngularFireFunctionsModule} from '@angular/fire/functions';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Navbar2Component } from './navbar2/navbar2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -38,9 +39,10 @@ import { SliderTempComponent } from './destinations/slider-temp/slider-temp.comp
 import { ReservasComponent } from './reservas/reservas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ContactoComponent } from './contacto/contacto.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -70,6 +72,7 @@ import { ContactoComponent } from './contacto/contacto.component';
     SliderTempComponent,
     ReservasComponent,
     ContactoComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -87,6 +90,9 @@ import { ContactoComponent } from './contacto/contacto.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireStorageModule,
+    AngularFireFunctionsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent],

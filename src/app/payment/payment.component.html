@@ -1,0 +1,18 @@
+<div *ngIf="!paidFor">
+
+        <h1>Pago viaje - ${{ product.price }} USD</h1>
+      
+        <p>{{ product.description }}</p>
+      
+      
+      
+      </div>
+      
+      <div *ngIf=paidFor>
+        <h1>Gracias por su compra!</h1>
+      
+
+      </div>=
+      
+      
+      <div [hidden]="paidFor" #paypal></div>

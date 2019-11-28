@@ -20,6 +20,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { from } from 'rxjs';
 import { ReservasComponent } from './reservas/reservas.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path: 'detalle-hoteles', component: HotelsOfCityComponent, children:[
     {path: 'id', component: HotelsOfCityComponent}
   ]},
+  {path: 'pago',component: PaymentComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'ciudades', component: DestinationsComponent},
   {path: 'explora', component: CitiesComponent },

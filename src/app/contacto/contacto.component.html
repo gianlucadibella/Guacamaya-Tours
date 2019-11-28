@@ -9,4 +9,95 @@
             
         </div>
     </div>
+    <hr>
+    <div class="container">     
+        <div class="row-left">
+                      <div class="card-content">
+                        <h4>Contactanos</h4>
+                        <p>Coloque sus datos correctamente, * es obligatorio</p>
+                        
+                        <div *ngIf="!submitted else showSubmitted">
+                          <div class="row">
+                            <form class="form-group" [formGroup]="ourForm">
+                                <label for="email">Email*</label>
+                                <input type="email" id="email" formControlName="email" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su correo">
+                                <small id="emailHelp" class="form-text text-muted">No se compartira tu email.</small>
+                                <div *ngIf="ourForm.get('email').touched && ourForm.get('email').errors?.required">
+                                  <span class="helper-text">El email es obligatorio</span>
+                                </div>
+                                <div *ngIf="ourForm.get('email').touched && ourForm.get('email').errors?.email">
+                                  <span class="helper-text">El correo es invalido</span>
+                                </div>
+                                <label for="fullName">Nombre completo*</label>
+                                <input type="text" id="fullName" formControlName="fullName" class="form-control" aria-describedby="nameHelp" placeholder="Ingrese su nombre">
+                                <small id="nameHelp" class="form-text text-muted">No se compartiram tus datos.</small>
+                                <div *ngIf="ourForm.get('fullName').touched && ourForm.get('fullName').errors?.required">
+                                  <span class="helper-text">El nombre es obligatorio</span>
+                                </div>
+                              <div class="s12">
+                                <p>Estado de orden *</p>
+                                <p>
+                                  <label>
+                                      <div class="ml-4">
+                                    <input name="orderStatus" type="radio" (click)="orderStatusChanged('Reservado')" formControlName="orderStatus"
+                                      id="orderStatus" value="Reservado" class="form-check-input">
+                                    <span>Reservado</span>
+                                </div>
+                                  </label>
+                                </p>
+                                <p>
+                                  <label>
+                                      <div class="ml-4">
+                                    <input name="orderStatus" type="radio" (click)="orderStatusChanged('Pagado')" formControlName="orderStatus" id="orderStatus"
+                                      value="Pagado" class="form-check-input">
+                                    <span>Pagado</span>
+                                </div>
+                                  </label>
+                                </p>
+                              </div>
+                              <label for="reserveCode">Codigo de reserva</label>
+                                <input class="form-control" type="text" id="reserveCode" formControlName="reserveCode">
+                              
+                                <div *ngIf="ourForm.get('reserveCode').touched && ourForm.get('reserveCode').errors?.required">
+                                  <span class="helper-text">El codigo de reserva es obligatorio</span>
+                                </div>
+
+                                <div *ngIf="ourForm.get('reserveCode').touched && ourForm.get('reserveCode').errors?.validURL">
+                                  <span class="helper-text">Ingrese un codigo de reserva valido</span>
+                                </div>
+
+                                <br>
+                                <label for="contactNumber">Numero telefonico</label>
+                                <input class="form-control" type="text" id="contactNumber" formControlName="contactNumber" >
+                                <div *ngIf="ourForm.get('contactNumber').touched && ourForm.get('contactNumber').errors?.required">
+                                  <span class="helper-text">El numero telefonico es obligatorio</span>
+                
+                            
+                                <div *ngIf="ourForm.get('contactNumber').touched && ourForm.get('contactNumber').errors?.validURL">
+                                  <span class="helper-text">Coloque un numero de telefono valido</span>
+                                </div>
+                              </div>
+                              <label for="feedback">Motivo de contacto</label>
+                                <textarea class="form-control" formControlName="feedback" type="text" id="feedback"></textarea>
+                                
+                             
+                
+                              <div class="progress" *ngIf="submitting">
+                                <div class="indeterminate"></div>
+                              </div>
+                              <div class="mt-3">
+                              <input type="submit" value="Submit" [disabled]="ourForm.invalid" (click)="submitData(ourForm.value)"
+                              class="btn btn-primary">
+                            </div>
+                            </form>
+                          </div>
+                    </div>
+                
+                    <ng-template #showSubmitted>
+                      <p class="green-text">Gracias por contactarnos</p>
+                    </ng-template>
+                  </div>
+                  <div class="col m3"></div>
+                </div>
 </div>
+</div>     
