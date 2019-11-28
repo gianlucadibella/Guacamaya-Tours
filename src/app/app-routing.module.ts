@@ -22,6 +22,7 @@ import { ReservasComponent } from './reservas/reservas.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel.component';
 import { CarritoComponent } from 'src/app/carrito/carrito.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'hotel-caracteristicas', component: DetailOfHotelComponent, children: [ {
     path: 'id', component: DetailOfHotelComponent}
   ]},
+  {path: 'pago',component: PaymentComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'ciudades', component: DestinationsComponent},
   {path: 'explora', component: CitiesComponent },
