@@ -6,7 +6,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Integrantes, Itinerario } from 'src/models/orden';
 import { ServicioService } from '../servicio.service';
-import { checkServerIdentity } from 'tls';
+// import { checkServerIdentity } from 'tls';
 import { isNgTemplate } from '@angular/compiler';
 
 

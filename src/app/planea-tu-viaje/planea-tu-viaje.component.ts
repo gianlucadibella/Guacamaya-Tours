@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planea-tu-viaje',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaneaTuViajeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
+  }
+
+  checkDestinationsDetails(itemName: string) {
+
+    this.router.navigate(['/posibles-destinos'], {queryParams: { name: itemName}});
+
   }
 
 }

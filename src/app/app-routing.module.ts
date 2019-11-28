@@ -21,6 +21,7 @@ import { from } from 'rxjs';
 import { ReservasComponent } from './reservas/reservas.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel.component';
+import { PosiblesDestinosComponent } from './planea-tu-viaje/posibles-destinos/posibles-destinos.component';
 
 
 
@@ -43,6 +44,9 @@ const routes: Routes = [
   ]},
   {path: 'hotel-caracteristicas', component: DetailOfHotelComponent, children: [ {
     path: 'id', component: DetailOfHotelComponent}
+  ]},
+  {path:'posibles-destinos',component: PosiblesDestinosComponent, children: [{
+    path: 'id', component: PosiblesDestinosComponent}
   ]},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'ciudades', component: DestinationsComponent},

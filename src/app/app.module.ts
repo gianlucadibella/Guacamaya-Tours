@@ -43,6 +43,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PosiblesDestinosComponent } from './planea-tu-viaje/posibles-destinos/posibles-destinos.component';
 
 
 
@@ -75,6 +76,7 @@ import { CarritoComponent } from './carrito/carrito.component';
     ContactoComponent,
     DetailOfHotelComponent,
     CarritoComponent,
+    PosiblesDestinosComponent,
   
   ],
   imports: [

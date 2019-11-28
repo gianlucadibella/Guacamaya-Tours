@@ -7,7 +7,7 @@
 </div>
 
 
-<div class="text-center clickable">
+<div class="text-center clickable" (click)=" checkDestinationsDetails('Montaña')">
     <div class="row">
       <div class="container col-sm bg-light">
         <h3 class="display-4">Montaña</h3>
@@ -16,14 +16,14 @@
             <div class="texto">Haga click para descubrir todos los destinos de montaña</div>
         </div>
     </div>
-      <div class="container col-sm bg-light">
+      <div class="container col-sm bg-light" (click)=" checkDestinationsDetails('Playa')">
         <h3 class="display-4">Playa</h3>
         <img src="https://s3-us-west-1.amazonaws.com/tipsparatuviaje/wp-content/uploads/2016/07/2.-Morrocoy-Falc%C3%B3n.jpg" alt="Imagen playa" width="300px" height="350px">
         <div class="overlay overlayCross">
             <div class="texto">Haga click para descubrir todos los destinos de playa</div>
         </div>
     </div>
-      <div class="container col-sm bg-light">
+      <div class="container col-sm bg-light" (click)=" checkDestinationsDetails('Ciudad')">
         <h3 class="display-4">Ciudad</h3>
         <img src="https://www.panorama.com.ve/__export/1469448930303/sites/panorama/img/101aniversario/2016/07/25/caracas.jpg_2092282273.jpg" alt="Imagen Ciudad" width="300px" height="350px">
         <div class="overlay overlayCross">
