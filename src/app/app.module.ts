@@ -49,6 +49,7 @@ import { PosiblesDestinosComponent } from './planea-tu-viaje/posibles-destinos/p
 import { PaymentComponent } from './payment/payment.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +81,7 @@ import { PaymentComponent } from './payment/payment.component';
     CarritoComponent,
     PaymentComponent,
     PosiblesDestinosComponent,
+   
   
   ],
   imports: [
