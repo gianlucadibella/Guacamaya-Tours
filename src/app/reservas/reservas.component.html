@@ -31,7 +31,7 @@
             <p>Maximo de personas: {{ hab.maximoDePersonas }}</p>
             <p>Comodidades: {{ hab.comodidades }}</p>
             {{hab?.cantidad}}
-            <input type="number"  min="0" [max]="hab.cantidad">
+            <input type="number"  min="0" [max]="hab.cantidadM" [(ngModel)]= "hab.cantidad">
         </div>
 
         </div>
@@ -43,24 +43,25 @@
 <select [(ngModel)]="cantPersonas" (ngModelChange)="onChange()">
     <option *ngFor="let item of list" [value]="item">{{item}}</option>
 </select>
-<form *ngIf="cantPersonas  > 0">
-    <div *ngFor="let x of cantidad">
+<form *ngIf="cantPersonas > 0" (ngSubmit)="onSubmit()">
+    <div *ngFor="let x of cantidad ; let i = index;" >
         <div class="form-group">
-            <label for=imagenes>Nombre:</label>
-            <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="x.nombre" name="imagen">
-            <p>(Coloque los links separados por un *** para que sean añadidos correctamente)</p>
+            <label for=nombre>Nombre:</label>
+            <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="cantidad[i].nombre" name="imagen">
         </div>
         <div class="form-group">
-            <label for=estrellas>Apellido:</label>
-            <input class="form-control" type="text" placeholder="Añadir estrellas" [(ngModel)]="x.apellido" name="estrellas">
+            <label for=apellido>Apellido:</label>
+            <input class="form-control" type="text" placeholder="apellido" [(ngModel)]="cantidad[i].apellido" name="estrellas">
         </div>
         <div class="form-group">
-            <label for=direccion>Cedula:</label>
-            <input class="form-control" type="text" placeholder="Añadir direccion" [(ngModel)]="x.cedula" name="direccion">
+            <label for=cedula>Cedula:</label>
+            <input class="form-control" type="text" placeholder="cedula" [(ngModel)]="cantidad[i].cedula" name="direccion">
         </div>
         <div>
-            <label for=info>Edad:</label>
-            <input class="form-control" type="text" placeholder="Añadir informacion" [(ngModel)]="x.edad" name="informacion">
+            <label for=edad>Edad:</label>
+            <input class="form-control" type="text" placeholder="edad" [(ngModel)]="cantidad[i].edad" name="informacion">
         </div>
     </div>
+    <h2>Para proceder con el pago:</h2>
+    <input type="submit">
 </form>

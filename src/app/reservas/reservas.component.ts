@@ -6,6 +6,8 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Integrantes, Itinerario } from 'src/models/orden';
 import { ServicioService } from '../servicio.service';
+import { checkServerIdentity } from 'tls';
+import { isNgTemplate } from '@angular/compiler';
 
 
 
@@ -26,7 +28,12 @@ export class ReservasComponent implements OnInit {
   habsescogidas: TipoDeHabitacion[];
   hoys = '';
   colorTheme = 'theme-default';
-  itinerario: Itinerario;
+  itinerario = {
+    fecha: [],
+    tipoHabitacion: [],
+    costoTotal: 0,
+    integrantes: [],
+  };
   bsConfig: Partial<BsDatepickerConfig>;
   daterangepickerModel: Date[];
   locale = 'es-us';
@@ -62,10 +69,43 @@ export class ReservasComponent implements OnInit {
 
   onChange() {
     console.log(this.cantPersonas);
-    this.cantidad.length = this.cantPersonas;
+    this.cantidad = [];
+    const aja = {
+      nombre: '',
+      apellido: '',
+      cedula: 0,
+      edad: 0
+    }
+    for(let i = 0; i < this.cantPersonas; i++){
+
+      this.cantidad.push(aja);
+    }
+    console.log(this.cantidad);
+  }
+  check() {
+    if (this.daterangepickerModel === undefined) {
+      return false;
+    }
+    let cuenta = 0;
+    console.log(this.habs.length);
+    for (const hab  of this.habs) {
+    cuenta = cuenta + (hab.maximoDePersonas * hab.cantidad);
+    }
+    console.log(cuenta);
+    console.log(this.cantidad.length)
+    if(cuenta < this.cantidad.length) {
+      return false;
+    }
+    for (const int  of this.cantidad) {
+      if (int.nombre === '' || int.cedula === 0 || int.edad === 0 || int.apellido === ''){
+        return false;
+      }
+    }
+    return true;
   }
 
   onSubmit() {
+    if(this.check()){
     this.itinerario.fecha = this.daterangepickerModel;
     this.itinerario.costoTotal = this.getPrice();
     this.itinerario.tipoHabitacion = this.habs;
@@ -73,38 +113,84 @@ export class ReservasComponent implements OnInit {
     if (localStorage.getItem('itinerario1') === null) {
 
       localStorage.setItem('itinerario1', JSON.stringify(this.itinerario));
+      alert('Reserva completada.');
+
 
     } else if (localStorage.getItem('itinerario2') === null) {
 
       // tslint:disable-next-line: max-line-length
-      if ((this.itinerario.fecha[0] > JSON.parse( localStorage.getItem('itinerario1')[1]) ) || ( this.itinerario.fecha[1] < JSON.parse( localStorage.getItem('itinerario1')[0])) ){
+      const it1 =JSON.parse( localStorage.getItem('itinerario1'));
+
+      // tslint:disable-next-line: max-line-length
+      if ((this.itinerario.fecha[0].toISOString() > it1.fecha[1])  || ( this.itinerario.fecha[1].toISOString() < it1.fecha[0]))  {
 
         localStorage.setItem('itinerario2', JSON.stringify(this.itinerario));
+        alert('Reserva completada.');
+
       } else {
         alert('Usted ya ha reservado en esta fecha.');
       }
     } else if (localStorage.getItem('itinerario3') === null) {
-      // tslint:disable-next-line: max-line-length
-      if (((this.itinerario.fecha[0] > JSON.parse( localStorage.getItem('itinerario1')[1]) ) || ( this.itinerario.fecha[1] < JSON.parse( localStorage.getItem('itinerario1')[0]))
-            // tslint:disable-next-line: max-line-length
-            && (this.itinerario.fecha[0] > JSON.parse( localStorage.getItem('itinerario2')[1]) ) || ( this.itinerario.fecha[1] < JSON.parse( localStorage.getItem('itinerario2')[0])))) {
 
-        localStorage.setItem('itinerario2', JSON.stringify(this.itinerario));
+      const it1 =JSON.parse( localStorage.getItem('itinerario1'));
+      const it2 =JSON.parse( localStorage.getItem('itinerario2'));
+      // tslint:disable-next-line: max-line-length
+      if (((this.itinerario.fecha[0].toISOString() > it1.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it1.fecha[0]))
+            // tslint:disable-next-line: max-line-length
+            && ((this.itinerario.fecha[0].toISOString() > it2.fecha[1])  || ( this.itinerario.fecha[1].toISOString() < it2.fecha[0]))) {
+
+        localStorage.setItem('itinerario3', JSON.stringify(this.itinerario));
+        alert('Reserva completada.');
+      } else {
+        alert('Usted ya ha reservado en esta fecha.x');
+      }
+    } else if (localStorage.getItem('itinerario4') === null) {
+
+      const it1 =JSON.parse( localStorage.getItem('itinerario1'));
+      const it2 =JSON.parse( localStorage.getItem('itinerario2'));
+      const it3 =JSON.parse( localStorage.getItem('itinerario3'));
+      // tslint:disable-next-line: max-line-length
+      if (((this.itinerario.fecha[0].toISOString() > it1.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it1.fecha[0]))
+            // tslint:disable-next-line: max-line-length
+            && ((this.itinerario.fecha[0].toISOString() > it2.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it2.fecha[0]))
+            // tslint:disable-next-line: max-line-length
+            && ((this.itinerario.fecha[0].toISOString() > it3.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it3.fecha[0]))) {
+
+        localStorage.setItem('itinerario4', JSON.stringify(this.itinerario));
+        alert('Reserva completada.');
       } else {
         alert('Usted ya ha reservado en esta fecha.');
       }
-    } else if (localStorage.getItem('itinerario4') === null) {
-      localStorage.setItem('itinerario4', JSON.stringify(this.itinerario));
     } else if (localStorage.getItem('itinerario5') === null) {
-      localStorage.setItem('itinerario5', JSON.stringify(this.itinerario));
-    }
 
+      const it1 =JSON.parse( localStorage.getItem('itinerario1'));
+      const it2 =JSON.parse( localStorage.getItem('itinerario2'));
+      const it3 =JSON.parse( localStorage.getItem('itinerario3'));
+      const it4 = JSON.parse(localStorage.getItem('itinerario4'));
+      // tslint:disable-next-line: max-line-length
+      if (((this.itinerario.fecha[0].toISOString() > it1.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it1.fecha[0]))
+            // tslint:disable-next-line: max-line-length
+            && ((this.itinerario.fecha[0].toISOString() > it2.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it2.fecha[0]))
+            // tslint:disable-next-line: max-line-length
+            && ((this.itinerario.fecha[0].toISOString() > it3.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it3.fecha[0]))
+            // tslint:disable-next-line: max-line-length
+            && ((this.itinerario.fecha[0].toISOString() > it4.fecha[1] ) || ( this.itinerario.fecha[1].toISOString() < it4.fecha[0]))) {
+
+        localStorage.setItem('itinerario5', JSON.stringify(this.itinerario));
+        alert('Reserva completada.');
+      } else {
+        alert('Usted ya ha reservado en esta fecha.');
+      }
+    }
+  }else{
+    alert('Ingreso algun dato erroneo, o no ingreso bien el dato');
+  }
 
   }
 
   getPrice() {
     let x = 0;
-    for (const entry of this.habsescogidas) {
+    for (const entry of this.habs) {
       x = x + entry.precio; // 1, "string", false
   }
     return x;

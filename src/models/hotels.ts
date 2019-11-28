@@ -13,7 +13,6 @@ fullday: boolean;
 transporte: boolean;
 piscina: boolean;
 gimnasio: boolean;
-deportes: boolean;
 animales: boolean;
 info: string;
 available: boolean;

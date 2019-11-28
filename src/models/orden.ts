@@ -2,13 +2,12 @@ import { TipoDeHabitacion } from './hotels';
 
 export class Orden {
 
-id: string;
+id?: string;
 nombreCliente: string;
 cedula: number;
 correo: string;
 telefono: number;
 direccion: string;
-estatus: boolean;
 localizador: number;
 itinerario: Itinerario[];
 

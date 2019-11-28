@@ -36,7 +36,12 @@ export class EditarHComponent implements OnInit {
     latitud:'',
     direccion:'',
     longitud:'',
-    servicios: '',
+    wifi: false,
+    fullday: false,
+    transporte: false,
+    piscina: false,
+    gimnasio: false,
+    animales: false,
     available: true,
     gugulmaps:'',
   }
@@ -66,7 +71,12 @@ export class EditarHComponent implements OnInit {
     this.hotel.fotos='';
     this.hotel.estrellas=0;
     this.hotel.info='';
-    this.hotel.servicios='';
+    this.hotel.wifi=false;
+    this.hotel.fullday=false;
+    this.hotel.transporte=false;
+    this.hotel.piscina=false;
+    this.hotel.gimnasio=false;
+    this.hotel.animales=false;
     this.hotel.latitud='',
     this.hotel.direccion='';
     this.hotel.longitud='',
@@ -88,6 +98,85 @@ export class EditarHComponent implements OnInit {
   disp3(){
     this.hotelEditado.available=false;
   }
+
+  wifi(){
+    this.hotel.wifi = true;
+  }
+  wifi2(){
+    this.hotel.wifi = false;
+  }
+  wifi3(){
+    this.hotelEditado.wifi = true;
+  }
+  wifi4(){
+    this.hotelEditado.wifi = false;
+  }
+
+  full(){
+    this.hotel.fullday = true;
+  }
+  full2(){
+    this.hotel.fullday = false;
+  }
+  full3(){
+    this.hotelEditado.fullday = true;
+  }
+  full4(){
+    this.hotelEditado.fullday = false;
+  }
+
+  carro(){
+    this.hotel.transporte = true;
+  }
+  carro2(){
+    this.hotel.transporte = false;
+  }
+  carro3(){
+    this.hotelEditado.transporte = true;
+  }
+  carro4(){
+    this.hotelEditado.transporte = false;
+  }
+
+  pool(){
+    this.hotel.piscina = true;
+  }
+  pool2(){
+    this.hotel.piscina = false;
+  }
+  pool3(){
+    this.hotelEditado.piscina = true;
+  }
+  pool4(){
+    this.hotelEditado.piscina = false;
+  }
+
+  gym(){
+    this.hotel.gimnasio = true;
+  }
+  gym2(){
+    this.hotel.gimnasio = false;
+  }
+  gym3(){
+    this.hotelEditado.gimnasio = true;
+  }
+  gym4(){
+    this.hotelEditado.gimnasio = false;
+  }
+
+  dog(){
+    this.hotel.animales = true;
+  }
+  dog2(){
+    this.hotel.animales = false;
+  }
+  dog3(){
+    this.hotelEditado.animales = true;
+  }
+  dog4(){
+    this.hotelEditado.animales = false;
+  }
+
   
   deleteHotel(event, es: Hotels){
     this.clearState();

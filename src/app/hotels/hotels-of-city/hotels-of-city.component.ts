@@ -45,8 +45,9 @@ export class HotelsOfCityComponent implements OnInit {
 
 
 
-  cambiarHotelActual(itemName: string){
-    this.router.navigate(['/hotel-caracteristicas'], {queryParams: { name: itemName}});
+  cambiarHotelActual(item: Hotels){
+    this.s.setHotel(item);
+    
   }
 
 }
