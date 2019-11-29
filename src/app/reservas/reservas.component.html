@@ -29,7 +29,7 @@
             <p>Maximo de personas: {{ hab.maximoDePersonas }}</p>
             <p>Comodidades: {{ hab.comodidades }}</p>
             <p>Cantidad de habitaciones: {{hab?.cantidad}}</p>
-            <input type="number"  min="0" [max]="hab.cantidadM" [(ngModel)]= "hab.cantidad">
+            <input type="number" readonly min="0" [max]="hab.cantidadM" [(ngModel)]= "hab.cantidad">
             <p>La fecha elegida es: {{daterangepickerModel}}</p>
             <hr>
         </div>
@@ -39,25 +39,25 @@
 </select>
 <div class="container" class="bg-light">
 <form *ngIf="cantPersonas > 0" (ngSubmit)="onSubmit()">
-    <div *ngFor="let x of cantidad ; let i = index;" >
+    <div *ngFor="let x of cantidad ; let i = index" >
         <div class="form-group">
             <label for=nombre>Nombre:</label>
-            <input class="form-control"  type="text" placeholder="Ingrese nombre" [(ngModel)]="cantidad[i].nombre" name="imagen">
+            <input class="form-control"  type="text" placeholder="Ingrese nombre" [(ngModel)]="cantidad[i].nombre" [name]="'nombre' + i">
             <small id="nameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div class="form-group">
             <label for=apellido>Apellido:</label>
-            <input class="form-control" type="text" placeholder="Ingrese apellido" [(ngModel)]="cantidad[i].apellido" name="estrellas">
+            <input class="form-control" type="text" placeholder="Ingrese apellido" [(ngModel)]="cantidad[i].apellido" [name]="'apellido' + i">
             <small id="lastNameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div class="form-group">
             <label for=cedula>Cédula:</label>
-            <input class="form-control"  type="text" placeholder="Ingrese cédula" [(ngModel)]="cantidad[i].cedula" name="direccion">
+            <input class="form-control"  type="text" placeholder="Ingrese cédula" [(ngModel)]="cantidad[i].cedula" [name]="'cedula' + i">
             <small id="idHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div>
             <label for=edad>Edad:</label>
-            <input class="form-control"  type="text" placeholder="Ingrese la edad" [(ngModel)]="cantidad[i].edad" name="informacion">
+            <input class="form-control"  type="text" placeholder="Ingrese la edad" [(ngModel)]="cantidad[i].edad" [name]="'ka' + i">
             <small id="edadHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
     </div>
