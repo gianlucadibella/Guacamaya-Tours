@@ -1,12 +1,13 @@
 <div class="container">
     <div class="mt-2">
         <h6 class="display-4">Nuestras redes</h6>
+        <div class="center">
         <div class="containerContacto">
             <a href="https://wa.me/+584242749468" target="_blank"><img src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c543.png" alt="WhatsApp" width="125" height="125"></a>
            
             <img src="https://www.freepnglogos.com/uploads/logo-gmail-png/logo-gmail-png-portfolio-you-just-zealousyou-just-zealous-3.png" alt="Gmail" width="150" height="150">
             <a href="https://www.instagram.com/guacamayatoursoficial/?hl=es-la" target="_blank"><img src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" alt="Instagram" width="100" height="100"></a>
-            
+          </div>
         </div>
     </div>
     <hr>
@@ -41,7 +42,7 @@
                                       <div class="ml-4">
                                     <input name="orderStatus" type="radio" (click)="orderStatusChanged('Reservado')" formControlName="orderStatus"
                                       id="orderStatus" value="Reservado" class="form-check-input">
-                                    <span>Reservado</span>
+                                    <span>No pagado</span>
                                 </div>
                                   </label>
                                 </p>
@@ -56,8 +57,9 @@
                                 </p>
                               </div>
                               <!-- <label for="reserveCode">Codigo de reserva</label>
+                              <label for="reserveCode">Localizador de orden</label>
                                 <input class="form-control" type="text" id="reserveCode" formControlName="reserveCode">
-                              
+                                <small id="emailHelp" class="form-text text-muted">En el caso de no tener localizador, coloque "no"</small>
                                 <div *ngIf="ourForm.get('reserveCode').touched && ourForm.get('reserveCode').errors?.required">
                                   <span class="helper-text">El codigo de reserva es obligatorio</span>
                                 </div> -->
@@ -86,7 +88,7 @@
                                 <div class="indeterminate"></div>
                               </div>
                               <div class="mt-3">
-                              <input type="submit" value="Submit" [disabled]="ourForm.invalid" (click)="submitData(ourForm.value)"
+                              <input type="submit" value="Enviar" [disabled]="ourForm.invalid" (click)="submitData(ourForm.value)"
                               class="btn btn-primary">
                             </div>
                             </form>
