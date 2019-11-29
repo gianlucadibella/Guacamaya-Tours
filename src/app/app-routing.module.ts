@@ -24,6 +24,7 @@ import { DetailOfHotelComponent } from './hotels/detail-of-hotel/detail-of-hotel
 import { CarritoComponent } from 'src/app/carrito/carrito.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PosiblesDestinosComponent } from './planea-tu-viaje/posibles-destinos/posibles-destinos.component';
+import { CheckoutComponent } from './carrito/checkout/checkout.component';
 
 
 
@@ -53,6 +54,7 @@ const routes: Routes = [
   {path: 'posibles-destinos', component: PosiblesDestinosComponent, children: [{
     path: 'id', component: PosiblesDestinosComponent}
   ]},
+  {path: 'checkout', component:CheckoutComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'ciudades', component: DestinationsComponent},
   {path: 'explora', component: CitiesComponent },

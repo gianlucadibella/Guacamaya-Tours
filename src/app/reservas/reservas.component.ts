@@ -7,8 +7,8 @@ import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Integrantes, Itinerario } from 'src/models/orden';
 import { ServicioService } from '../servicio.service';
 import { isNgTemplate } from '@angular/compiler';
-
-
+import { RouterLink, Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-reservas',
@@ -17,7 +17,7 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class ReservasComponent implements OnInit {
 
-  constructor(private serv: ServiciosService, private localeService: BsLocaleService, private s: ServicioService) { }
+  constructor(private fb: FormBuilder,private serv: ServiciosService, private localeService: BsLocaleService, private s: ServicioService, public router: Router) { }
 
   hactual: Hotels;
   hs: Hotels[];
@@ -39,9 +39,9 @@ export class ReservasComponent implements OnInit {
   list: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   cantPersonas = 0;
   cantidad: Integrantes[] = [];
+  cantidad2: Integrantes[] = [];
   nombre: string;
-
-
+ 
   ngOnInit() {
 
     this.hactual = this.serv.getHotel();
@@ -69,6 +69,7 @@ export class ReservasComponent implements OnInit {
   onChange() {
     console.log(this.cantPersonas);
     this.cantidad = [];
+    this.cantidad2 = [];
     const aja = {
       nombre: '',
       apellido: '',
@@ -78,6 +79,7 @@ export class ReservasComponent implements OnInit {
     for(let i = 0; i < this.cantPersonas; i++){
 
       this.cantidad.push(aja);
+      this.cantidad2.push(aja);
     }
     console.log(this.cantidad);
   }
@@ -96,7 +98,7 @@ export class ReservasComponent implements OnInit {
       return false;
     }
     for (const int  of this.cantidad) {
-      if (int.nombre === '' || int.cedula === 0 || int.edad === 0 || int.apellido === ''){
+      if (int.nombre === '' || int.cedula === 0 || int.edad === 0 || int.apellido === '') {
         return false;
       }
     }
@@ -104,16 +106,16 @@ export class ReservasComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.check()){
+    if (this.check()) {
     this.itinerario.fecha = this.daterangepickerModel;
     this.itinerario.costoTotal = this.getPrice();
     this.itinerario.tipoHabitacion = this.habs;
-    this.itinerario.integrantes = this.cantidad;
+    this.itinerario.integrantes = this.cantidad2;
     if (localStorage.getItem('itinerario1') === null) {
 
       localStorage.setItem('itinerario1', JSON.stringify(this.itinerario));
       alert('Reserva completada.');
-
+      this.router.navigateByUrl('/carrito');
 
     } else if (localStorage.getItem('itinerario2') === null) {
 
@@ -125,7 +127,7 @@ export class ReservasComponent implements OnInit {
 
         localStorage.setItem('itinerario2', JSON.stringify(this.itinerario));
         alert('Reserva completada.');
-
+        this.router.navigateByUrl('/carrito');
       } else {
         alert('Usted ya ha reservado en esta fecha.');
       }
@@ -140,6 +142,7 @@ export class ReservasComponent implements OnInit {
 
         localStorage.setItem('itinerario3', JSON.stringify(this.itinerario));
         alert('Reserva completada.');
+        this.router.navigateByUrl('/carrito');
       } else {
         alert('Usted ya ha reservado en esta fecha.x');
       }
@@ -157,6 +160,7 @@ export class ReservasComponent implements OnInit {
 
         localStorage.setItem('itinerario4', JSON.stringify(this.itinerario));
         alert('Reserva completada.');
+        this.router.navigateByUrl('/carrito');
       } else {
         alert('Usted ya ha reservado en esta fecha.');
       }
@@ -177,6 +181,7 @@ export class ReservasComponent implements OnInit {
 
         localStorage.setItem('itinerario5', JSON.stringify(this.itinerario));
         alert('Reserva completada.');
+        this.router.navigateByUrl('/carrito');
       } else {
         alert('Usted ya ha reservado en esta fecha.');
       }

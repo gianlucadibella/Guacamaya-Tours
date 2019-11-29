@@ -47,6 +47,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { PosiblesDestinosComponent } from './planea-tu-viaje/posibles-destinos/posibles-destinos.component';
 
 import { PaymentComponent } from './payment/payment.component';
+import { CheckoutComponent } from './carrito/checkout/checkout.component';
 
 
 
@@ -81,6 +82,7 @@ import { PaymentComponent } from './payment/payment.component';
     CarritoComponent,
     PaymentComponent,
     PosiblesDestinosComponent,
+    CheckoutComponent,
    
   
   ],
