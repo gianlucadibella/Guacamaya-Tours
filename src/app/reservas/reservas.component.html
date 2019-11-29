@@ -43,11 +43,12 @@
         <div class="form-group">
             <label for=nombre>Nombre:</label>
             <input class="form-control"  type="text" placeholder="Ingrese nombre" [(ngModel)]="cantidad[i].nombre" name="imagen">
+            <small id="nameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div class="form-group">
             <label for=apellido>Apellido:</label>
             <input class="form-control" type="text" placeholder="Ingrese apellido" [(ngModel)]="cantidad[i].apellido" name="estrellas">
-            <small id="nameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
+            <small id="lastNameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div class="form-group">
             <label for=cedula>Cédula:</label>
