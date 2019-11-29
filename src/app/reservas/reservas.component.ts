@@ -197,6 +197,7 @@ export class ReservasComponent implements OnInit {
     for (const entry of this.habs) {
       x = x + entry.precio; // 1, "string", false
   }
+    this.serv.setPrice(x);
     return x;
   }
 

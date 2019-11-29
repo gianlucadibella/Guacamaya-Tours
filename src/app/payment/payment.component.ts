@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { ServiciosService } from '../services/servicios.service';
 
 
 declare var paypal;
@@ -12,13 +15,19 @@ export class PaymentComponent implements OnInit {
   @ViewChild('paypal', { static: true }) paypalElement: ElementRef;
 
   product = {
-    price: 100.00,
+    price: this.serv.getPrice(),
     description: 'Mejor viaje de tu vida'
   };
-
+  private documento: AngularFirestoreCollection<any>;
+  constructor( private firestore: AngularFirestore, private serv: ServiciosService) {}
   paidFor = false;
+  ourForm: FormGroup;
+
+  submitting = false;
+  submitted = false;
 
   ngOnInit() {
+    this.documento = this.firestore.collection('correos');
     paypal
       .Buttons({
         createOrder: (data, actions) => {
@@ -37,6 +46,7 @@ export class PaymentComponent implements OnInit {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           this.paidFor = true;
+          this.submitData();
           console.log(order);
         },
         onError: err => {
@@ -44,5 +54,11 @@ export class PaymentComponent implements OnInit {
         }
       })
       .render(this.paypalElement.nativeElement);
+      
+  }
+
+  submitData(){
+    this.documento.add(this.serv.getOrden());
+
   }
 }

@@ -12,12 +12,36 @@ import { ServicioService } from '../servicio.service';
 })
 export class ServiciosService {
 
-  constructor(s: ServicioService) { }
+  constructor(private s: ServicioService) { }
 
   hotel: Hotels;
+  orden: Orden;
+  nombre: string;
+  ordenes: Orden[];
+  precio: number;
+
+  setPrice(precio: number){
+    this.precio =precio;
+  }
+
+  getPrice(){
+    return this.precio;
+  }
 
   setHotel(xs: Hotels){
     this.hotel = xs;
+  }
+  setOrden(xs: Orden){
+    this.orden = xs;
+    this.nombre = this.orden.nombreCliente;
+  }
+  getOrden(){
+    this.s.getOrden().subscribe( items =>{
+      this.ordenes = items;
+      console.log(this.ordenes)
+    })
+    this.orden = this.ordenes.find(item => item.nombreCliente === this.nombre);
+    return this.orden;
   }
 
   getHotel(){

@@ -28,8 +28,9 @@
             <p>Nombre: {{ hab.nombre }}</p>
             <p>Maximo de personas: {{ hab.maximoDePersonas }}</p>
             <p>Comodidades: {{ hab.comodidades }}</p>
-            <p>Cantidad de habitaciones: {{hab?.cantidad}}</p>
-            <input type="number" readonly min="0" [max]="hab.cantidadM" [(ngModel)]= "hab.cantidad">
+            <p>Cantidad de habitaciones: {{hab?.cantidadM}}</p>
+            <p>Precio de habitacion: {{ hab.precio }}</p>
+            <input type="number" value="0" min="0" [max]="hab.cantidadM" [(ngModel)]= "hab.cantidad">
             <p>La fecha elegida es: {{daterangepickerModel}}</p>
             <hr>
         </div>

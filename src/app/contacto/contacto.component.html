@@ -55,12 +55,12 @@
                                   </label>
                                 </p>
                               </div>
-                              <label for="reserveCode">Codigo de reserva</label>
+                              <!-- <label for="reserveCode">Codigo de reserva</label>
                                 <input class="form-control" type="text" id="reserveCode" formControlName="reserveCode">
                               
                                 <div *ngIf="ourForm.get('reserveCode').touched && ourForm.get('reserveCode').errors?.required">
                                   <span class="helper-text">El codigo de reserva es obligatorio</span>
-                                </div>
+                                </div> -->
 
                                 <div *ngIf="ourForm.get('reserveCode').touched && ourForm.get('reserveCode').errors?.validURL">
                                   <span class="helper-text">Ingrese un codigo de reserva valido</span>

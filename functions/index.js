@@ -30,6 +30,22 @@ exports.sendMailNotification = functions.firestore.document('submissions/{docId}
             err=>console.log(err)
         );
         })
+
+        exports.sendMailOrder = functions.firestore.document('correos/{docId}')
+        .onCreate((snap,ctx)=>{
+        
+                const data=snap.data();
+            
+                authData.sendMail({
+                    from: 'guacamayatoursoficial@gmail.com',
+                    to: data.correo,
+                    subject: 'Detalles orden reservacion GUACAMAYA TOURS',
+                   // text: data.name + ', Papi lo logramos',
+                    html: data.nombreCliente + ', tu orden fue añadida exitosamente. Para ver los datos de su orden, ingrese este localizador en nuestra pagina' + data.telefono,
+                }).then(res=>console.log('Succesfuly sent that email')).catch(
+                    err=>console.log(err)
+                );
+                })        
         
       
 //         // getting dest email by query string
