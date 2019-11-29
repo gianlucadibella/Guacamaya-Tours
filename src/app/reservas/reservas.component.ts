@@ -39,6 +39,7 @@ export class ReservasComponent implements OnInit {
   list: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   cantPersonas = 0;
   cantidad: Integrantes[] = [];
+  cantidad2: Integrantes[] = [];
   nombre: string;
  
   ngOnInit() {
@@ -68,6 +69,7 @@ export class ReservasComponent implements OnInit {
   onChange() {
     console.log(this.cantPersonas);
     this.cantidad = [];
+    this.cantidad2 = [];
     const aja = {
       nombre: '',
       apellido: '',
@@ -77,6 +79,7 @@ export class ReservasComponent implements OnInit {
     for(let i = 0; i < this.cantPersonas; i++){
 
       this.cantidad.push(aja);
+      this.cantidad2.push(aja);
     }
     console.log(this.cantidad);
   }
@@ -107,7 +110,7 @@ export class ReservasComponent implements OnInit {
     this.itinerario.fecha = this.daterangepickerModel;
     this.itinerario.costoTotal = this.getPrice();
     this.itinerario.tipoHabitacion = this.habs;
-    this.itinerario.integrantes = this.cantidad;
+    this.itinerario.integrantes = this.cantidad2;
     if (localStorage.getItem('itinerario1') === null) {
 
       localStorage.setItem('itinerario1', JSON.stringify(this.itinerario));

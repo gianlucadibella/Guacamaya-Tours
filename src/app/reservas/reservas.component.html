@@ -42,22 +42,22 @@
     <div *ngFor="let x of cantidad ; let i = index" >
         <div class="form-group">
             <label for=nombre>Nombre:</label>
-            <input class="form-control"  type="text" placeholder="Ingrese nombre" [(ngModel)]="cantidad[i].nombre" [name]="'nombre' + i">
+            <input class="form-control"  type="text" placeholder="Ingrese nombre" [(ngModel)]="cantidad2[i].nombre" name=" sadad + {{i}}">
             <small id="nameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div class="form-group">
             <label for=apellido>Apellido:</label>
-            <input class="form-control" type="text" placeholder="Ingrese apellido" [(ngModel)]="cantidad[i].apellido" [name]="'apellido' + i">
+            <input class="form-control" type="text" placeholder="Ingrese apellido" [(ngModel)]="cantidad2[i].apellido" [name]="'apellido' + i">
             <small id="lastNameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div class="form-group">
             <label for=cedula>Cédula:</label>
-            <input class="form-control"  type="text" placeholder="Ingrese cédula" [(ngModel)]="cantidad[i].cedula" [name]="'cedula' + i">
+            <input class="form-control"  type="text" placeholder="Ingrese cédula" [(ngModel)]="cantidad2[i].cedula" [name]="'cedula' + i">
             <small id="idHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
         <div>
             <label for=edad>Edad:</label>
-            <input class="form-control"  type="text" placeholder="Ingrese la edad" [(ngModel)]="cantidad[i].edad" [name]="'ka' + i">
+            <input class="form-control"  type="text" placeholder="Ingrese la edad" [(ngModel)]="cantidad2[i].edad" [name]="'ka' + i">
             <small id="edadHelp" class="form-text text-muted">No se compartiran tus datos.</small>
         </div>
     </div>
