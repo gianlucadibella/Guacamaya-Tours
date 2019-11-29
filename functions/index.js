@@ -23,7 +23,7 @@ exports.sendMailNotification = functions.firestore.document('submissions/{docId}
         authData.sendMail({
             from: 'guacamayatoursoficial@gmail.com',
             to: `${data.email}`,
-            subject: 'Your submission info',
+            subject: 'Solicitud de contacto GUACAMAYA TOURS',
             // text:
             html: `${data.fullName}`+', recibimos tu solicitud, te responderemos en lo mas posible',
         }).then(res=>console.log('Succesfuly sent that email')).catch(
