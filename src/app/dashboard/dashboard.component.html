@@ -8,50 +8,11 @@
         <p>Conectamos firebase para que cuente las visitas de la pagina y se muestran</p>
         <hr>
                 <h3>Reservas totales:</h3>
-        <div class="dashboard2">
-            <div class="cuadroCompras">
-                    
-                    <div class="cuadroCompras2">
-                    <h6>Nombre</h6>
-                    <hr>
-                    <div class="cuadroCompras3">
-                               <!-- ng for para desplegar Nombre -->
-
-                        </div>
-                    </div>
-                    <div class="cuadroCompras2">
-                    <h6>Número Telefónico</h6>
-                    <hr>
-                    <div class="cuadroCompras3">
-                             <!-- ng for para desplegar numero telefonico -->
-                        </div>
-                        </div>
-                        <div class="cuadroCompras2">
-                    <h6>Destinos</h6>
-                    <hr>
-                            <div class="cuadroCompras3">
-                                <!-- ng for para desplegar destinos -->     
-                            </div>
-                        </div>
-                        <div class="cuadroCompras2">
-                    <h6>Pagado</h6>
-                    <hr>
-                    <div class="cuadroCompras3">
-                        <!-- ng for para desplegar el booleano de pago -->
-                        </div>
-                        </div>
-                        <div class="cuadroCompras2">
-                                <h6>ID</h6>
-                                <hr>
-                                <div class="cuadroCompras3">
-                                    <!-- ng for para desplegar el ID de reserva -->
-                                    </div>
-                                    </div>
-            </div>
-        </div>
-        </div>
+                <div *ngFor="let x of ordenes">
+                    <p>Hecha por: {{x.nombreCliente}}</p>
+                    <p>ID: {{x.id}}</p>
+                </div>
         <hr>
-        <h3>Estadisticas</h3>
-        <p>Aqui con Firebase se agrega Google Analytics</p>
+
 </div>
 
