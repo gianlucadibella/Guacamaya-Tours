@@ -36,11 +36,6 @@ export class ServiciosService {
     this.nombre = this.orden.nombreCliente;
   }
   getOrden(){
-    this.s.getOrden().subscribe( items =>{
-      this.ordenes = items;
-      console.log(this.ordenes)
-    })
-    this.orden = this.ordenes.find(item => item.nombreCliente === this.nombre);
     return this.orden;
   }
 
