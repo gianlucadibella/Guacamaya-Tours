@@ -1,0 +1,178 @@
+<div class="container">
+        <div>
+            <div >
+                <div >
+                    <div class="mt-3">
+                            <h3>Añadir destinos</h3>
+                    </div>
+                <hr>
+                <button type="button" (click)="addiDest()">
+                  Añadir hotel
+              </button>
+              <button type="button" (click)="cerrar()" *ngIf="addDest">
+                  Esconder
+              </button>
+                <form (ngSubmit)="onSubmit()" *ngIf="addDest">
+                    <div class="form-group">
+                        <label for="Estado">Estado:</label>
+                        <select class="form-control"type="text" placeholder="Añadir destino" [(ngModel)]="destino.estado" name="title">
+                          <option *ngFor="let x of estados">{{ x.nombre }}</option>
+                      </select>
+                      </div>
+                        <div class="form-group">
+                          <label for="Nombre">Nombre:</label>
+                          <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="destino.nombre" name="title">
+                        </div>
+                        <div class="form-group">
+                          <label for="Info">Información</label>
+                          <input class="form-control" type="text" placeholder="Añadir info" [(ngModel)]="destino.info" name="description">
+                        </div>
+                        <div class="form-group">
+                          <label for="Imagenes">Imagen:</label>
+                          <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="destino.imagen" name="description">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Deportes:</label>
+                        <button class="btn btn-light" type="button" (click)="sport()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="sport2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Cultura:</label>
+                        <button class="btn btn-light" type="button" (click)="cult()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="cult2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Frio:</label>
+                        <button class="btn btn-light" type="button" (click)="frio()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="frio2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Aventura:</label>
+                        <button class="btn btn-light" type="button" (click)="av()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="av2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nocturno:</label>
+                        <button class="btn btn-light" type="button" (click)="noche()">Si</button>
+                        <button class="btn btn-light" type="button" (click)="noche2()" >No</button>
+                        </div>
+                        <div class="form-group">
+                                <label for=direccion>Direccion</label>
+                                <input type="text" placeholder="Añadir direccion" class="form-control" [(ngModel)]="destino.direccion" name="direccion">
+                        </div>
+                        <div class="form-group">
+                                <label for="info">Información</label>
+                                <input type="text" class="form-control" placeholder="Añadir informacion" [(ngModel)]="destino.info" name="informacion">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="Estado">Tipo de destion:</label>
+                          <select class="form-control"type="text" placeholder="Añadir destino" [(ngModel)]="destino.tipoDeDestino" name="title">
+                            <option selected> Montaña </option>
+                            <option > Playa </option>
+                            <option > Ciudad </option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                                <button type="button" (click)="disp()" class="btn btn-light">Disponible</button>
+                                <button type="button" (click)="disp1()" class="btn btn-light">No disponible</button>
+                                <div class="pt-3">
+                                <div class="form-group">
+                                        <input type="submit" value="Submit" class="btn btn-success">
+                                      </div>
+                                </div>
+                        </div>
+                      </form>
+                </div>
+                <h3>Editar destinos</h3>
+                <ul class="list-group list-group-flush" *ngFor="let x of destinos">
+                    <li class="list-group-item"> Estado:{{x.estado}} || Destino: {{ x.nombre }} || Informacion: {{ x.info }} || Disponible: {{ x.available }} || {{x.tipoDeDestino}} || Imagenes: {{ x.id }}
+                            <button type="button" (click)="editDestino($event, x)" class="btn btn-outline-primary">Editar</button>  
+                            <button type="button" *ngIf="editDesti && destinoEditado.id == x.id" (click)="clearState()" class="btn btn-outline-primary" style="margin-left:5px">Esconder</button>  
+                          <div *ngIf="editDesti && destinoEditado.id == x.id">
+                            <form (ngSubmit)="updateDestino(x)">
+                                <div class="form-group">
+                                    <label for="Estado">Estado:</label>
+                                    <input class="form-control" type="text" placeholder="Añadir estado" [(ngModel)]="x.estado" name="estado">
+                                    <p>(Ingrese exactamente el nombre del estado para que sea añadido correctamente)</p>
+                                  </div>
+                                <div form="form-group">
+                                  <div class="mb-3">
+                                    <div form="form-group">
+                                      <label for=nombre>Nombre:</label>
+                                      <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="nombre">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for=info>Información:</label>
+                                   <input class="form-control" type="text" placeholder="Añadir info" [(ngModel)]="x.info" name="info">
+                                  </div>
+                                    <div class="form-group">
+                                        <label for=imagenes>Imagenes:</label>
+                                        <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="x.imagen" name="imagen">
+                                        <p>(Coloque los links separados por un *** para que sean añadidos correctamente)</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=descripcion>Descripción:</label>
+                                        <input class="form-control" type="text" placeholder="Añadir descripcion" [(ngModel)]="x.descripcion" name="description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Deportes:</label>
+                                    <button class="btn btn-light" type="button" (click)="sport3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="sport4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Cultura:</label>
+                                    <button class="btn btn-light" type="button" (click)="cult3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="cult4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Frio:</label>
+                                    <button class="btn btn-light" type="button" (click)="frio3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="frio4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Aventura:</label>
+                                    <button class="btn btn-light" type="button" (click)="av3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="av4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Nocturno:</label>
+                                    <button class="btn btn-light" type="button" (click)="noche3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="noche4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=direccion>Direccion:</label>
+                                        <input type="text" class="form-control" placeholder="Añadir direccion" [(ngModel)]="x.direccion" name="direccion">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=info>Info:</label>
+                                        <input type="text" class="form-control" placeholder="Añadir informacion" [(ngModel)]="x.info" name="informacion">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="Estado">Tipo de destino:</label>
+                                      <select class="form-control"type="text" placeholder="Añadir destino" [(ngModel)]="x.tipoDeDestino" name="title">
+                                        <option selected> Montaña </option>
+                                        <option > Playa </option>
+                                        <option > Ciudad </option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Google Maps:</label>
+                                        <input type="text" class="form-control" placeholder="Añadir googlemaps" [(ngModel)]="x.linkGoogleMaps" name="destino">
+                                    </div>
+                                    <button class="btn btn-light" type="button" (click)="disp2()">Disponible</button>
+                                    <button class="btn btn-light" type="button" (click)="disp3()" >No disponible</button>
+                                    <!-- <p>{{ x.available }}</p> -->
+                                    <div class="pt-3">
+                                   
+                                    <input class="btn btn-success" type="submit" value="Update estado">
+                                    <button style="margin-left:5px" class="btn btn-danger" (click)="deleteDestino($event, x)">Borrar estado</button>
+                                    
+                                    </div>
+                                  </div>
+                            </form>
+                          </div>
+                      
+                    </li>
+                </ul>

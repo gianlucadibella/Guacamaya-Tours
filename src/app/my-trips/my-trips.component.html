@@ -1,0 +1,49 @@
+<div class="container">
+        <div class="mt-3">
+    <h2>Mi Orden</h2>
+</div>
+    <hr>
+    <h4>¿Tienes una orden?</h4>
+    <div class="d-flex justify-content">
+                <form (submit)="verificationCode($event)">
+                        <input type="text" class="form-control" placeholder="Ingrese su numero de telefono" id="reservationcode">
+                        <div class="pt-2">
+                        <input class="btn btn-primary" type="submit"  value="Localizar mi orden">
+                </div>
+                </form>
+                <div  *ngIf="ordenes.length > 0">
+                        <div *ngFor="let x of ordenes">
+                                <p>Nombre: {{x.nombreCliente}}</p>
+                                <p>Cedula: {{x.cedula}}</p>
+                                <p>Correo: {{x.correo}}</p>
+                                <p>Telefono: {{x.telefono}}</p>
+                                <p>Direccion: {{x.direccion}}</p>
+                                <p>Itinerarios:</p>
+                                <div  *ngFor=" let y of x.itinerario">
+                                        <p>Fecha de salida: {{y.fecha[0]}}</p>
+                                        <p>Fecha de llegada: {{y.fecha[1]}}</p>\
+                                        <p>Precio: {{y.costoTotal}}</p>
+                                        <p>Integrantes:</p>
+                                        <div *ngFor ="let q of y.integrantes">
+                                                <p>{{q.nombre}}</p>
+                                        </div>
+
+
+                                </div>
+
+                        </div>
+                </div>
+             <!-- <input type="text"> -->
+            <!-- <div class="px-2"> -->
+                    <!-- <button type="button" class="btn btn-primary"> -->
+                            <!-- Verfica tu reserva -->
+                        <!-- </button> -->
+            <!-- </div> -->
+    </div> 
+    <div class="row">
+                <div class="col">
+                    <div *ngIf="check">
+                            <h6 class="text-muted"> Codigo inválido </h6>
+                    </div>
+    <p>Ingresa tu localizador de orden, sino tienes haz click <a routerLink="/planea-tu-viaje" routerLinkActive>aquí</a></p>
+</div>

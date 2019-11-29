@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="text-center">
+            <h2 style="text-decoration: underline;">Dashboard</h2>
+    </div>
+    <hr>
+    <div class="dashboard1">
+        <h3>Visitas</h3>
+        <p>Conectamos firebase para que cuente las visitas de la pagina y se muestran</p>
+        <hr>
+                <h3>Reservas totales:</h3>
+                <div *ngFor="let x of ordenes">
+                    <p>Hecha por: {{x.nombreCliente}}</p>
+                    <p>ID: {{x.id}}</p>
+                </div>
+        <hr>
+
+</div>
+

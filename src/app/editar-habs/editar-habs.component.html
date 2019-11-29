@@ -1,0 +1,152 @@
+<div class="container">
+<div>
+        <div >
+            <div >
+                <div class="mt-3">
+            <h3>Añadir habitaciones</h3>
+        </div>
+            <hr>
+            <button type="button" (click)="addiHab()">
+                Añadir hotel
+            </button>
+            <button type="button" (click)="cerrar()" *ngIf="addHab">
+                Esconder
+            </button>
+            <form (ngSubmit)="onSubmit()" *ngIf="addHab" >
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for=hotel>Hotel:</label>
+                        <select class="form-control"type="text" placeholder="Añadir hotel" [(ngModel)]="habitacion.hotel" name="title">
+                            <option *ngFor="let x of hoteles">{{ x.nombre }}</option>
+                        </select>
+                    </div>                
+                    <div class="form-group">
+                        <label for=nombre>Nombre:</label>
+                        <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="habitacion.nombre" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for=imagenes>Imagen:</label>
+                        <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="habitacion.fotos" name="imagen">
+                    </div>
+                    <div class="form-group">
+                        <label for=max>Maximo:</label>
+                        <input class="form-control" type="text" placeholder="Añadir maximo de personas" [(ngModel)]="habitacion.maximoDePersonas" name="peronas">
+                    </div>
+                    <div class="form-group">
+                        <label for=info>Informacion</label>
+                        <input class="form-control" type="text" placeholder="Añadir informacion" [(ngModel)]="habitacion.info" name="informacion">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Aire acondicionado:</label>
+                    <button class="btn btn-light" type="button" (click)="Aire()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="Aire2()" >No</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">TV:</label>
+                    <button class="btn btn-light" type="button" (click)="TV()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="TV2()" >No</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nevera:</label>
+                    <button class="btn btn-light" type="button" (click)="nevera()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="nevera2()" >No</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jacuzzi:</label>
+                    <button class="btn btn-light" type="button" (click)="jacuzzi()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="jacuzzi2()" >No</button>
+                    </div>
+                    <div class="form-group">
+                        <label for=price4night>Precio por noche:</label>
+                        <input class="form-control" type="text" placeholder="Añadir precio" [(ngModel)]="habitacion.precio" name="destino">
+                    </div>
+                    <div class="form-group">
+                        <label for=cantHab>Cantidad de habitaciones</label>
+                        <input class="form-control" type="text" placeholder="Añadir cantidad" [(ngModel)]="habitacion.cantidad" name="destino">
+                    </div>
+                    <button class="btn btn-light" type="button" (click)="disp()">Disponible</button>
+                    <button class="btn btn-light" type="button" (click)="disp1()" >No disponible</button>
+                    <!-- <p>{{ habitacion.available }}</p> -->
+                    <div class="pt-3">
+                    <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                    </div>
+            </form>
+            </div>
+        </div>
+        <h3>Editar habitaciones</h3>
+        <ul class="list-group list-group-flush" *ngFor="let x of habitaciones">
+            <li class="list-group-item">habitacion: {{ x.nombre }}  ||  Hotel: {{ x.hotel }}  ||  Informacion: {{ x.info }}  ||  Disponible: {{ x.available }}  ||  Imagenes: {{ x.id }}
+                    <button type="button" (click)="editarHab($event, x)" class="btn btn-outline-primary">Editar</button>  
+                    <button type="button" *ngIf="editHab && habEditada.id == x.id" (click)="clearState()" class="btn btn-outline-primary" style="margin-left:5px">Esconder</button>  
+                  <div *ngIf="editHab && habEditada.id == x.id">
+                    <form (ngSubmit)="updateHab(x)">
+                        <div class="form-group">
+                                <div class="form-group">
+                                    <label for=estado>Estado</label>
+                                        <select class="form-control"type="text" placeholder="Añadir nombre" [(ngModel)]="x.hotel" name="title">
+                                            <option *ngFor="let x of hoteles">{{ x.nombre }}</option>
+                                        </select>
+                                    </div>                
+                                    <div class="form-group">
+                                        <label for=nombre>Nombre:</label>
+                                        <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=imagenes>Imagenes</label>
+                                        <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="x.fotos" name="imagen">
+                                        <p>(Coloque los links separados por un *** para que sean añadidos correctamente)</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=max>Maximo</label>
+                                        <input class="form-control" type="text" placeholder="Añadir maximo de personas" [(ngModel)]="x.maximoDePersonas" name="peronas">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=info>Informacion</label>
+                                        <input class="form-control"type="text" placeholder="Añadir informacion" [(ngModel)]="x.info" name="informacion">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Aire acondicionado:</label>
+                                    <button class="btn btn-light" type="button" (click)="Aire3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="Aire4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">TV:</label>
+                                    <button class="btn btn-light" type="button" (click)="TV3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="TV4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Nevera:</label>
+                                    <button class="btn btn-light" type="button" (click)="nevera3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="nevera4()" >No</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Jacuzzi:</label>
+                                    <button class="btn btn-light" type="button" (click)="jacuzzi3()">Si</button>
+                                    <button class="btn btn-light" type="button" (click)="jacuzzi4()" >No</button>
+                                    </div>
+                                    <div>
+                                        <label for=price4night>Precio por noche:</label>
+                                        <input class="form-control" type="text" placeholder="Añadir precio" [(ngModel)]="x.precio" name="destino">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=cantDeHab>Cantidad de habitaciones:</label>
+                                        <input  class="form-control" type="text" placeholder="Añadir cantidad" [(ngModel)]="x.cantidad" name="destino">
+                                    </div>
+                                    <button class="btn btn-light" type="button" (click)="disp2()">Disponible</button>
+                                    <button class="btn btn-light" type="button" (click)="disp3()" >No disponible</button>
+                                    <!-- <p>{{ x.available }}</p> -->
+                                    <div class="pt-3">
+                                            <input class="btn btn-success" type="submit" value="Update hab">
+                                            <button style="margin-left:5px" class="btn btn-danger" (click)="deleteHab($event, x)">Borrar habitacion</button>
+                                        </div>
+                                    </div>
+                    </form>
+                  </div>
+              
+            </li>
+        </ul>
+    
+    
+    </div>
+</div>

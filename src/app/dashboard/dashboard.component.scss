@@ -1,0 +1,30 @@
+.dashboard1{
+    height: 30%;
+}
+.dashboard2{
+  height: 30%;
+  background: #cdcdcd;
+  border:2px solid black;
+  border-radius: 5px;
+}
+.cuadroCompras{
+  display: flex;
+  justify-content: space-around;
+}
+.cuadroCompras2{
+  flex-direction: column;
+}
+.cuadroCompras3{
+  flex-direction:column;
+}
+.table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+.table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+.table tr:nth-child(even) {
+    background-color: #ffffff;
+  }

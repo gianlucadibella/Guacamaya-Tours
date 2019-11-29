@@ -1,0 +1,26 @@
+<h1 class="display-3 text-center">Destinos</h1>
+
+<div *ngFor="let item of destinos">
+<div class="clickable" (click)="checkDestinoDetails(item.estado)" >
+<div class="container text-center">
+    <div class="row bg-light">
+        <div class="col">
+            <img src="{{item.imagen}}" alt="lecheria foto" width="250px" height="200px">
+        </div>
+        <div class="col-9">
+            <p class="lead"> <strong>Destino:</strong> {{item.nombre}} </p>
+            <p class="lead"> <strong>Estado</strong> {{item.estado}} </p>
+            <ul>
+                <li *ngIf="item.deportes==true">Deportes</li>
+                <li *ngIf="item.cultura==true">Cultura</li>
+                <li *ngIf="item.frio==true">Frio</li>
+                <li *ngIf="item.aventura==true">Aventura</li>
+                <li *ngIf="item.nocturno==true">Nocturno</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+</div>

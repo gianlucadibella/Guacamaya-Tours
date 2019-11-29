@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="pr-3 pb-3">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+         
+       </div>
+    </div>
+</div>
+<div class="container bg-light" style="padding-bottom:2%;" *ngIf="hactual!==undefined">
+          <div class="bg-light">
+
+            <h3 class="display-4 text-center">Hotel</h3>
+
+                <div class="row bg-light">
+                        <div class="col">
+                            <img src="{{hactual.fotos}}" alt="lecheria foto" width="250px" height="200px">
+                        </div>
+                        <div class="col-9">
+                            <p class="lead "> <strong>Nombre:</strong> {{hactual.nombre}} </p>
+                            <p class="lead "> <strong>Estrellas:</strong> {{hactual.estrellas}} </p>
+                            <p class="lead ">Direccion: {{ hactual.direccion }}</p>
+                            <p class="lead r">Disponibilidad: {{ hactual.available }}</p>
+                        </div>
+                    </div>
+
+
+
+            <!-- <h3 style="text-decoration: underline;" class="text-center">Datos hotel</h3>
+            <p>Nombre: {{ hactual.nombre }}</p>
+            <p>Estrellas: {{ hactual.estrellas }}</p> -->
+            
+            <!-- <p>Latitud: {{ hactual.latitud }}</p>
+            <p>Longitud: {{ hactual.longitud }}</p> -->
+            <!-- <p>Direccion: {{ hactual.direccion }}</p>
+            <p>Disponibilidad: {{ hactual.available }}</p>
+            <br> -->
+            <p class="text-center">Ingrese la fecha: </p>
+            <input class="form-control" #drp="bsDaterangepicker" 
+            bsDaterangepicker [(ngModel)]="daterangepickerModel"  
+            [minDate]="hoy"
+            [bsConfig]="bsConfig" style="padding-bottom:20px;">
+            <hr>
+        <div *ngIf="habs!==undefined">
+          <div class="bg-light"  *ngFor="let hab of habs">
+            <h3  class="display-4 text-center">Datos de la habitacion</h3>
+            
+            <div class="row bg-light">
+                    <div class="col">
+                        <img src="{{hab.fotos}}" alt="lecheria foto" width="250px" height="200px">
+                    
+                    </div>
+                    <div class="col-9">
+                        <p class="lead "> <strong>Nombre:</strong> {{hab.nombre}} </p>
+                        <p class="lead "> <strong>Maximo de personas:</strong> {{hab.maximoDePersonas}} </p>
+                        <p class="lead ">Comodidades: {{ hab.comodidades }}</p>
+                        <p class="lead ">Cantidad de habitaciones: {{ hab?.cantidad }}</p>
+                        <input type="number"  min="0" [max]="hab.cantidadM" [(ngModel)]= "hab.cantidad">
+                        <p>La fecha elegida es: {{daterangepickerModel}}</p>
+                    <hr>    
+                    </div>
+                    
+                </div>
+
+
+            
+            <!-- <p>Nombre: {{ hab.nombre }}</p>
+            <p>Maximo de personas: {{ hab.maximoDePersonas }}</p>
+            <p>Comodidades: {{ hab.comodidades }}</p>
+            <p>Cantidad de habitaciones: {{hab?.cantidadM}}</p>
+            <p>Precio de habitacion: {{ hab.precio }}</p>
+            <input type="number" value="0" min="0" [max]="hab.cantidadM" [(ngModel)]= "hab.cantidad">
+            <p>La fecha elegida es: {{daterangepickerModel}}</p>
+            <hr> -->
+
+        </div>
+        <p>Seleccione la cantidad de personas, y luego ingrese los datos de cada una.</p>
+<select [(ngModel)]="cantPersonas" (ngModelChange)="onChange()">
+    <option *ngFor="let item of list" [value]="item">{{item}}</option>
+</select>
+<div class="container" class="bg-light">
+<form *ngIf="cantPersonas > 0" (ngSubmit)="onSubmit()">
+    <div *ngFor="let x of cantidad ; let i = index" >
+        <div class="form-group">
+            <label for=nombre>Nombre:</label>
+            <input class="form-control"  type="text" placeholder="Ingrese nombre" [(ngModel)]="cantidad2[i].nombre" name=" sadad + {{i}}">
+            <small id="nameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
+        </div>
+        <div class="form-group">
+            <label for=apellido>Apellido:</label>
+            <input class="form-control" type="text" placeholder="Ingrese apellido" [(ngModel)]="cantidad2[i].apellido" [name]="'apellido' + i">
+            <small id="lastNameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
+        </div>
+        <div class="form-group">
+            <label for=cedula>Cédula:</label>
+            <input class="form-control"  type="text" placeholder="Ingrese cédula" [(ngModel)]="cantidad2[i].cedula" [name]="'cedula' + i">
+            <small id="idHelp" class="form-text text-muted">No se compartiran tus datos.</small>
+        </div>
+        <div>
+            <label for=edad>Edad:</label>
+            <input class="form-control"  type="text" placeholder="Ingrese la edad" [(ngModel)]="cantidad2[i].edad" [name]="'ka' + i">
+            <small id="edadHelp" class="form-text text-muted">No se compartiran tus datos.</small>
+        </div>
+    </div>
+    <hr>
+    <h3>Para proceder con el pago: </h3>
+    <input class="btn btn-primary" type="submit">
+</form>
+</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,190 @@
+<div class="container">
+<div>
+    <div >
+        <div>
+            <div class="mt-3">
+        <h3>Añadir hoteles</h3>
+    </div>
+        <hr>
+        <button type="button" (click)="addiHotel()">
+            Añadir hotel
+        </button>
+        <button type="button" (click)="cerrar()" *ngIf="addHotel">
+            Esconder
+        </button>
+        <form (ngSubmit)="onSubmit()" *ngIf="addHotel" >
+            <div class="form-group">
+                <div class="form-group">
+                        <label for=estado>Estado</label>
+                    <select class="form-control"type="text" placeholder="Añadir nombre" [(ngModel)]="hotel.estado" name="title">
+                        <option *ngFor="let x of estados">{{ x.nombre }}</option>
+                    </select>
+                </div>                
+                <div class="form-group">
+                    <label for=nombre>Nombre:</label>
+                    <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="hotel.nombre" name="title">
+                </div>
+                <div class="form-group">
+                    <label for=imagenes>Imagen:</label>
+                    <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="hotel.fotos" name="imagen">
+                </div>
+                <div class="form-group">
+                    <label for=estrellas>Estrellas:</label>
+                    <input class="form-control" type="text" placeholder="Añadir estrellas" [(ngModel)]="hotel.estrellas" name="estrellas">
+                </div>
+                <div class="form-group">
+                    <label for=direccion>Direccion:</label>
+                    <input class="form-control" type="text" placeholder="Añadir direccion" [(ngModel)]="hotel.direccion" name="direccion">
+                </div>
+                <div>
+                    <label for=info>Informacion:</label>
+                    <input class="form-control" type="text" placeholder="Añadir informacion" [(ngModel)]="hotel.info" name="informacion">
+                </div>
+                <div class="form-group">
+                    <label for=latitud>Latitud: </label>
+                    <input class="form-control" type="text" placeholder="Añadir latitud" [(ngModel)]="hotel.latitud" name="latitud">
+                </div>
+                <div>
+                    <label for=longitud>Longitud:</label>
+                    <input class="form-control" type="text" placeholder="Añadir longitud" [(ngModel)]="hotel.longitud" name="longitud">
+                </div>
+                <div class="form-group">
+                    <label for="">Wifi:</label>
+                    <button class="btn btn-light" type="button" (click)="wifi()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="wifi2()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Fullday:</label>
+                    <button class="btn btn-light" type="button" (click)="full()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="full2()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Transporte:</label>
+                    <button class="btn btn-light" type="button" (click)="carro()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="carro2()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Piscina:</label>
+                    <button class="btn btn-light" type="button" (click)="pool()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="pool2()" >No</button>
+                </div>         
+                <div class="form-group">
+                    <label for="">Gimnasio:</label>
+                    <button class="btn btn-light" type="button" (click)="gym()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="gym2()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Mascotas:</label>
+                    <button class="btn btn-light" type="button" (click)="dog()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="dog2()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for=googleMaps>Google Maps:</label>
+                    <input class="form-control" type="text" placeholder="Añadir googlemaps" [(ngModel)]="hotel.gugulmaps" name="destino">
+                </div>
+                <button class="btn btn-light" type="button" (click)="disp()">Disponible</button>
+                <button class="btn btn-light" type="button" (click)="disp1()" >No disponible</button>
+                <!-- <p>{{ hotel.available }}</p> -->
+                <div class="pt-3">
+                <input class="btn btn-success" type="submit" value="Submit">
+            </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    <h3>Editar hoteles</h3>
+    <div *ngIf="hoteles?.length > 0 ; else noHotel">
+    <ul class="list-group list-group-flush" *ngFor="let x of hoteles">
+        <li class="list-group-item">Destino: {{ x.nombre }}  ||  Informacion: {{ x.info }}  ||  Disponible: {{ x.available }}  ||  Imagenes: {{ x.id }}
+                <button type="button" (click)="editarHotel($event, x)" class="btn btn-outline-primary">Editar</button>  
+                <button type="button" *ngIf="editHotel && hotelEditado.id == x.id" (click)="clearState()" class="btn btn-outline-primary" style="margin-left:5px" >Esconder</button>  
+              <div *ngIf="editHotel && hotelEditado.id == x.id">
+                <form (ngSubmit)="updateHotel(x)">
+                    <div class="form-group">
+                <div class="form-group">
+                    <label for=estados>Estado:</label>
+                    <select class="form-control"type="text"   [(ngModel)]="x.estado" name="title">
+                            <option *ngFor="let q of estados">{{ q.nombre }}</option>
+                    </select>
+                </div>                
+                <div class="form-group">
+                    <label for=nombre>Nombre:</label>
+                    <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="title">
+                </div>
+                <div class="form-group">
+                    <label for=imagenes>Imagenes</label>
+                    <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="x.fotos" name="imagen">
+                    <p>(Coloque los links separados por un *** para que sean añadidos correctamente)</p>
+                </div>
+                <div class="form-group">
+                    <label for=estrellas>Estrellas:</label>
+                    <input class="form-control" type="text" placeholder="Añadir actividades" [(ngModel)]="x.estrellas" name="activites">
+                </div>
+                <div class="form-group">
+                    <label for=direccion>Direccion:</label>
+                    <input class="form-control" type="text" placeholder="Añadir direccion" [(ngModel)]="x.direccion" name="direccion">
+                </div>
+                <div class="form-group">
+                    <label for=info>Informacion</label>
+                    <input class="form-control" type="text" placeholder="Añadir informacion" [(ngModel)]="x.info" name="informacion">
+                </div>
+                <div class="form-group">
+                    <label for="latitud">Latitud</label>
+                    <input class="form-control" type="text" placeholder="Añadir latitud" [(ngModel)]="x.latitud" name="latitud">
+                </div>
+                <div class="form-group">
+                    <label for=longitud>Longitud:</label>
+                    <input class="form-control" type="text" placeholder="Añadir longitud" [(ngModel)]="x.longitud" name="longitud">
+                </div>
+                <div class="form-group">
+                    <label for="">Wifi:</label>
+                    <button class="btn btn-light" type="button" (click)="wifi3()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="wifi4()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Fullday:</label>
+                    <button class="btn btn-light" type="button" (click)="full3()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="full4()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Transporte:</label>
+                    <button class="btn btn-light" type="button" (click)="carro3()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="carro4()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Piscina:</label>
+                    <button class="btn btn-light" type="button" (click)="pool3()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="pool4()" >No</button>
+                </div>         
+                <div class="form-group">
+                    <label for="">Gimnasio:</label>
+                    <button class="btn btn-light" type="button" (click)="gym3()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="gym4()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for="">Mascotas:</label>
+                    <button class="btn btn-light" type="button" (click)="dog3()">Si</button>
+                    <button class="btn btn-light" type="button" (click)="dog4()" >No</button>
+                </div>
+                <div class="form-group">
+                    <label for=googleMaps>Google Maps:</label>
+                    <input class="form-control" type="text" placeholder="Añadir googlemaps" [(ngModel)]="x.gugulmaps" name="destino">
+                </div>
+                        <button class="btn btn-light" type="button" (click)="disp2()">Disponible</button>
+                        <button class="btn btn-light" type="button" (click)="disp3()" >No disponible</button>
+                        <!-- <p>{{ x.available }}</p> -->
+                        <div class="pt-3">
+                        <input class="btn btn-success" type="submit" value="Update hotel">
+                        <button style="margin-left:5px" class="btn btn-danger" (click)="deleteHotel($event, x)">Borrar hotel</button>
+                    </div>
+                    </div>
+                </form>
+              </div>
+        </li>
+        </ul>
+</div>
+<ng-template #noHotel>
+    <h1>Cargando...</h1>
+</ng-template>
+</div>
+</div>

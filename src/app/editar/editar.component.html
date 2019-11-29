@@ -1,0 +1,81 @@
+<div class="container">
+<div>
+    <div >
+        <div >
+          <div class="pt-3">
+              <h3>Añadir estado</h3>
+          </div>
+        <hr>
+        <button type="button" (click)="addiEstado()">
+          Añadir estado
+      </button>
+      <button type="button" (click)="cerrar()" *ngIf="addEstado">
+          Esconder
+      </button>
+        <form (ngSubmit)="onSubmit()" *ngIf="addEstado">
+                <div class="form-group">
+                  <label for="Nombre">Nombre:</label>
+                  <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="estado.nombre" name="title">
+                </div>
+                <div class="form-group">
+                  <label for="Info">Información</label>
+                  <input class="form-control" type="text" placeholder="Añadir info" [(ngModel)]="estado.info" name="description">
+                </div>
+                <div class="form-group">
+                  <label for="Imagenes">Imagenes</label>
+                  <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="estado.imagen" name="description">
+                  <p>(pegue los links separados por "***" para que sean añadidos correctamente)</p>
+                </div>
+                <div class="form-group">
+                        <button type="button" (click)="disp()" class="btn btn-light">Disponible</button>
+                        <button type="button" (click)="disp1()" class="btn btn-light">No disponible</button>
+                        <div class="pt-3">
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-success">
+                        </div>
+                        </div>
+                </div>
+              </form>
+        </div>
+    </div>
+    <h3>Estados añadidos</h3>
+    <ul class="list-group list-group-flush" *ngFor="let x of estados">
+        <li class="list-group-item">Estado: {{ x.nombre }} || Informacion: {{ x.info }} || Disponible: {{ x.available }} || Imagenes: {{ x.imagen }}
+                <button type="button" (click)="editEstado($event, x)" class="btn btn-outline-primary">Editar</button>  
+                <button type="button" *ngIf="editState && estadoEditado.id == x.id" (click)="clearState()" class="btn btn-outline-primary">Esconder</button>  
+              
+              
+              <div *ngIf="editState && estadoEditado.id == x.id">
+                <form (ngSubmit)="updateEstado(x)">
+                    <div form="form-group">
+                      <div class="pt-3">
+                        <div class="form-group">
+                          <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="x.nombre" name="nombre">
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control" type="text" placeholder="Añadir info" [(ngModel)]="x.info" name="info">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="x.imagen" name="info">
+                            <label>Imagenes (pegue los links separados por un *** para que sean añadidos correctamente)</label>
+                        </div>
+                        <button class="btn btn-light" type="button" (click)="disp2()">Disponible</button>
+                        <button class="btn btn-light" type="button" (click)="disp3()" >No disponible</button>
+                        <!-- <p>{{ x.available }}</p> -->
+                        <div class="row">
+                        <div class="pt-3">
+                          <div class="pl-3">
+                        <input class="btn btn-success" type="submit" value="Update estado">
+                        <button style="margin-left: 5px" class="btn btn-danger"(click)="deleteEstado($event, x)">Borrar estado</button>
+                      </div>
+                      </div>
+                        </div>
+                      </div>
+                      </div>
+                </form>
+              </div>
+          
+        </li>
+    </ul>
+</div>
+</div>

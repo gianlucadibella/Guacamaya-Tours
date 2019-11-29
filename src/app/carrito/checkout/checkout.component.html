@@ -1,0 +1,27 @@
+<h1>Ingrese los datos para proceder con el pago.</h1>
+
+<form (ngSubmit)="onSubmit()">
+        <div class="form-group">               
+            <div class="form-group">
+                <label for=nombre>Nombre:</label>
+                <input class="form-control" type="text" placeholder="Añadir nombre" [(ngModel)]="orden.nombreCliente" name="title">
+            </div>
+            <div class="form-group">
+                <label for=imagenes>Cedula:</label>
+                <input class="form-control" type="text" placeholder="Añadir imagenes" [(ngModel)]="orden.cedula" name="imagen">
+            </div>
+            <div class="form-group">
+                <label for=estrellas>Correo:</label>
+                <input class="form-control" type="text" placeholder="Añadir estrellas" [(ngModel)]="orden.correo" name="estrellas">
+            </div>
+            <div class="form-group">
+                <label for=direccion>Telefono:</label>
+                <input class="form-control" type="text" placeholder="Añadir direccion" [(ngModel)]="orden.telefono" name="direccion">
+            </div>
+            <div class="form-group">
+                    <label for=direccion>Direccion:</label>
+                    <input class="form-control" type="text" placeholder="Añadir direccion" [(ngModel)]="orden.direccion" name="direccion">
+                </div>
+            <input class="btn btn-success" type="submit" value="Submit">
+        </div>
+</form>

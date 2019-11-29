@@ -1,0 +1,44 @@
+<hr>
+<form (submit)="loginUser($event)">
+<div class="container text-center ">
+        
+    <div class="row">
+        <div class="col">
+            <h2 class="display-4">Iniciar Sesion</h2>
+            <div *ngIf="check">
+                    <h6 class="text-muted"> Clave Invalida </h6>
+            </div>
+        </div>
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+            </div>
+            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" id="username">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <!-- <span class="input-group-text" id="basic-addon1">  * </span> -->
+            </div>
+            <input type="pasword" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" id="password">
+        </div>
+        <div class="col-sm text-center d-flex justify-content-center">
+            <div class="d-flex align-items-center">
+                <input class="btn btn-primary" type="submit" value="Iniciar sesion">
+              
+                <!-- <button type="button" class="btn btn-primary">
+                       Planifica Tu Viaje {{user}}
+                      </button>  -->
+                       
+            </div>
+        </div>
+    
+    </div>
+</div>
+</form>
+
+ <!-- <form (submit)="loginUser($event)">
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="Password" id="password">
+    <input type="submit" value="Submit">
+ </form> -->
