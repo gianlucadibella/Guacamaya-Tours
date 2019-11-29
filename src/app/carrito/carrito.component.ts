@@ -13,7 +13,11 @@ export class CarritoComponent implements OnInit {
 
   constructor(private s: ServicioService) { }
 
-  q = new Array (5);
+  q ;
+  w;
+  e;
+  r;
+  t;
   orden: {
   nombreCliente: '',
   cedula: 0,
@@ -27,12 +31,12 @@ export class CarritoComponent implements OnInit {
   ngOnInit() {
     this.itinerarios = [];
    // try{
-    this.q[0] = JSON.parse(localStorage.getItem('itinerario1')) ;
-    this.q[1] = JSON.parse(localStorage.getItem('itinerario2')) ;
-    this.q[2] = JSON.parse(localStorage.getItem('itinerario3')) ;
-    this.q[3] = JSON.parse(localStorage.getItem('itinerario4')) ;
-    this.q[4] = JSON.parse(localStorage.getItem('itinerario5')) ;
- 
+    this.q = JSON.parse(localStorage.getItem('itinerario1')) ;
+    this.w = JSON.parse(localStorage.getItem('itinerario2')) ;
+    this.e = JSON.parse(localStorage.getItem('itinerario3')) ;
+    this.r = JSON.parse(localStorage.getItem('itinerario4')) ;
+    this.t = JSON.parse(localStorage.getItem('itinerario5')) ;
+
 
     console.log(this.q);
 
@@ -63,8 +67,11 @@ export class CarritoComponent implements OnInit {
     // this.orden.itinerario = this.itinerarios;
   }
 
-  onSubmit() {
-    this.s.addOrden(this.orden);
+  check(){
+    if(this.q === null && this.w === null && this.e === null && this.r === null && this.t === null ){
+      return false;
+    }
+    return true;
   }
 
 }

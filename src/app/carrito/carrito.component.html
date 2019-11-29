@@ -1,45 +1,93 @@
-<div *ngFor="let item of q">
-        <div>
-                {{q.costoTotal}}
-        </div>
+
+
+<div *ngIf="check(); else noItinerario">
+<div *ngIf="q!=null">
+<div class="container text-center">
+                <div class="row bg-light">
+                    <div class="col">
+                                <h3 class="display-4">Itinerario 1</h3>
+                    </div>
+                    <div class="col-9">
+                                <p><strong>Fecha:</strong>{{q.fecha}}</p> 
+                                <p><strong>Hotel:</strong> {{q.tipoHabitacion[0].hotel}}</p>
+                                <p><strong>Costo:</strong>${{q.costoTotal}}</p> 
+                    </div>
+                </div>
+</div>
+<hr>
 </div>
 
-<div>{{ q  }}</div>
-<!-- <ul *ngFor="let x of itinerarios">
-        <li>
-                <p>{{ x }}</p>
-            <p>Fecha de salida: {{x?.fecha[0]}}</p>   
-            <p>Fecha de llegada: {{x.fecha[1]}}</p>
-            <p>Hotel: {{x.tipoHabitacion[0].hotel}}</p>
-            <p>Costo viaje: {{x.costoTotal}}</p>
-            <div *ngFor = "let y of x.tipoHabitacion; let i = index;">
-                <p>Habitacion {{i}}: {{ y.nombre }} , de la cual se reservaron {{ y.cantidad }} </p>
-            </div>
-        </li>
-</ul> -->
+<div *ngIf="w!=null">
+                <div class="container text-center">
+                                <div class="row bg-light">
+                                    <div class="col">
+                                                <h3 class="display-4">Itinerario 2</h3>
+                                    </div>
+                                    <div class="col-9">
+                                                <p><strong>Fecha:</strong>{{w.fecha}}</p> 
+                                                <p><strong>Hotel:</strong> {{w.tipoHabitacion[0].hotel}}</p>
+                                                <p><strong>Costo:</strong>${{w.costoTotal}}</p> 
+                                    </div>
+                                </div>
+                </div>
+                <hr>
+</div>
 
-<!-- <form  (ngSubmit)="onSubmit()"> -->
+<div *ngIf="e!=null">
+                <div class="container text-center">
+                                <div class="row bg-light">
+                                    <div class="col">
+                                                <h3 class="display-4">Itinerario 3</h3>
+                                    </div>
+                                    <div class="col-9">
+                                                <p><strong>Fecha:</strong>{{e.fecha}}</p> 
+                                                <p><strong>Hotel:</strong> {{e.tipoHabitacion[0].hotel}}</p>
+                                                <p><strong>Costo:</strong>${{e.costoTotal}}</p> 
+                                    </div>
+                                </div>
+                </div>
+                <hr>
+</div>
 
-    <!-- <h1>Para continuar con el pago, ingrese los siguientes datos:</h1>
-    <div class="form-group">
-            <label for=nombre>Nombre:</label>
-            <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.nombreCliente" name="imagen">
-    </div>
-    <div class="form-group">
-            <label for=nombre>Cedula:</label>
-            <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.cedula" name="imagen">
-    </div>      
-    <div class="form-group">
-            <label for=nombre>Correo:</label>
-            <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.correo" name="imagen">
-    </div>
-    <div class="form-group">
-            <label for=nombre>Telefono:</label>
-            <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.telefono" name="imagen">
-    </div>
-    <div class="form-group">
-            <label for=nombre>Direccion:</label>
-            <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="orden.direccion" name="imagen">
-    </div>
-    <input type="submit">
-<-- </form> -->
+<div *ngIf="r!=null">
+                <div class="container text-center">
+                                <div class="row bg-light">
+                                    <div class="col">
+                                                <h3 class="display-4">Itinerario 4</h3>
+                                    </div>
+                                    <div class="col-9">
+                                                <p><strong>Fecha:</strong>{{r.fecha}}</p> 
+                                                <p><strong>Hotel:</strong> {{r.tipoHabitacion[0].hotel}}</p>
+                                                <p><strong>Costo:</strong>${{r.costoTotal}}</p> 
+                                    </div>
+                                </div>
+
+                        </div>
+                        <hr>
+</div>
+
+<div *ngIf="t!=null">
+                <div class="container text-center">
+                                <div class="row bg-light">
+                                    <div class="col">
+                                                <h3 class="display-4">Itinerario 5</h3>
+                                    </div>
+                                    <div class="col-9">
+                                                <p><strong>Fecha:</strong>{{t.fecha}}</p> 
+                                                <p><strong>Hotel:</strong> {{t.tipoHabitacion[0].hotel}}</p>
+                                                <p><strong>Costo:</strong>${{t.costoTotal}}</p> 
+                                    </div>
+                                </div>
+                </div>
+</div>
+<div class="container text-center">
+        <button type="button" class="btn btn-primary" routerLink="/checkout" routerLinkActive>
+                Proceda Al pago
+        </button>
+</div>
+</div>
+<ng-template #noItinerario>
+    <h1>Aqui aparecenan sus reservaciones.</h1>
+</ng-template>
+
+
