@@ -74,4 +74,24 @@ export class CarritoComponent implements OnInit {
     return true;
   }
 
+  borrar(){
+    localStorage.removeItem('itinerario1');
+    this.q = null;
+  }
+  borrar2(){
+    localStorage.removeItem('itinerario2');
+    this.w = null;
+  }
+  borrar3(){
+    localStorage.removeItem('itinerario3');
+    this.e = null;
+  }
+  borrar4(){
+    localStorage.removeItem('itinerario4');
+    this.r = null;
+  }
+  borrar5(){
+    localStorage.removeItem('itinerario5');
+    this.t = null;
+  }
 }

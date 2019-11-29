@@ -14,6 +14,7 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private s: ServicioService, private serv: ServiciosService, public router: Router) { }
   cuenta = 0;
+  precio =0;
   orden = {
     nombreCliente: '',
     cedula: 0,
@@ -83,6 +84,7 @@ export class CheckoutComponent implements OnInit {
       this.habs2.forEach((item, index) => {
         item.cantidadM = (item.cantidadM - this.cuenta2[index]);
         item.cantidad = item.cantidadM;
+        this.precio = this.precio + item.precio;
         if (item.cantidadM === 0) {
           item.available = false;
         }
@@ -91,7 +93,7 @@ export class CheckoutComponent implements OnInit {
 
       this.s.addOrden(this.orden);
       this.serv.setOrden(this.orden);
-      this.serv.setPrice(0);
+      this.serv.setPrice(this.precio);
       localStorage.removeItem('itinerario1');
       localStorage.removeItem('itinerario2');
       localStorage.removeItem('itinerario3');
