@@ -22,10 +22,10 @@ exports.sendMailNotification = functions.firestore.document('submissions/{docId}
     
         authData.sendMail({
             from: 'guacamayatoursoficial@gmail.com',
-            to: data.email,
+            to: `${data.email}`,
             subject: 'Your submission info',
-            text: data.name + ', Papi lo logramos',
-            html: data.name + ', Papi lo logramos',
+            // text:
+            html: `${data.fullName}`+', recibimos tu solicitud, te responderemos en lo mas posible',
         }).then(res=>console.log('Succesfuly sent that email')).catch(
             err=>console.log(err)
         );
