@@ -8,7 +8,22 @@
         </div>
     
 </div> 
+<br>
+<div *ngFor="let item of destino">
+<div class="container">
+<div class="row bg-light">
+        <div class="col align-middle">
+            <img src="{{item.imagen}}" alt="lecheria foto" width="250px" height="200px">
+        </div>
+        <div class="col-9 text-center">
+            <p class="lead"> <strong>Destino:</strong> {{item.nombre}} </p>
+            <p class="lead"> {{item.info}} </p>
+        </div>
+    </div>
+</div>
+</div>
 <hr>
+<h3 class="display-4 text-center">Hoteles</h3>
 <div *ngFor="let item of hoteles">
 
     <div *ngIf="item.estado==this.ar.snapshot.queryParams.name">

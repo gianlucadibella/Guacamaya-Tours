@@ -5,18 +5,12 @@
 <div *ngFor="let item of estados">
 <div class="clickable" (click)="checkHotelsDetails(item.nombre)">
 <div class="container text-center">
-    <div class="row bg-light">
+    <div class="row bg-light align-items-center">
         <div class="col">
             <img src="{{item.imagen}}" alt="lecheria foto" width="250px" height="200px">
         </div>
-        <div class="col-9">
-            <p class="lead"> <strong>Estado:</strong> {{item.nombre}} </p>
-            <p class="lead"> <strong>Ciudades destacadas</strong> </p>
-            <ul>
-                <li class="lead">Lecheria</li>
-                <li class="lead">Puerto La Cruz</li>
-                <li class="lead">Pachencho</li>
-            </ul>
+        <div class="col-9 ">
+            <p class="lead display-4 ">{{item.nombre}} </p>
         </div>
     </div>
 </div>

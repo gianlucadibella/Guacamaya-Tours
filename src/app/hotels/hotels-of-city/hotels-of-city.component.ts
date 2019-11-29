@@ -4,6 +4,7 @@ import { Estado } from 'src/models/estado';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioService } from 'src/app/servicio.service';
 import { ServiciosService } from 'src/app/services/servicios.service';
+import { Destinos } from 'src/models/destino';
 
 @Component({
   selector: 'app-hotels-of-city',
@@ -15,7 +16,7 @@ export class HotelsOfCityComponent implements OnInit {
 
   hoteles: Hotels[];
   estado: Estado [];
-
+  destino: Destinos [];
   filteresHotels: Hotels[];
 
 
@@ -30,6 +31,12 @@ export class HotelsOfCityComponent implements OnInit {
         console.log(this.hoteles);
       }
     );
+
+    this.service.getDestinos().subscribe( items => {
+
+      this.destino = items.filter(e => e.estado === this.ar.snapshot.queryParams.name);
+
+    });
 
     this.service.getEstado().subscribe(
       items => {
