@@ -30,7 +30,7 @@
                                 </div>
                                 <label for="fullName">Nombre completo*</label>
                                 <input type="text" id="fullName" formControlName="fullName" class="form-control" aria-describedby="nameHelp" placeholder="Ingrese su nombre">
-                                <small id="nameHelp" class="form-text text-muted">No se compartiram tus datos.</small>
+                                <small id="nameHelp" class="form-text text-muted">No se compartiran tus datos.</small>
                                 <div *ngIf="ourForm.get('fullName').touched && ourForm.get('fullName').errors?.required">
                                   <span class="helper-text">El nombre es obligatorio</span>
                                 </div>
