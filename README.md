@@ -1,6 +1,8 @@
-# GuacamayaTours
+# Guacamaya Tours
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+
+Web application to facilitate the planning of your trip, and not worry about managing reservations or overlapping dates. Enjoy a good trip with Guacayama Tours, and travel through Venezuela
 
 ## Development server
 
